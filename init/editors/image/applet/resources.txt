@@ -1,0 +1,41 @@
+imagedir = images/
+
+text.ok = \u0020 OK \u0020
+text.cancel = Cancel
+text.error = Error
+text.message = Message
+text.warning = Warning
+text.size = Size
+text.width = width
+text.height = height
+text.invalidValue = Invalid value(s)
+text.filename = File name
+text.quality = Image quality
+text.constrain_proportions = Constrain proportions
+
+text.open = Open local file
+text.aspect = Constraint the photo to be of square shape.
+text.resize = Image size
+text.crop = Crop
+text.clockw = Rotate clockwise
+text.cclockw = Rotate counter-clockwise
+text.fliph = Flip horizontal
+text.flipv = Flip vertical
+text.undo = Undo the previous action
+text.redo = Redo the action that was undone
+text.save = Save image
+text.info = About the program
+
+text.vars = Adjust brightness, contrast, etc.
+text.brightness = Brightness
+text.contrast = Contrast
+text.saturation = Saturation
+text.hue = Hue
+
+text.loading = Loading image...
+text.saving = Saving image...
+text.processing = Processing image...
+
+text.zoom = Zoom
+text.fitwin = Fit in Window
+text.aspect_message = Non square photo may not be saved in square mode.

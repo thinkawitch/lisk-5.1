@@ -1,0 +1,88 @@
+<!-- BEGIN view --><a name="{DAY_ANCHOR}" />
+<h3>Day statistics : {DATE} </h3> 
+{SUMMARY_INFO}<br />
+{STATISTICS}
+{DETAILS}
+<!-- END view -->
+
+<!-- BEGIN details_view -->
+<hr />
+<br />
+<h2><u>Details:</u></h2>
+{DETAILS_BLOCK}
+<!-- END details_view -->
+
+<!-- BEGIN view_by_oneday -->
+<!-- BEGIN view_by_oneday_row -->
+{SUMMARY_INFO}<br />
+{STATISTICS}
+<hr />
+<h2><u>Details:</u></h2>
+{DETAILS}
+<!-- END view_by_oneday_row -->
+<!-- END view_by_oneday -->
+
+<!-- BEGIN view_by_period --><a name="top" />
+<h2><u>Statistics from {STARTDATE} to {ENDDATE} </u></h2> 
+{SUMMARY_INFO}<br />
+{DAILYSTATISTICS}
+<hr />
+<!-- END view_by_period -->
+
+
+<!-- BEGIN summary_info -->
+<table width="100%" border="0" cellpadding="3" cellspacing="1" style="background:#999999">
+  <tr>
+    <td colspan="2" style="background:#DDDDDD"><strong>Summary Info</strong> </td>
+  </tr>
+  <tr >
+    <td width="140" style="background:#FFFFFF" >Total visits:</td>
+    <td style="background:#FFFFFF" >&nbsp;&nbsp;{TOTAL_VISITS}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF" >Total pages: </td>
+    <td style="background:#FFFFFF" >&nbsp;&nbsp;{TOTAL_PAGES}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF" >Total visitors:</td>
+    <td style="background:#FFFFFF" >&nbsp;&nbsp;{TOTAL_VISITORS}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF" >Avg. pages per visit:</td>
+    <td style="background:#FFFFFF" >&nbsp;&nbsp;{AVG_PAGES}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF" >Avg. time of visit:</td>
+    <td  style="background:#FFFFFF" >&nbsp;&nbsp;{AVG_TIME}</td>
+  </tr>
+</table>
+<!-- END summary_info -->
+
+<!-- BEGIN day_statistics -->
+<table width="100%" border="0" cellpadding="3" cellspacing="1" style="background:#999999" >
+	<tr>
+	    <td height="20" align="center" style="background:#DDDDDD"><strong>Time</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Visitor</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Country</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Referrer</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Entry page</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Visit time</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Browsed</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD"><strong>Visits</strong></td>
+		<td height="20" align="center" style="background:#DDDDDD">&nbsp;</td>
+	</tr>
+<!-- BEGIN day_statistics_row -->
+	<tr class="{DECORATION}">
+	  <td height="20" align="center" style="background:#FFFFFF">{TIME}</td>
+		<td height="20" align="center" style="background:#FFFFFF">{VISITOR_ID}<!-- BEGIN visitor_name -->&nbsp;({LOGIN})<!-- END visitor_name --></td>
+		<td height="20" align="center" style="background:#FFFFFF">{COUNTRY_NAME}</td>
+		<td height="20" align="center" style="background:#FFFFFF"><a href="{REFERRER}" target="_blank">{REFERRER_NAME}</a></td>
+		<td height="20" style="background:#FFFFFF">{ENTER_PAGE}</td>
+		<td height="20" align="center" nowrap="nowrap" style="background:#FFFFFF">{VISIT_TIME}</td>
+		<td height="20" align="center" style="background:#FFFFFF">{PAGES_BROWSED}</td>
+		<td height="20" align="center" style="background:#FFFFFF">{TOT_VISITS}</td>
+		<td height="20" align="center" style="background:#FFFFFF"><a href="#{ID}">details</a></td>	
+	</tr>
+<!-- END day_statistics_row -->	
+</table>
+<!-- END day_statistics -->

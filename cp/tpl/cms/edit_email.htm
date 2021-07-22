@@ -1,0 +1,162 @@
+<!-- BEGIN form -->
+
+<form method="post" enctype="multipart/form-data" onsubmit="ConvertToString(); return CheckForm(this,{JS_CHECK})" name="edit_email" id="edit_email">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">[[[cpmodules.recipients]]]</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+
+<script src="../js/jquery/jquery.browser.js"></script>
+<script type="text/javascript">
+
+function SelectText() 
+{
+	$('#block_body_html').hide();
+	$('#block_body_text').show();	
+}
+
+function SelectHtml() 
+{
+
+	//jQuery('#block_body_html').show();
+	//jQuery('#block_body_text').hide();
+
+	if ($.browser.name=="ie" && jQuery.browser.versionNumber>=6) 
+	{
+		$('#block_body_html').show();
+		$('#block_body_text').hide();
+	} 
+	else 
+	{
+		document.location = "{JUMP_TO_HTML_HREF}";
+	}
+	
+}
+
+$(document).ready(function(){
+
+	//prevent form submit by [enter]
+	$('#add_email').keypress(function (e) {
+		if (e.which==13) 
+		{
+			e.preventDefault();
+			AddRecipient();
+		}
+	});
+
+});
+			
+function AddRecipient() 
+{
+	var list = $("#recipients_list").get(0);
+	var recipient = $("#add_email").val();
+	recipient = $.trim(recipient);
+	if (recipient!="" && list)
+	{
+		var item = new Option (recipient); 
+		list.options.add(item);
+		$("#add_email").val("");
+	}
+}
+
+function RemoveRecipient() 
+{
+	var f = $("#edit_email").get(0);
+	var list = f.recipients_list;
+
+	if (list.selectedIndex==-1) return;
+
+	var val = new String(list.options[list.selectedIndex].text);
+	if (val.substring(0,1)=="%")
+	{
+		ShowAlert("[[[cpmodules.error_evars_remove]]]");
+	}
+	else 
+	{
+		list.remove(list.selectedIndex);
+	}	
+}
+
+
+function ConvertToString() 
+{
+	var f = $("#edit_email").get(0);
+	var list = f.recipients_list;
+	var res = "";
+	for (var i=0; i<list.length; i++) 
+	{
+		res = res + list.options[i].text + ",";
+	}
+	f.recipients_result.value = res;
+}
+
+</script>
+
+			<select name="recipients_list" size="4" id="recipients_list" style="width:208px;">
+                  {RECIPIENTS_HTML}    
+			</select>
+            <br />
+            <img src="img/cms/edit_email/del_sel.gif" width="19" height="18" hspace="3" vspace="4" align="absmiddle" /><a href="javascript:RemoveRecipient();">[[[cpmodules.rem_sel_recips]]]</a>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+				<input type="text" name="add_email" id="add_email" style="width:180px;"/>
+				</td>
+                <td>
+				<a href="javascript: AddRecipient();"><img src="img/cms/edit_email/add_rec.gif" width="87" height="23" hspace="5" border="0" /></a></td>
+              </tr>
+            </table>
+            </td>
+          </tr>		  
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Subject</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"> <lisk:field name="subject" render="form" /></td>
+          </tr>
+		            <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">[[[cpmodules.from_email_addr]]]</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="from_header" render="form" /> </td>
+          </tr>
+		            <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">[[[cpmodules.content_type]]]</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+				<input name="content_type_header" id="idCTHeader0" type="radio" onclick="SelectText();" value="0" {DEF_TEXT}/> <label for="idCTHeader0">Text</label>
+              <input name="content_type_header" id="idCTHeader1" onclick="SelectHtml();" type="radio" value="1" {DEF_HTML}/> <label for="idCTHeader1">Html</a></td>
+          </tr>
+		            <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">[[[cpmodules.content]]]</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			<div id="block_body_text" style="display:{DEF_TEXT_DIV};"><lisk:field name="body" render="form" /></div>
+            <div id="block_body_html" style="display:{DEF_HTML_DIV};"><lisk:field name="body_html" render="form" /></div>				
+			</td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+            <td width="80%"> 
+              <input name="recipients_result" type="hidden" id="recipients_result" />
+              <input type="hidden" name="action" value="submit"> <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="[[[cpmodules.save_changes]]]"> 
+            <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="[[[cpmodules.no_save_changes]]]"></td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END form -->

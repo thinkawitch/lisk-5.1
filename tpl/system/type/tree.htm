@@ -1,0 +1,27 @@
+<!-- BEGIN form -->
+<select name="{NAME}" {PARAMS} onchange="onSelectChange_{NAME}(this)">
+<!-- BEGIN form_list_row -->
+<option value="{VALUE}" {CHOOSEBLE}{SELECTED}>{CAPTION}</option>
+<!-- END form_list_row -->
+</select>
+<script type="text/javascript">
+function onSelectChange_{NAME}(obj)
+{
+	if (obj.value==0)
+	{
+		alert('you can select highlighted categories only');
+		//find first suitable option
+		for(var i=0; i<obj.options.length; i++)
+		{
+			var item = obj.options[i];
+			if (item.value>0) 
+			{
+				obj.value = item.value;
+				break;
+			}
+		}
+		return false;
+	}
+}
+</script>
+<!-- END form --> you can select highlighted categories only

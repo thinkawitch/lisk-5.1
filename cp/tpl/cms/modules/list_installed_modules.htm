@@ -1,0 +1,38 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+	  <td class="ListTDTop">Module Name </td>
+	  <td class="ListTDTop">Instance ID</td>
+	  <td class="ListTDTop">Page Name</td>
+	  <td class="ListTDTop">Site Path </td>
+      <td colspan="100" class="ListTDTop" width="1%">&nbsp;</td>
+    </tr>
+
+<!-- BEGIN list_row -->
+	<tr class="{DECORATION}" onMouseOver="this.className='ListTDOn';" onMouseOut="this.className='{DECORATION}';">
+	<td height="22" id="pad">{OBJECT_NAME}</td>
+	<td height="22" id="pad">{ID}</td>
+	<td id="pad">{_PAGE_NAME}</td>
+	<td height="22" id="pad">{PATH}</td>
+	<td align="right" width="1%" nowrap id="pad"><img src="img/cms/scms/manage.gif" width="15" height="17" border="0" align="absmiddle">&nbsp;<a href="module_{NAME}.php?&iid={ID}&back={BACK}" liskHint="Manage module">Manage</a></td></tr>
+
+<!-- END list_row -->
+<!-- BEGIN list_empty -->
+	<tr class="{DECORATION}">
+	<td height="22" colspan="5" align="center" id="pad">No modules were installed yet. </td>
+	</tr>
+
+<!-- END list_empty -->
+
+    <tr>
+      <td colspan="107"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+            <td width="1%" class="ListTDBottom">			  </td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+
+<!-- END list -->

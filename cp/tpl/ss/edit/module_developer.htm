@@ -1,0 +1,243 @@
+<!-- BEGIN form -->
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#idForm input[name="name"]').change(function(){
+		var obj = $(this).get(0);
+		SetUrl(obj);
+	});
+
+	$('#idForm input[name="name"]').keyup(function(){
+		var obj = $(this).get(0);
+		SetUrl(obj);
+	});
+	
+	$('#idForm input[name="add_to_cp_menu"]').click(function(){
+		ToggleAddToCPMenu();
+	});
+	
+});
+
+function SetUrl(obj) 
+{
+	var parentUrl = '{PARENT_URL}';
+	var target = obj.form.url;
+	var autoUrl = obj.form.auto_url_generation_checked;
+	if (autoUrl.checked) 
+	{
+		target.value = parentUrl + FormatToSiteUrl(obj.value, true);
+	}
+}
+
+function CheckFormFull(form) 
+{
+	if (!CheckForm(form, {JS_CHECK})) return false;
+
+	form.url.value = $.trim(form.url.value);
+	if (form.url.value.length <= 0 || form.url.value == '/') 
+	{
+		ShowAlert('Please enter site URL!');
+		return false;
+	}
+	
+	//check cp menu
+	var isChecked = $('#idForm input[name="add_to_cp_menu"]').is(':checked');
+	var title = $('#idForm input[name="cp_menu_title"]').val();
+	title = $.trim(title);
+	if (isChecked && title == '') 
+	{
+		ShowAlert('Please enter CP menu title!');
+		return false;
+	}
+	
+	return true;
+}
+
+function ToggleAddToCPMenu() 
+{
+	var isChecked = $('#idForm input[name="add_to_cp_menu"]').is(':checked');
+	var selTitle = $('#idForm input[name="cp_menu_title"]');
+	
+	if (isChecked)
+	{
+		selTitle.removeAttr('disabled');
+	}
+	else
+	{
+		selTitle.attr('disabled', 'disabled');
+		selTitle.val('');
+	}
+}
+</script>
+
+<form id="idForm" method="post" onSubmit="return CheckFormFull(this)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" valign="top" class="TDForm"><table  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="449" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif" height="24"><img src="img/cms/scms/i_page_info.gif" alt="" width="19" height="17" hspace="4" vspace="3" align="absmiddle"><strong>Module Information </strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Parent</td>
+                        <td>{PARENT}</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Site section name </td>
+                        <td><lisk:field name="name" render="form" class="hform" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Module </td>
+                        <td>{MODULE_NAME}</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Title</td>
+                        <td><lisk:field name="title" render="form" class="hform" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <br />
+              <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_templates.gif" alt="" width="30" height="24" align="absmiddle"><strong>Templates</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Global template </td>
+                        <td>{GLOBAL_TPL}</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.section_tpl]]]</td>
+                        <td>{SECTION_TPL} </td>
+                      </tr>
+					  <tr>
+                        <td>&nbsp;</td>
+                        <td>Subsection template</td>
+                        <td>{SUBSECTION_TPL} </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.page_tpl]]]</td>
+                        <td>{PAGE_TPL}</td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table><img src="img/0.gif" height="6" width="10" border="0"><br /></td>
+            <td width="350" valign="top" style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_page_acces.gif" alt="" width="27" height="24" align="absmiddle"><strong>Page Access</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Access level </td>
+                        <td><lisk:field name="access_level" render="form" class="hform" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Is Locked </td>
+                        <td><lisk:field name="is_locked" render="form" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <br />
+              <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_other_option.gif" alt="" width="26" height="24" align="absmiddle"><strong>Other Options</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">[[[cp_scms.hide_from_menu]]] </td>
+                        <td><lisk:field name="hide_from_menu" render="form" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Auto URL generation </td>
+                        <td><lisk:field name="auto_url_generation" render="form" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Site URL </td>
+                        <td><lisk:field name="url" render="form" class="hform" /></td>
+                      </tr>
+					   <tr>
+                        <td>&nbsp;</td>
+                        <td>Add to CP menu </td>
+                        <td><input name="add_to_cp_menu" type="checkbox" value="1"  /></td>
+                      </tr>
+					  <tr>
+                        <td>&nbsp;</td>
+                        <td>CP menu title</td>
+                        <td><input name="cp_menu_title" type="input" class="hform" disabled="disabled" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table><img src="img/0.gif" height="6" width="10" border="0"><br /></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td nowrap>
+			  <lisk:field name="id" render="form"/>
+              <input type="hidden" name="page_type" value="<lisk:field name='page_type' render='key' />" />
+              <input type="hidden" name="action" value="submit" />
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="Save the record.">
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="Do not save the record and return to the previous page.">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END form -->

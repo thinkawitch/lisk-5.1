@@ -1,0 +1,58 @@
+<!-- BEGIN view -->
+<script language="javascript" src="js/selectbox.js"></script>
+<script language="javascript" src="js/lisk/di_constructor.js"></script>
+
+<div id="edit_listfields" style="display:none"><br />
+  <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+  <tr>
+    <td bgcolor="#F5F5FB" style="border-left: 1px solid #FFFFFF">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/cms/modules/bghh.gif">
+            <tr>
+              <td height="24"><strong class="pdl14">Select List  Fields </strong></td>
+          </tr>
+            <tr>
+              <td bgcolor="#6C6C72"><img src="img/0.gif" width="1" height="1" /></td>
+            </tr>
+        </table>
+		<form method="post" onsubmit="return CheckListFields(this);">
+		<table border="0" align="center" cellpadding="0" cellspacing="12">        
+          <tr>
+            <td nowrap="nowrap">&nbsp;Available fields: </td>
+            <td align="center" valign="middle">&nbsp;</td>
+            <td nowrap="nowrap">&nbsp;List fields: </td>
+          </tr>
+          <tr>
+            <td><select name="list1" multiple="multiple" size="10" style="width:120px; background:#FFFFFF">
+              
+          {AVAILABLE}
+      
+            </select>
+            </td>
+            <td align="center" valign="middle"><input type="image" name="right" src="img/cms/12.gif" onclick="moveSelectedOptions(this.form['list1'],this.form['list2'],true,''); return false;" />
+            <br />
+                <br />
+                <br />
+                <br />
+                <input type="image" name="left" src="img/cms/21.gif" onclick="moveSelectedOptions(this.form['list2'],this.form['list1'],true,''); return false;" />
+                <br />
+                <br /></td>
+            <td><select name="list2" multiple="multiple" size="10" style="width:120px; background:#FFFFFF">
+              
+				{LIST_BOX}
+      
+            </select>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" align="center"><input name="action" type="hidden" value="save_listfields" /><input name="rezlist" type="hidden" />
+			  <input type="image" name="Save" src="img/cms/order/b_save.gif" hspace="6" />
+              <img src="img/cms/order/b_cancel.gif" onclick="$('#edit_listfields').hide();" class="hand" />
+			              </td>
+          </tr>
+      </table>
+	  </form>
+	  </td>
+  </tr>
+</table>
+</div>
+<!-- END view -->

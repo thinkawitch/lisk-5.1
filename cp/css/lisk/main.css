@@ -1,0 +1,245 @@
+
+body {padding:0; margin:0; height:100%; width:100%;}
+
+body {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	margin: 0px;
+	background-color: #FFFFFF; 
+}
+
+form { margin:0;padding:0 }
+
+td  {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+}
+
+body.login {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	background-color: #E6E6EC;
+	margin: 0px;
+}
+
+.field_hint {
+	color: #717177;
+	font-size: 10px;
+}
+
+.loginTDWhite {
+	font-family: Tahoma;
+	font-size: 11px;
+	padding-left: 8px;
+	color: #FFFFFF;
+}
+.loginTDGreen {
+	font-family: Tahoma;
+	font-size: 11px;
+	padding-left: 8px;
+	color: #CCFF6C;
+	font-weight: 700;
+}
+
+.TDLink {
+	font-family: Tahoma;
+	font-size: 11px;
+	padding-left: 5px;
+	padding-right: 7px;
+	padding-bottom: 4px;
+}
+
+
+.TDCaption {
+	font-family: Tahoma;
+	font-size: 14px;
+	color: #71BF05;
+	font-weight: 700;
+}
+
+.ListTD1 {
+	font-family: Tahoma;
+	font-size: 11px;
+	height: 25px;
+	background-color: #F4F4F8; 
+}
+
+.ListTD2 {
+	font-family: Tahoma;
+	font-size: 11px;
+	height: 25px;
+	background-color: #FFFFFF; 
+}
+
+.ListTDOn {
+	font-family: Tahoma;
+	font-size: 11px;
+	height: 25px;
+	background-color: #E7FFBB; 
+}
+
+#pad {
+	padding-left: 6px;
+	padding-right: 4px; 
+}
+
+.ListTDTop {
+	font-family: Tahoma;
+	font-size: 11px;
+	height: 26px;
+	background-image: url(../../img/cms/list/2.gif); 
+	padding-left: 6px;
+	font-weight: bold;
+}
+
+.ListTDBottom {
+	font-family: Tahoma;
+	font-size: 11px;
+	height: 25px;
+	background-image: url(../../img/cms/list/8.gif); 
+}
+
+a, a:active, a:visited { color: #000000; text-decoration: underline; }
+a:hover { text-decoration: none; }
+
+a.bookmark, a.bookmark:active, a.bookmark:visited { color: #000000; text-decoration: none; }
+a.bookmark:hover { text-decoration: underline; }
+
+a.white, a.white:active, a.white:visited { color: #FFFFFF; text-decoration: underline; }
+a.white:hover { text-decoration: none; }
+
+a.nav, a.nav:active, a.nav:visited { color: #717177; text-decoration: none; }
+a.nav:hover { text-decoration: underline; }
+
+a.help, a.help:active, a.help:visited { color: #666666; text-decoration: none; }
+a.help:hover { text-decoration: underline; }
+
+a.paging, a.paging:active, a.paging:visited { color: #49494F; text-decoration: underline; }
+a.paging:hover { text-decoration: none; }
+
+
+
+.TDWhite {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+.TDFormFooter {
+	border-bottom: 1px solid #6C6C72;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+	background-color: #D3D3D9;
+	height: 42px;
+}
+
+.TDFormFooterSmall {
+	border-bottom: 1px solid #6C6C72;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+	background-color: #D3D3D9;
+	height: 8px;
+}
+
+.TDForm {
+	border-bottom: 1px solid #B1B1B7;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+	background-color: #F5F5FB;
+}
+
+.submit60 { 
+	background-image: url(../../img/cms/button93.gif); 
+	width: 93px; height: 23px; 
+	border: 0px; 
+	font-weight: 700; 
+	background-color: transparent; 
+	font-family: Tahoma; font-size: 11px; 
+	cursor: pointer; 
+}
+
+.btnSubmit { 
+	background-image: url(../../img/cms/button_submit.gif); 
+	width: 93px; height: 23px; 
+	border: 0px; 
+	font-weight: 700; 
+	background-color: transparent; 
+	font-family: Tahoma; font-size: 11px; 
+	cursor: pointer; 
+}
+
+.btnAttach { 
+	background-image: url(../../img/cms/button_130.gif);
+	width: 130px; height: 23px; 
+	border: 0px; 
+	font-weight: 700; 
+	background-color: transparent; 
+	font-family: Tahoma; font-size: 11px;
+	background-repeat:repeat-x; 
+	cursor: pointer; 
+	background-repeat:repeat-x;
+}
+
+.btnCancel { 
+	background-image: url(../../img/cms/button_cancel.gif); 
+	width: 93px; height: 23px; 
+	border: 0px; 
+	font-weight: 700; 
+	background-color: transparent; 
+	font-family: Tahoma; font-size: 11px; 
+	cursor: pointer; 
+}
+
+.hand {
+	cursor: pointer; 
+	cursor: pointer;
+}
+
+#w105 {width:105px;}
+#hand{ cursor: pointer; }
+#hand{ cursor: pointer; }
+
+.tgr, .tgr p { color: #333333}
+
+.brdtl {
+		border-left: 1px solid #FFFFFF;
+		border-top: 1px solid #FFFFFF}
+.brdtt {
+		border: 1px solid #B1B1B7;
+		border-bottom: none}
+.hpl {
+		font-size: 14px;
+		color: #000000;
+		font-weight:bold}
+.gr {
+		color: #6C6C72}
+.hform {
+		background-color: #FFFFFF;
+		width: 180px;
+		font-size: 12px}
+
+.pdl14 { padding-left: 14px}
+
+.f12, .f12 td { font-size: 12px}
+
+
+.xml_np {color:#990000}
+.xml_np_sep {color:#3366FF}
+
+.alpha_nav_sel {font-weight:bold}
+
+
+
+table.cpMsgForm { }
+	table.cpMsgForm th {padding:7px 0 4px 15px; text-align:left; vertical-align:top; font-weight:normal; font-size:11px }
+	table.cpMsgForm td {padding:5px}
+	table.cpMsgForm td.separator {padding:0; background: url(../../img/cms/form_delimetr.gif) top left repeat-x; height:2px }
+
+.order-handle-box { cursor:move; width:20px; text-align:center;}
+

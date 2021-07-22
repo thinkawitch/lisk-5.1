@@ -1,0 +1,39 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="ListTDTop">Date</td>
+    <td class="ListTDTop">Department</td>
+    <td class="ListTDTop">Client name </td>
+    <td class="ListTDTop">Replies</td>
+    <td class="ListTDTop">&nbsp;</td>
+    <td align="center" class="ListTDTop">&nbsp;</td>
+  </tr>
+  <!-- BEGIN list_row -->
+  <tr class="{DECORATION}"> 
+    <td style="padding:4;">{DATE}</td>
+    <td style="padding:4;">{DEPARTMENT}</td>
+    <td style="padding:4;">{FROM_FIRST_NAME} {FROM_LAST_NAME}</td>
+    <td style="padding:4;">{MESSAGES}</td>
+    <td style="padding:4;"><a href="?action=view&amp;id={ID}&amp;back={BACK}">view</a></td>
+    <td style="padding:4;">&nbsp;</td>
+  </tr>
+  <!-- END list_row -->
+  <!-- BEGIN list_empty -->
+  <tr class="{DECORATION}"> 
+    <td colspan="6" style="padding:4;">No open tickets found. </td>
+  </tr>
+  <!-- END list_empty -->  
+</table>
+<!-- END list -->
+
+
+
+<!-- BEGIN view -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top">{LIST}</td>
+    <td width="198" align="center" valign="top"><img src="img/0.gif" width="1" height="10">{CALENDAR}{TOTAL}</td>
+  </tr>
+</table>
+<!-- END view -->
+

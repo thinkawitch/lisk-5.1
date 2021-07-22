@@ -1,0 +1,53 @@
+<!-- BEGIN form -->
+<style type="text/css">
+    .stars_block_red {border:2px solid red;}
+    .stars_block_green {border:2px solid green;}
+</style>
+<table id="stars_table_{NAME}{UID}" {AUTOSAVE}>
+    <tr>
+        <td>
+            <div class="liskStarsReset"><a title="Reset to 0"></a></div>
+        </td>
+        <td>
+            <div class="liskStars" rel="{REL}" id="lisk_stars_{NAME}{UID}" style="height:{STAR_SIZE}px;width:{STARS_CONTAINER_WIDTH}px;">
+                <div style="width:{STARS_ACTIVE_WIDTH}px;"></div>
+            </div>
+            <div ></div>
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="{NAME}" value="{VALUE}" id="stars_{NAME}{UID}" />
+<script rel="stars" language="javascript" type="text/javascript">
+
+$(function(){
+	$.liskTypeStar({
+        uid: '{UID}',
+        name: '{NAME}',
+        split: {SPLIT},
+        maxStars: {STARS_COUNT},
+        sizeStar: 16
+
+		{AUTOSAVE_PARAMS}
+
+	});
+});
+</script>
+<!-- END form -->
+
+<!-- BEGIN autosave_params -->
+,autosave: {
+	autosave_uid: '{AUTOSAVE_UID}',
+	callback: '{CALLBACK}',
+	dataitem_name: '{DATAITEM_NAME}',
+	dataitem_id: '{DATAITEM_ID}',
+	dataitem_field: '{DATAITEM_FIELD}',
+	handler_url: '{HANDLER_URL}'
+}
+<!-- END autosave_params -->
+
+
+<!-- BEGIN view -->
+<div class="liskStars" style="height:{STAR_SIZE}px;width:{STARS_CONTAINER_WIDTH}px;">
+    <div style="width:{STARS_ACTIVE_WIDTH}px;"></div>
+</div>
+<!-- END view -->

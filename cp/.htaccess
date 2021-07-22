@@ -1,0 +1,24 @@
+RewriteEngine On
+
+DirectoryIndex login.php 
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule module_(.*).php(.*)$ modules/$1.php$2 [QSA,L]
+
+#core rewrites
+RewriteRule ^add.php(.*)$ core/add.php$1 [QSA,L]
+RewriteRule ^export.php(.*)$ core/export.php$1 [QSA,L]
+RewriteRule ^edit.php(.*)$ core/edit.php$1 [QSA,L]
+RewriteRule ^list.php(.*)$ core/list.php$1 [QSA,L]
+RewriteRule ^view.php(.*)$ core/view.php$1 [QSA,L]
+RewriteRule ^tree.php(.*)$ core/tree.php$1 [QSA,L]
+RewriteRule ^del.php(.*)$ core/del.php$1 [QSA,L]
+RewriteRule ^order.php(.*)$ core/order.php$1 [QSA,L]
+RewriteRule ^node_tree.php(.*)$ core/node_tree.php$1 [QSA,L]
+RewriteRule ^edit_email.php(.*)$ core/edit_email.php$1 [QSA,L]
+RewriteRule ^cross_tree.php(.*)$ core/cross_tree.php$1 [QSA,L]
+RewriteRule ^cross_list.php(.*)$ core/cross_list.php$1 [QSA,L]
+RewriteRule ^cross_tree_list.php(.*)$ core/cross_tree_list.php$1 [QSA,L]
+RewriteRule ^content.php(.*)$ core/content.php$1 [QSA,L]
+RewriteRule ^suggest_list.php(.*)$ core/suggest_list.php$1 [QSA,L]
+RewriteRule ^autosave.php(.*)$ core/autosave.php$1 [QSA,L]

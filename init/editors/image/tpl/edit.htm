@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Image Editor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style></head>
+
+<body>
+<table  border="0" cellspacing="0" cellpadding="0">
+  <!--tr>
+    <td><img src="img/title.gif" width="640" height="54"></td>
+  </tr-->
+  <tr>
+    <td><applet width="640" height="480" codebase="./applet/" archive="imaging.jar" code="Main.class">
+  <param name="load" value="{FILENAME}">
+  <param name="zoom" value="100">
+  <param name="jpeg_quality" value="80">
+  <param name="save" value="save.php?filename={SAVENAME}">
+</applet></td>
+  </tr>
+</table>
+</body>
+</html>

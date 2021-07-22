@@ -1,0 +1,19 @@
+<!-- BEGIN new -->
+<input name="{NAME}" type="hidden"  value="{CUR_VALUE}" />
+<input name="{NAME}_upload" type="file" {PARAMS} />
+<!-- END new -->
+
+<!-- BEGIN update -->
+<input name="{NAME}" type="hidden"  value="{CUR_VALUE}" />
+<input type="hidden" name="{NAME}_edit_action" value="change" />
+
+<table>
+<tr>
+	<td rowspan="2"><a href="{ORIGINAL_ZOOM}"><img src="{THUMB_SRC}?rnd={TIMESTAMP}"  {THUMB_INFO} /></a></td>
+	<td><input name="{NAME}_upload" type="file" {PARAMS} /></td>
+</tr>
+<tr>
+	<td><label><input name="{NAME}_edit_action" type="checkbox" value="delete" /> delete image file</label></td>
+</tr>
+</table>   
+<!-- END update -->

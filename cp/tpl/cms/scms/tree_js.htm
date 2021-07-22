@@ -1,0 +1,200 @@
+<!-- BEGIN tree -->
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td valign="top" class="TDForm" height="300">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr> 
+            <td valign="top" height="100%" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			
+	
+<link rel="StyleSheet" href="css/nls_scms/nlstree.css" type="text/css">
+<link rel="StyleSheet" href="css/nls_scms/nlsctxmenu.css" type="text/css">
+<script language="javascript" src="js/nls_tree/nlstree.js"></script>
+<script language="javascript" src="js/nls_tree/nlsctxmenu.js"></script>
+<script language="javascript" src="js/nls_tree/nlstreeext_ctx.js"></script>
+<script language="javascript">
+
+var nodeName = "{NODE_NAME}";
+var pointName = "{POINT_NAME}";
+var curNavLevel = "{CUR_NAV_LEVEL}";
+
+function ViewRecord(id) {
+
+	var s = new String(id);
+	if (s.substring(0,5)=="99999") {
+		id = s.substring(5);
+		document.location.href="view.php?type="+pointName+"&id="+id+"&back="+curNavLevel;
+	} else {
+		document.location.href="view.php?type="+nodeName+"&id="+id+"&back="+curNavLevel;
+	}
+}
+
+function AddCategory(id) {
+	document.location.href="add.php?type="+nodeName+"&HIDDEN_parent_id="+id+"&back="+curNavLevel;
+}
+
+
+var t = new NlsTree("Pub");
+
+function expandAll() {
+  t.expandAll();
+}
+
+function collapseAll() {
+  t.collapseAll();
+}
+
+
+var ctx = new NlsCtxMenu("Ctx");
+
+function globalCtxMenu(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "1":
+			ViewRecord(t.getSelNode().orgId);
+			break;
+    	case "2":
+			EditRecord(t.getSelNode().orgId);
+			break;
+		case "3":
+			if (confirm("[[[cpmodules.sure_u_want_2del_item]]]")) {
+        		DeleteRecord(t.getSelNode().orgId);
+			}
+			break;
+	}
+	return false;
+}
+
+function RootMenuClick(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "1":
+			t.expandNode(selNode.orgId);
+			break;
+		case "2":
+			t.collapseNode(selNode.orgId);
+       		break;
+		case "3":		
+			AddCategory(t.getSelNode().orgId);
+			break;
+		case "4":
+			OrderCategories(t.getSelNode().orgId);
+			break;	
+	}
+	return false;
+}
+
+
+function treeCheck(id) {
+	var obj = document.getElementById('ch_'+id);
+	if (obj) {
+		
+		if(obj.value==0) {
+			obj.value = 1;
+		} else if(obj.value==1) {
+			obj.value = 0;
+		} else {
+			obj.value = 0;
+		}
+	}
+}
+
+function init() {
+	/*
+		1 - id 
+		2 - parent_id
+		3 - name
+		4 - ? Url custom vrode kak 
+		5 - custom image
+		6 - ? otkrit true zakrit null po default
+	*/
+
+{JS_TREE}
+    
+    t.opt.check = {VIEW_CHECK};
+    
+    //ctx.absWidth=150;
+    //ctx.add("1", "[[[cpmodules.view_record]]]", "", "img/cms/list/view.gif", true);
+    //ctx.add("2", "[[[cpmodules.edit_record]]]", "", "img/cms/list/edit.gif");
+    //ctx.addSeparator();
+    //ctx.add("3", "[[[cpmodules.delete_record]]]", "", "img/cms/list/delete.gif");
+
+    ctx.menuOnClick=globalCtxMenu;
+    t.setGlobalCtxMenu(ctx);
+    
+    t.treeOnCheck = treeCheck;   
+
+	t.opt.oneClick = false;
+    
+	{NODES_MENU}    
+    
+    var rootMenu = new NlsCtxMenu("RootMenu");
+    rootMenu.add("1", "[[[cpmodules.exp_this_node]]]", "", "img/cms/tree/arrowdown.gif");
+    rootMenu.add("2", "[[[cpmodules.col_this_node]]]", "", "img/cms/tree/arrowright.gif");   
+    rootMenu.menuOnClick=RootMenuClick;
+    t.setNodeCtxMenu(1, rootMenu);
+}
+
+function DisplayPageInfo(id) {
+	var obj = document.getElementById('id_info_panel');
+	if (obj) {
+
+		if (id==1) {
+			obj.innerHTML = '&nbsp;';
+		} else {
+			obj.innerHTML = '<br><iframe width="99%" frameborder="0" scrolling="auto" marginheight="0" marginwidth="0" height="500" src="scms.php?action=tree_info&id='+id+'"></iframe>';
+		}
+	}
+}
+</script>
+
+<form method="post" style="padding:0px;margin:0px;" id="treeForm">
+<table border="0" cellpadding="5" cellspacing="1" width="100%">
+  <tr valign="top">
+    <td id="tree"><script type="text/javascript">init();t.render();</script></td>
+ </tr>
+</table>
+{HIDDEN_CHECKBOXES}
+<input type="hidden" name="action" value="js_delete">
+</form>
+
+
+
+
+			</td>
+          </tr>
+        </table></td>
+		<td valign="top" class="TDForm" style="padding-right:8px;" id="id_info_panel"><br>Please select a page on the left to view details</td>
+    </tr>
+    
+    <tr> 
+      <td width="20%" class="TDFormFooterSmall"><img src="img/0.gif" height="1" width="1" /></td>
+      <td class="TDFormFooterSmall"><img src="img/0.gif" height="1" width="1" /></td>
+    </tr>
+
+</table>
+<!-- END tree -->
+
+
+
+<!-- BEGIN info -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/lisk/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style="background-color:#F5F5FB">
+<table border="0" cellpadding="0s" cellspacing="0" width="100%">
+<tr>
+	<td height="100%" valign="top">
+	
+{INFO}
+
+
+	
+	</td>
+</tr>
+</table>
+</body>
+</html>
+<!-- END info -->

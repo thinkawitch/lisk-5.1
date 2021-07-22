@@ -1,0 +1,160 @@
+<!-- BEGIN new -->
+<div id="idField{NAME}">
+
+	<input type="hidden" name="{NAME}" value="" />
+	<input type="hidden" name="{NAME}_edit_action" value="change"  />
+	
+	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+    <tr>
+      <td width="130" align="right">
+      	<b>Original file location</b>
+      </td>
+      <td>
+	  	<input name="{NAME}_upload_method" value="http" checked="CHECKED" liskHint="Upload a file from your computer." type="radio" />
+		Upload
+  		<input name="{NAME}_upload_method" value="ftp" liskHint="Select a file from Files." type="radio" />
+  		Select from "My Files"
+  	  </td>
+    </tr>
+	</table>
+		
+	<div rel="panel_http" style="display:block;">
+		<table border="0" cellpadding="3" cellspacing="0" width="100%">
+	    <tr>
+	      <td width="130" align="right"><img src="img/cms/file/image_upload2.gif" width="26" height="20" hspace="4" align="absmiddle"></td>
+	      <td>
+	          <input name="{NAME}_upload_http" type="file" />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td align="right">&nbsp;</td>
+	      <td class="tdImageDescription">get file from your disk Max Size {MAX_SIZE} </td>
+	    </tr>
+		</table>
+	</div>
+		
+	<div rel="panel_ftp" style="display:none;">
+		<table border="0" cellpadding="3" cellspacing="0" width="100%">
+	    <tr>
+	      <td width="130" align="right"><img src="img/cms/file/image_select2.gif" width="26" height="18" hspace="4" align="absmiddle"></td>
+	      <td>
+	        <table border="0" cellspacing="0" cellpadding="0">
+	          <tr>
+	            <td><input type="text" name="{NAME}_upload_ftp" id="{NAME}_upload_ftp"  /></td>
+	            <td><img src="img/cms/file/b_select.gif" width="93" height="23" hspace="4" style="cursor:hand;cursor:pointer;" rel="ftp_dialog" /></td>
+	          </tr>
+	      </table></td>
+	    </tr>
+	    <tr>
+	      <td align="right">&nbsp;</td>
+	      <td class="tdImageDescription">get file from &quot;My Files&quot; folder on server </td>
+	    </tr>
+		</table>
+	</div>
+		
+</div>	
+
+<script type="text/javascript" src="js/lisk/type/file.js"></script>
+<script type="text/javascript">
+(new LiskTypeFile('{NAME}')).Init();
+</script>
+<!-- END new -->
+	
+	
+<!-- BEGIN update -->
+<div id="idField{NAME}">
+	
+	<input type="hidden" name="{NAME}" value="" />
+
+	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+	<tr>
+		<td colspan="2"><img src="img/cms/file/image_file.gif" width="17" height="17" align="absmiddle" /> <strong>{FILE_NAME}</strong> &nbsp;&nbsp;( {FILE_SIZE} ) &nbsp;&nbsp;<img src="img/cms/file/image_up.gif" width="23" height="20" hspace="4" align="absmiddle" /><a href="{FILE_LINK}">Download</a></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+	  
+			<table border="0" cellpadding="3" cellspacing="0">
+			<tr>
+				<td nowrap="nowrap"><strong>Choose Action: </strong></td>
+				<td>
+					<input type="radio" name="{NAME}_edit_action" value="none" checked="checked" liskHint="No action" />
+		         	None
+		       </td>
+		       <td>
+		       		<input type="radio" name="{NAME}_edit_action" value="change" liskHint="Change file." />
+		         	Change
+		       </td>
+		       <td>
+		       		<input type="radio" name="{NAME}_edit_action" value="delete" liskHint="Delete file."  />
+		        	Delete
+		       </td>
+			</tr>
+			</table>
+		  
+		  
+		  
+			<div rel="panel_change_file" style="display:none;border:1px solid #D4D4D8;width:450px">
+				<div style="border: 1px solid #FFFFFF;background-color: #E8E8EE">
+		  
+					<table border="0" cellpadding="3" cellspacing="0" width="100%">
+					<tr>
+						<td width="130" align="right" nowrap="nowrap"><b>Original file location</b></td>
+						<td><input name="{NAME}_upload_method" value="http" checked="checked" liskHint="Upload a file from your computer." align="center" type="radio" />
+					 		Upload
+					 		<input name="{NAME}_upload_method" value="ftp" liskHint="Select a file from Files." type="radio" />
+					        Select from &quot;My Files&quot;
+						</td>
+					</tr>
+					</table>
+			  
+					<div rel="panel_http" style="display:block;">
+						<table border="0" cellpadding="3" cellspacing="0" width="100%">
+						<tr>
+					        <td width="130" align="right"><img src="img/cms/file/image_upload2.gif" width="26" height="20" hspace="4" align="absmiddle" /></td>
+					        <td><b> </b>
+					            <input name="{NAME}_upload_http" type="file" />
+					        </td>
+						</tr>
+						<tr>
+					        <td align="right">&nbsp;</td>
+					        <td class="tdImageDescription">get file from your disk Max Size {MAX_SIZE} </td>
+					    </tr>
+						</table>
+					</div>
+			  
+					<div rel="panel_ftp" style="display:none;">
+			  			<table border="0" cellpadding="3" cellspacing="0" width="100%">
+	          			<tr>
+	            			<td width="130" align="right"><img id="ftp_img_{NAME}" src="img/cms/file/image_select2.gif" width="26" height="18" hspace="4" align="absmiddle" /></td>
+	            			<td><table border="0" cellspacing="0" cellpadding="0">
+				                <tr>
+									<td><input type="text" name="{NAME}_upload_ftp" id="{NAME}_upload_ftp"   /></td>
+									<td><img src="img/cms/file/b_select.gif" width="93" height="23" hspace="4" style="cursor:hand;cursor:pointer;" rel="ftp_dialog" /></td>
+	                			</tr>
+	            				</table>
+							</td>
+	          			</tr>
+						<tr>
+							<td align="right">&nbsp;</td>
+				            <td class="tdImageDescription">get file from &quot;My Files&quot; folder on server </td>
+						</tr>
+	        			</table>
+					</div>
+			
+				</div>
+			</div>
+			
+		</td>
+	</tr>
+	</table>
+	
+</div>	
+<script type="text/javascript" src="js/lisk/type/file.js"></script>
+<script type="text/javascript">
+(new LiskTypeFile('{NAME}')).Init();
+</script>
+<!-- END update -->
+
+<!-- BEGIN view -->
+<a href="{LINK}">{FILE_NAME}, {SIZE}</a> 
+<!-- END view -->

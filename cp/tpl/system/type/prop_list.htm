@@ -1,0 +1,298 @@
+<!-- BEGIN form -->
+<script language="javascript" src="js/selectbox.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+
+<script type="text/javascript">
+
+function PlAddOpt_{NAME}(form)
+{
+	var pos;
+	name = form.pl_add_value{NAME}.value;
+	if (name=='') return;
+	id = form.pl_add_key{NAME}.value;
+	if (id=='') return;
+	pos=form.{NAME}_values.options.length;
+
+	form.{NAME}_values.options[pos] = new Option(name,id);
+	form.{NAME}_keys.options[pos] = new Option(id,id);
+	form.pl_add_value{NAME}.value='';
+	form.pl_add_key{NAME}.value='';
+
+	UpdatePropListResult_{NAME}(form);
+}
+
+function PlEditOpt_{NAME} (form) 
+{
+	primary=form.{NAME}_values;
+	secondary=form.{NAME}_keys;
+	if (primary.length<1) { return; }
+
+	var j = -1;
+	for (var i=0;i<primary.length ;i++){
+		if (primary[i].selected) {
+			j=i;
+		}
+	}
+
+	if (j>=0)
+	{
+		edit_value	= form.pl_edit_value{NAME};
+		edit_key	= form.pl_edit_key{NAME};
+	
+		form.{NAME}_values[j].text = edit_value.value;
+		form.{NAME}_keys[j].text = edit_key.value;
+	}
+	
+	UpdatePropListResult_{NAME}(form);
+	
+	return true;
+}
+
+function PlRemOpt_{NAME} (form) 
+{
+	var del = form.{NAME}_values;
+	var del2 = form.{NAME}_keys;
+
+	if (del.length<1)
+	{
+		return;
+	}
+	for (var i=0;i<del.length ;i++)
+	{
+		if (del[i].selected)
+		{
+			del.remove(i);
+			del2.remove(i);
+			i--; //for ff
+		}
+	}
+	UpdatePropListResult_{NAME}(form);
+}
+
+function PlValueAdd_{NAME}(form, s) 
+{
+	if (s==13)
+	{
+		PlAddOpt_{NAME}(form);
+		return false;
+	}
+	return true;
+}
+
+function PlValueUpdate_{NAME}(form, s) 
+{
+	if (s==13)
+	{
+		PlEditOpt_{NAME}(form);
+		return false;
+	}
+	return true;
+}
+
+function PlSortDoubleSelect_{NAME}(primary, secondary) 
+{
+
+	var o = new Array();
+	if (primary==null || primary.options==null) return;
+
+	for (var i=0; i<primary.options.length; i++) 
+	{
+		o[o.length] = new Option( primary.options[i].text, primary.options[i].value, primary.options[i].defaultSelected, primary.options[i].selected) ;
+	}
+	
+	if (o.length==0) { return; }
+
+	o = o.sort(
+		function(a,b) {
+			if ((a.text+"") < (b.text+"")) { return -1; }
+			if ((a.text+"") > (b.text+"")) { return 1; }
+			return 0;
+		}
+	);
+
+	for (var i=0; i<o.length; i++) 
+	{
+		primary.options[i] = new Option(o[i].text, o[i].value, o[i].defaultSelected, o[i].selected);
+		secondary.options[i] = new Option(o[i].value, o[i].value, o[i].defaultSelected, o[i].selected);
+	}
+	UpdatePropListResult_{NAME}(primary.form);
+}
+
+function PlSetDoubleSelection_{NAME}(form, select_name) 
+{
+	if(select_name == "{NAME}_values")
+	{
+		primary=form.{NAME}_values;
+		secondary=form.{NAME}_keys;
+	} 
+	else 
+	{
+		primary=form.{NAME}_keys;
+		secondary=form.{NAME}_values;
+	}
+	if (primary.length<1) { return; }
+
+	var j = -1;
+	for (var i=0; i<primary.length; i++)
+	{
+		secondary[i].selected = (primary[i].selected) ? true : false;
+		if (primary[i].selected) 
+		{
+			j = i;
+		}
+	}
+	
+	if (j>=0)
+	{
+		edit_value	= form.pl_edit_value{NAME};
+		edit_key	= form.pl_edit_key{NAME};
+		edit_value.value = form.{NAME}_values[j].text;
+		edit_key.value   = form.{NAME}_keys[j].text;
+	}
+	
+	return true;
+}
+
+function PlMoveOptionUp_{NAME}(form)
+{
+	moveOptionUp(form.{NAME}_values);
+	moveOptionUp(form.{NAME}_keys);
+	UpdatePropListResult_{NAME}(form);
+}
+
+function PlMoveOptionDown_{NAME}(form)
+{
+	moveOptionDown(form.{NAME}_values);
+	moveOptionDown(form.{NAME}_keys);
+	UpdatePropListResult_{NAME}(form);
+}
+
+function UpdatePropListResult_{NAME}(f) 
+{
+	obj = f.{NAME}_values;
+	if (obj.options.length<1) 
+	{
+		f.{NAME}.value = '';
+		return true;
+	} 
+	else 
+	{
+		f.{NAME}.value = '';
+		for (var i=0; i<obj.options.length; i++) 
+		{
+			var rec = obj.options[i].text.split("; key=");
+			f.{NAME}.value += obj.options[i].value + '[*]' + rec[0];
+			if (i!=obj.options.length-1) f.{NAME}.value += '[|]';
+		}
+		return true;
+	}
+}
+
+function ReadPropList_{NAME}() 
+{
+	var propList = $('#{NAME}')[0];
+	var str = propList.value;
+	if(!str) return;
+
+	var f = propList.form;
+
+	var recs = new Array();
+	recs =  str.split("[|]");
+
+	for (var i=0;i<recs.length;i++) 
+	{
+		var rec = recs[i].split("[*]");
+		f.{NAME}_values.options[i] = new Option(rec[1], rec[0]);
+		f.{NAME}_keys.options[i] = new Option(rec[0], rec[0]);
+	}
+}
+
+$(document).ready(function(){
+
+	ReadPropList_{NAME}();
+
+});
+</script>
+
+
+
+<table border="0" cellpadding="1" cellspacing="1" bgcolor="#D4D4D8">
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="400" border="0" cellpadding="6" cellspacing="0" bgcolor="#E8E8EE">
+      <tr>
+        <td><select name="{NAME}_keys" size="8" style="width:45%"
+				onClick="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_keys');" onMouseUp="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_keys');"
+				onKeyUp="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_keys');" onBlur="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_keys');"
+			></select>
+        <select name="{NAME}_values" size="8" style="width:45%"
+				onClick="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_values');" onMouseUp="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_values');"
+				onKeyUp="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_values');" onBlur="PlSetDoubleSelection_{NAME}(this.form, '{NAME}_values');"
+			></select>
+
+			<input name="{NAME}" type="hidden" value="{PROPLIST_RESULT}" id="{NAME}" />
+			</td>
+        <td valign="top"><p><br />
+          <input name="Up" type="button" value="" onclick="PlMoveOptionUp_{NAME}(this.form)" style="cursor:pointer; border:0px; background:url(img/cms/order/b_up.gif); width:93px; height:23px" />
+          <br />
+          <br />
+          <input name="Down" type="button" value="" onclick="PlMoveOptionDown_{NAME}(this.form)" style="cursor:pointer; border:0px; background:url(img/cms/order/b_down.gif); height:23px; width:93px" />
+          <br />
+          <br />
+          <input name="Last" type="button" value="" onclick="PlSortDoubleSelect_{NAME}(this.form.{NAME}_values, this.form.{NAME}_keys);" style="cursor:pointer; border:0px; background:url(img/cms/order/b_sortname.gif); height:23px; width:102px" />
+		  <br />
+		  <br />
+		  <input name="Delete" type="button" value="" onclick="PlRemOpt_{NAME}(this.form);" style="cursor:pointer; border:0px; background:url(img/cms/b_delete.gif); width:57; height:20px" />
+        </p>          </td>
+      </tr>
+      <tr>
+        <td>
+		<table border="0" cellspacing="0" cellpadding="2">
+		  <tr>
+            <td width="40">key:</td>
+            <td ><input type="text" name="pl_edit_key{NAME}" value="" onkeypress="return PlValueUpdate_{NAME}(this.form, event.keyCode);" /> </td>
+          </tr>
+		</table>
+
+		<table  border="0" cellspacing="0" cellpadding="2">
+          <tr>
+            <td width="40">value:</td>
+            <td><input type="text" name="pl_edit_value{NAME}" value="" onkeypress="return PlValueUpdate_{NAME}(this.form, event.keyCode);" /></td>
+            <td><input type="button" name="Edit" value="" onclick="PlEditOpt_{NAME}(this.form);" style="cursor:pointer; border:0px; background: url(img/cms/b_edit.gif); width:45px; height:20px" /></td>
+          </tr>
+        </table>		</td>
+        <td valign="top">&nbsp;</td>
+      </tr>      
+      <tr>
+        <td>
+		<table border="0" cellspacing="0" cellpadding="2">
+		  <tr>
+            <td width="40">key:</td>
+            <td ><input type="text" name="pl_add_key{NAME}" value="" onkeypress="return PlValueAdd_{NAME}(this.form, event.keyCode);" /> </td>
+          </tr>
+		</table>
+
+		<table  border="0" cellspacing="0" cellpadding="2">
+          <tr>
+            <td width="40">value:</td>
+            <td><input type="text" name="pl_add_value{NAME}" value="" onkeypress="return PlValueAdd_{NAME}(this.form, event.keyCode);" /></td>
+            <td><input type="button" name="Add" value="" onclick="PlAddOpt_{NAME}(this.form);" style="cursor:pointer; border:0px; background: url(img/cms/b_add.gif); width:45px; height:20px" /></td>
+          </tr>
+        </table>		</td>
+        <td valign="top">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+            </td>
+          </tr>	</table>
+<!-- END form -->
+
+<!-- BEGIN list_view -->
+<table width="100%" cellpadding=3 cellspacing=1>
+<!-- BEGIN list_view_row -->
+<tr><td width="20%"><b>{KEY}</b></td><td>{VALUE}</td></tr>
+<!-- END list_view_row -->
+</table>
+<!-- END list_view -->

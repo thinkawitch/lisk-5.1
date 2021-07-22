@@ -1,0 +1,111 @@
+<!-- BEGIN filestab -->
+<script type="text/javascript">
+<!--
+window.focus();
+
+var dir = '{CURRENT_DIR}';
+
+function SetFileValue(fileName) 
+{
+	var opener_el = window.opener.window.document.getElementById('{ELEM_BACK}');
+	if (fileName.length == 0) opener_el.value = '';
+	else 
+	{
+		var selectedFile = dir + fileName;
+		var root_path = '{ROOT_PATH}';
+		if (root_path.length != 0) selectedFile = selectedFile.substring(root_path.length, selectedFile.length);
+		opener_el.value = selectedFile;
+	}
+	window.close();
+}
+-->
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td valign="top" width="430px"> </td>
+</tr>
+<tr>
+	<td colspan="3" height="25px" align="left"  background="img/cms/links_bg.gif">{NAVIGATION}</td>
+</tr>
+<tr>
+	<td>
+	<div style="overflow:auto;height:380px;" id="browse_div">
+		<table width="100%" cellpadding="1" cellspacing="0" border="0" style="overflow : scroll; margin-right:1px">
+		{DIRSTAB}
+		{FILESTAB}
+		</table>
+	</div>
+	</td>
+</tr>
+<tr>
+	<td colspan='3' background="img/cms/border_bg.gif" height='25px' style="background-repeat: repeat-x;">&nbsp;</td>
+</tr>
+</table>
+<!-- END filestab -->
+
+
+
+
+<!-- BEGIN dirs_up --> 
+             <tr> 
+              <td colspan="3" class="td_main" width="100%" >
+			   <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                  <tr> 
+                    <td width="1"><img src="img/file_manager/ico_dir.gif"></td> 
+                    <td nowrap height="19px"><!--a href="javascript:window.navigate('site_images.php?p={DIR_PATH}')"-->&nbsp;<a href="?action={TYPE}&dir={DIR_PATH}"><b>{DIR_NAME}</b></a></td> 
+                  </tr> 
+                </table></td> 
+              <td width="5%" colspan="3" align="center" class="td_main" nowrap></td> 
+            </tr> 
+<!-- END dirs_up -->
+
+
+
+<!-- BEGIN dirs --> 
+<!-- BEGIN dirs_row --> 
+             <tr {DECORATION}> 
+              <td colspan="3" class="td_main"  >
+			   <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                  <tr> 
+                    <td width="1"><img src="img/file_manager/ico_dir.gif"></td> 
+                    <td nowrap height="19px"><!--a href="javascript:window.navigate('site_images.php?p={DIR_PATH}')"-->&nbsp;<a href="?action=browse&dir={DIR_PATH}"><b>{DIR_NAME}</b></a></td> 
+                  </tr> 
+                </table></td> 
+              <td width="5%" colspan="3" align="center" class="td_main" nowrap></td> 
+            </tr> 
+<!-- END dirs_row --> 
+<!-- END dirs -->
+
+<!-- BEGIN listdocument --> 
+<!-- BEGIN listdocument_row --> 
+             <tr {DECORATION}> 
+              <td class="td_main"  width="100%"><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                  <tr> 
+                    <td width="1"><img src="img/file_manager/{ICO}" border="0" /></td> 
+                    <td nowrap height="20"><nobr>&nbsp;{NAME}</nobr></td> 
+					<td width="70">{SIZE}</td>
+					<td width="130">{LAST_MODIFIED}</td>
+                  </tr> 
+                </table></td> 
+              <td width="5%" align="center" class="td_main" nowrap><nobr><img src="img/file_manager/view.gif" style="vertical-align : middle;">&nbsp;<a href="javascript:void(0);" onClick="SetFileValue('{NAME}');" >Select</a></nobr></td>
+            </tr> 
+<!-- END listdocument_row --> 
+<!-- END listdocument -->
+
+
+<!-- BEGIN navigation -->
+<table border="0" cellpadding="0" cellspacing="0"><tr>
+	<td><img src="img/file_manager/ico_location.gif" style="virtical-align:middle;"></td>
+<!-- BEGIN navigation_row -->
+	<td width="10px"><nobr><a href="?action={TYPE}&dir={LINK_DIR_PATH}">{LINK_NAME}</a></nobr></td>
+	<td width="15px" align="center" valign="middle"><img src="img/file_manager/ico_array.gif" style="vertical-align:middle;margin-top:3px" align="middle"></td>
+<!-- END navigation_row -->
+	<td width="10px"><nobr>{CURRENT_NAME}</nobr></td>
+	<td></td>
+</tr>
+</table>
+<!-- END navigation -->  										   
+	
+	
+	

@@ -1,0 +1,33 @@
+<!-- BEGIN error -->
+<script type="text/javascript">
+var liskErrors = new Array();
+
+<!-- BEGIN error_row -->
+liskErrors.push('{ERROR_MESSAGE}');<!-- END error_row -->
+
+jQuery(document).ready(function(){
+	ShowAlert(liskErrors, 'error');
+});
+</script>
+<!-- END error -->
+
+<!-- BEGIN notify -->
+<script type="text/javascript">
+var liskNotes = new Array();
+
+<!-- BEGIN notify_row -->
+liskNotes.push('{NOTIFY_MESSAGE}');<!-- END notify_row -->
+
+jQuery(document).ready(function(){
+	ShowAlert(liskNotes, 'notify');
+});
+</script>
+<!-- END notify -->
+
+<!-- BEGIN growl -->
+<script type="text/javascript">
+<!-- BEGIN growl_row -->
+$.jGrowl('{GROWL_MESSAGE}');
+<!-- END growl_row -->
+</script>
+<!-- END growl -->

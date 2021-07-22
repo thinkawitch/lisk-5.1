@@ -1,0 +1,15 @@
+<!-- BEGIN form -->
+	<input type="hidden" name="{NAME}" value="" />
+	<!-- BEGIN form_prop_row -->
+	<label><input type="checkbox" name="{NAME}[]" value="{VALUE}" {CHECKED}> {CAPTION}</label><br />
+	<!-- END form_prop_row -->
+<!-- END form -->
+
+<!-- BEGIN view -->
+<!-- BEGIN view_row --><!-- {ROW} -->
+<!-- BEGIN yes --><!--{YES}-->{NAME}<br /><!-- END yes -->
+<!-- BEGIN no --><!--{NO}--><!-- {NAME} --><!-- END no -->
+<!-- BEGIN view_separator --><!-- {SEPARATOR} --><!-- END view_separator -->
+<!-- END view_row -->
+<!-- BEGIN view_empty --><!-- {EMPTY} --><!-- END view_empty -->
+<!-- END view -->

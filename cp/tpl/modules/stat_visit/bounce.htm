@@ -1,0 +1,43 @@
+<!-- BEGIN bounce_list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="100" align="center" class="ListTDTop">Page Views</td>
+      <td width="400" class="ListTDTop">Bounce Rate</td>
+      <td align="center" class="ListTDTop">Unique Visitors</td>
+   </tr>
+    
+	<!-- BEGIN bounce_list_row -->
+	<tr class="{DECORATION}">
+		<td align="center">{VIEWS}&nbsp;</td>
+		<td>
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="40">{RATE}&nbsp;%&nbsp;</td>
+              <td><table border="0" cellspacing="0" cellpadding="0" width="{WIDTH}" bgcolor="#CC6600">
+                <tr>
+                  <td><img src="img/0.gif" height="10" width="{WIDTH}" /></td>
+                </tr>
+              </table></td>
+            </tr>
+          </table>
+		  </td>
+		<td align="center">{VISITORS}</td>
+	</tr>
+	<!-- END bounce_list_row -->
+	<!-- BEGIN bounce_list_empty -->
+	<tr> 
+      <td colspan="99" align="center"><br>
+        No visits.<br>&nbsp;      </td>
+	</tr>
+	<!-- END bounce_list_empty -->
+    
+    <tr> 
+      <td colspan="105">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+          </tr>
+        </table>		</td>
+    </tr>
+</table>
+<!-- END bounce_list -->

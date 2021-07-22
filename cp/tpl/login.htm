@@ -1,0 +1,152 @@
+<!-- BEGIN view -->
+<style type="text/css">
+.llg { color: #888896; font-size: 10px}
+.redd { color: #FD3737; font-size: 10px}
+</style>
+
+<!-- cp login info script -->
+
+<script src="js/lisk/login.js"></script>
+
+<body class="login">
+
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center" valign="middle">
+		
+		<form method="post">
+		<table width="250" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr> 
+			<td>
+				<table width="250" border="0" cellpadding="0" cellspacing="0" background="img/login/2.gif">
+				  <tr> 
+					<td width="2"><img src="img/login/1.gif" width="2" height="58"></td>
+					<td width="5"><img src="img/login/logo.gif" width="70" height="47" hspace="14"></td>
+					<td width="5"><img src="img/login/del.gif" width="1" height="52" hspace="2"></td>
+					<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr> 
+						  <td class="loginTDWhite">[[[main.project]]]:</td>
+						</tr>
+						<tr> 
+						  <td class="loginTDGreen"><lisk:snippet name="appname" /></td>
+						</tr>
+					  </table></td>
+					<td width="2"><img src="img/login/3.gif" width="2" height="58"></td>
+				  </tr>
+				</table></td>
+				</tr>
+				<tr> 
+				<td height="81" bgcolor="#F5F5FB"><table width="100%" border="0" cellspacing="10" cellpadding="0">
+				  <tr> 
+					<td align="right">[[[main.login]]]:</td>
+					<td><input name="login" type="text" id="w105"></td>
+				  </tr>
+				  <tr> 
+					<td align="right">[[[main.password]]]:</td>
+					<td><input name="password" type="password" id="w105"></td>
+				  </tr>
+				</table></td>
+				</tr>
+				<tr> 
+				<td><table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/login/8.gif">
+				  <tr> 
+					<td width="2"><img src="img/login/7.gif" width="2" height="43"></td>
+					<td align="center"><input name="action" type="hidden" id="action" value="login">
+						<input name="Submit" type="submit" class="submit60" value="[[[main.submit]]]"></td>
+					<td width="2"><img src="img/login/9.gif" width="2" height="43"></td>
+				  </tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		</form>
+	  
+	  	<!-- BEGIN incorrect_login -->
+		<table width="250" border="0" cellspacing="0" cellpadding="0" style="margin-top:21px">
+		<tr>
+		  <td bgcolor="#B3B3B7"><img src="img/0.gif" width="1" height="1"></td>
+		</tr>
+		<tr>
+		  <td bgcolor="#F5F5FB" style="padding:3px 7px;text-align:center;">
+				<span style="color:red">Incorrect login or password!</span>
+		  </td>
+		</tr>
+		<tr>
+		  <td bgcolor="#B3B3B7"><img src="img/0.gif" width="1" height="1"></td>
+		</tr>
+		</table>{INCORRECT_LOGIN}
+		<!-- END incorrect_login -->
+
+	  
+		<table width="250" border="0" cellspacing="0" cellpadding="0" style="margin-top:21px">
+		<tr>
+		  <td bgcolor="#B3B3B7"><img src="img/0.gif" width="1" height="1"></td>
+		</tr>
+		<tr>
+		  <td bgcolor="#F5F5FB" style="padding:3px 7px"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+			<tr>
+			  <td width="46%" class="llg">Browser : </td>
+			  <td width="54%" class="llg" id="browser">n/a</td>
+			  <td align="center"><img src="img/login/x.gif" width="9" height="8" id="browser_img"></td>
+			</tr>
+			<tr style="display:none" id="browser_error">
+			  <td colspan="3" class="llg"><table width="100%"  border="0" cellpadding="0" cellspacing="8" bgcolor="#FFFFFF">
+				<tr>
+				  <td class="redd">CMS Control Panel supports the following browsers: <strong>IE</strong> 7.0+, <strong>Firefox</strong>&nbsp;1.5+, <strong>Opera</strong>&nbsp;9.5+,  <strong>Safari</strong>&nbsp;4.0+ and <strong>Chrome</strong>&nbsp;9.0+. Please use any of them to proceed. </td>
+				</tr>
+			  </table></td>
+			</tr>
+			<tr>
+			  <td class="llg">Screen Resolution : </td>
+			  <td class="llg" id="resolution">n/a</td>
+			  <td align="center"><img src="img/login/x.gif" width="9" height="8" id="resolution_img"></td>
+			</tr>
+			<tr style="display:none" id="resolution_error">
+			  <td colspan="3" class="llg"><table width="100%"  border="0" cellpadding="0" cellspacing="8" bgcolor="#FFFFFF">
+				<tr>
+				  <td class="redd">For convinient work with CMS Control Panel your screen resolution should be at least 1024x768. </td>
+				</tr>
+			  </table></td>
+			</tr>			
+			<tr>
+			  <td class="llg">Java Script : </td>
+			  <td class="llg" id="script">disabled</td>
+			  <td align="center"><img src="img/login/x.gif" width="9" height="8" id="script_img"></td>
+			</tr>
+			<noscript>
+			<tr id="script_error">
+			  <td colspan="3" class="llg"><table width="100%"  border="0" cellpadding="0" cellspacing="8" bgcolor="#FFFFFF">
+				<tr>
+				  <td class="redd">You have to enable javascript to proceed.</td>
+				</tr>
+			  </table></td>
+			</tr>
+			</noscript>
+			<tr>
+			  <td class="llg">Cookies : </td>
+			  <td class="llg" id="cookies">n/a</td>
+			  <td align="center"><img src="img/login/x.gif" width="9" height="8" id="cookies_img"></td>
+			</tr>
+			<tr style="display:none" id="cookies_error">
+			  <td colspan="5" class="llg"><table width="100%"  border="0" cellpadding="0" cellspacing="8" bgcolor="#FFFFFF">
+				<tr>
+				  <td class="redd">You have to enable cookies to proceed. </td>
+				</tr>
+			  </table></td>
+			</tr>
+			<tr>
+			  <td class="llg">IP address : </td>
+			  <td class="llg" id="ip">{IP_ADDRESS}</td>
+			  <td align="center"><img src="img/login/v.gif" width="13" height="9" id="ip_img"></td>
+			</tr>
+		  </table></td>
+		</tr>
+		<tr>
+		  <td bgcolor="#B3B3B7"><img src="img/0.gif" width="1" height="1"></td>
+		</tr>
+		</table>  
+	  
+	</td>
+</tr>
+</table>
+<!-- END view -->

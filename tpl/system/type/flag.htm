@@ -1,0 +1,44 @@
+<!-- BEGIN form -->
+<input name="{NAME}" type="hidden" value="" />
+<span><input type="checkbox" name="{NAME}_checked" {PARAMS} value="1" {CHECKED} {AUTOSAVE} /></span>
+{SCRIPT}
+<!-- END form -->
+
+<!-- BEGIN view_yes -->
+Yes
+<!-- END view_yes -->
+<!-- BEGIN view_no -->
+No
+<!-- END view_no -->
+
+
+
+<!-- BEGIN script -->
+<style type="text/css">
+    .flag_red {border:2px solid red;}
+    .flag_green {border:2px solid green;}
+</style>
+<script type="text/javascript">
+$(function(){
+    $('input[autosave="{AUTOSAVE_UID}"]').change(function(){
+        var $input = $(this);
+		var curVal = $(this).is(':checked') ? this.value : 0;
+        $.post('{HANDLER_URL}', {
+            di:     '{DATAITEM_NAME}',
+            itemId: '{DATAITEM_ID}',
+            field:  '{DATAITEM_FIELD}',
+            value:  curVal,
+            action: 'autosave'
+        }, function(){
+            $input.parent().removeClass('flag_red').addClass('flag_green');
+            window.setTimeout(function(){$input.parent().removeClass("flag_green")}, 3000);
+        })
+    })
+    .click(function(){
+        $(this).parent().addClass('flag_red').removeClass('flag_green');
+    }).blur(function(){
+        $(this).parent().removeClass('flag_red');
+    });
+});
+</script>
+<!-- END script -->

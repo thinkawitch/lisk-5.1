@@ -1,0 +1,28 @@
+<!-- BEGIN view -->
+<script type="text/javascript">
+function CheckMail()
+{
+	var email = jQuery('#idEmail').val();
+	if (email=='')
+	{
+		ShowAlert('Please enter email!');
+		$('#idEmail').focus();
+		return false;
+	}
+	return true;
+}
+</script>
+<form method="post" style="margin:0px;" onsubmit="return CheckMail()">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="20%">Send test email to </td>
+    <td><input type="text" name="email" id="idEmail" value="" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="action" type="hidden" id="action" value="submit" />
+    <input type="submit" name="Submit" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+<!-- END view -->

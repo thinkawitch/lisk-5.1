@@ -1,0 +1,1 @@
+wget --output-document=/dev/null http://site.com/init/cron/index.php

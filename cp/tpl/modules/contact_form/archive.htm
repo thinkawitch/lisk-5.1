@@ -1,0 +1,71 @@
+<!-- BEGIN view -->
+	<script language="javascript">
+		function openInNewWindow(page) {
+			window.open(page,"windows","width=500, height=650");
+		}
+	</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td valign="top">{LIST}</td>
+    <td width="198" align="center" valign="top"><img src="img/0.gif" width="1" height="10">{CALENDAR}</td>
+  </tr>
+</table>
+<!-- END view -->
+<!-- BEGIN empty -->
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+	  {CAPTIONS}
+      <td colspan="100" class="ListTDTop" width="1%">&nbsp;</td>
+    </tr>
+	<tr> 
+      <td colspan="100" align="center"><br>
+        No Records Found<br>&nbsp;
+      </td>
+	</tr>
+    
+    <tr> 
+      <td colspan="106"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td class="ListTDBottom" style="padding-left: 10px">&nbsp;</td>
+            <td width="1%" class="ListTDBottom">
+</td>
+          </tr>
+        </table></td>
+    </tr>
+
+</table>
+
+<!-- END empty -->
+
+
+<!-- BEGIN view_message -->
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="1%" nowrap="nowrap" class="ListTDTop"> {DATE} </td>
+	  <td align="right" class="ListTDTop"><a href="edit.php?id={ID}&amp;type={DINAME}&amp;back={BACK}"><img src="img/cms/list/edit.gif" width="8" height="14" hspace="3" border="0" /></a><a href="del.php?id={ID}&type={DINAME}&back={BACK}"><img src="img/cms/list/delete.gif" width="8" height="14" hspace="3" border="0" /></a></td>
+    </tr>    
+    <tr> 
+      <td colspan="2" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <!-- BEGIN view_message_row -->
+          <tr> 
+            <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">{CAPTION}</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="field" /> </td>
+          </tr>
+          <!-- BEGIN view_message_separator -->
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <!-- END view_message_separator -->
+          <!-- END view_message_row -->
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>		  
+        </table></td>
+    </tr>
+</table>
+<!-- END view_message -->
+

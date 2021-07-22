@@ -1,0 +1,28 @@
+<!-- BEGIN form -->
+
+<div rel="{ASID}" id="idBlock{ASID}" class="creole-form">
+
+	<textarea name="{NAME}" rows="7" {PARAMS}>{VALUE}</textarea>
+	<br />
+
+	<a href="#preview" class="creole-preview creole-form-link"><strong>Preview</strong></a> | <a href="#help" class="creole-help creole-form-link">Wiki creole text format help</a>
+
+
+	<div class="creole-preview-panel">
+		<div class="container"></div>
+		<a href="#close" class="creole-close-preview"><strong>Close preview</strong></a>
+	</div>
+
+
+	<div class="creole-help-panel">
+		<img src="img/creole_cheat_sheet2.png" alt="" />
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	
+	(new LiskCreole('{NAME}', '{ASID}')).Init();
+
+</script>
+<!-- END form -->

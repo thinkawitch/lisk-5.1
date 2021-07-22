@@ -1,0 +1,37 @@
+<!-- BEGIN form -->
+<select name="{NAME}" {PARAMS} {AUTOSAVE}>
+<!-- BEGIN form_list_row -->
+<option value="{VALUE}" {SELECTED}>{CAPTION}</option>
+<!-- END form_list_row -->
+</select>
+{SCRIPT}
+<!-- END form -->
+
+<!-- BEGIN script -->
+<style type="text/css">
+    .select_red {border:2px solid red;}
+    .select_green {border:2px solid green;}
+</style>
+<script type="text/javascript">
+$(function(){
+    $('select[autosave={AUTOSAVE_UID}]').change(function(){
+        var $input = $(this);
+        $.post('{HANDLER_URL}', {
+            di:     '{DATAITEM_NAME}',
+            itemId: '{DATAITEM_ID}',
+            field:  '{DATAITEM_FIELD}',
+            value:  this.value,
+            action: 'autosave'
+        }, function(){
+            $input.removeClass('select_red').addClass('select_green');
+            window.setTimeout(function(){$input.removeClass("select_green")}, 3000);
+        })
+    })
+    .click(function(){
+        $(this).addClass('select_red').removeClass('select_green');
+    }).blur(function(){
+        $(this).removeClass('select_red');
+    });
+});
+</script>
+<!-- END script -->

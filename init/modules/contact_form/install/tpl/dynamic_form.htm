@@ -1,0 +1,38 @@
+<!-- BEGIN form -->
+<table width="100%" cellpadding="0" cellspacing="14">
+  <form method="post" enctype="multipart/form-data" onSubmit="return CheckForm(this,{JS_CHECK})">
+    <!-- BEGIN form_row -->
+    <tr>
+      <td width="30%" align="right" class="gr" ><strong>{CAPTION}</strong></td>
+      <td>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td><lisk:field name="field" render="form" /></td>
+				<td>&nbsp;<strong style="color:#A0C656">{REQUIRED}</strong></td>
+			</tr>
+		</table>
+	  
+	   </td>
+    </tr>
+	<!-- END form_row -->
+    <tr> 
+      <td width="20%" >&nbsp;</td>
+      <td > <table width="100%" border="0" cellspacing="0" cellpadding="3">  
+          <tr><td nowrap> 
+<!-- BEGIN form_hidden -->
+             <lisk:field name="hidden" render="form" />
+<!-- END form_hidden -->
+<input name="imageField" type="image" src="img/b_submit.gif" width="75" height="24" border="0" /> 
+              <input type="hidden" name="action" value="submit" />
+			  </td>
+          </tr>
+        </table>      </td>
+    </tr>
+    <tr>
+      <td >&nbsp;</td>
+      <td class="gr" ><strong style="color:#A0C656">*</strong> - required fields</td>
+    </tr>	
+    
+  </form>
+</table>
+<!-- END form -->

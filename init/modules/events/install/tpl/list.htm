@@ -1,0 +1,35 @@
+<!-- BEGIN list --><br />
+
+<table width="100%"  border="0" cellpadding="6" cellspacing="1">
+  <tr>
+    <td bgcolor="#8896C3"><nobr><span class="white"><strong>{EVENT_DATE}</strong></span></nobr></td>
+  </tr>
+</table>
+<!-- BEGIN list_row -->
+<table width="100%"  border="0" cellpadding="6" cellspacing="1" bgcolor="E7E7E7">
+  <tr>
+    <td bgcolor="#{EVENT_TYPE|KEY}">
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top" nowrap><nobr><span class="white"><strong><lisk:field name="date"/></strong></span></nobr></td>
+          <td width="100%" class="pdl14 txt"><strong class="white"><lisk:field name="name"/> </strong></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" class="txt"><lisk:field name="description"/></td>
+  </tr>
+  <tr>
+    <td bgcolor="F5F4F9" class="txt"><p><strong>Contact Information:</strong> <lisk:field name="contact"/> </p>    </td>
+  </tr>
+</table>
+
+<!-- END list_row -->
+<!-- BEGIN list_empty -->
+<table width="100%"  border="0" cellpadding="6" cellspacing="1" bgcolor="E7E7E7">
+  <tr>
+    <td bgcolor="#FFFFFF" class="txt"><strong>No events for this date</strong></td>
+  </tr>
+</table>
+<!-- END list_empty -->
+<!-- END list -->

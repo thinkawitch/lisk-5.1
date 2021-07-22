@@ -1,0 +1,53 @@
+<!-- BEGIN form -->
+<script type="text/javascript" src="js/lisk/di_constructor.js"></script>
+
+<form method="post" enctype="multipart/form-data" onSubmit="return CheckForm(this, {JS_CHECK})" name="form1" id="form1">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">  
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="20%" valign="top" style="padding: 5px 5px 5px 10px;">Type</td>
+            <td style="padding:5px;">File</td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding: 5px 5px 5px 10px;">System Name</td>
+            <td style="padding:5px;"><lisk:field name="name" render="form"/> </td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding: 5px 5px 5px 10px;">Name (Label) </td>
+            <td style="padding:5px;"> <lisk:field name="label" render="form"/></td>
+          </tr>
+	    </table>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Files path </td>
+            <td style="padding:5px;"> {SYS_PATH} <lisk:field name="path" render="form" id="idFieldPath" /><a href="#" onclick="return false" id="idBtnCheckPath"><img src="img/cms/b_check_available.gif" width="105" height="20" vspace="1" border="0" align="top" /></a></td>
+          </tr>	</table>	  
+	  </td>
+    </tr>
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">  
+          <tr><td nowrap>
+			  <input name="field_type" type="hidden" id="field_type" value="file" />
+			  <input type="hidden" name="action" value="submit" /> 
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="Save the record."> 
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="Do not save the record and return to the previous page.">
+			  </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+</table>
+</form>
+<!-- END form -->

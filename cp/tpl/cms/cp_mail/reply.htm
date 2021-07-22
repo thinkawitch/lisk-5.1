@@ -1,0 +1,70 @@
+
+<!-- BEGIN reply -->
+<form method="post"  action="[./]" enctype="multipart/form-data" onSubmit="return CheckForm(this,{JS_CHECK})">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm" width="100%">
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="cpMsgForm">
+		  <colgroup>
+			<col width="120" />
+			<col />
+		  </colgroup>
+          <tr> 
+            <th >Send To </th>
+            <td><lisk:field name="id_to" render="form"  /> </td>
+          </tr>
+          <tr> 
+            <td colspan="2" class="separator"><img src="img/0.gif" width="1" height="2" /></td>
+          </tr>
+		  <tr> 
+            <th>Subject </th>
+            <td><lisk:field name="subject" render="form"   /> </td>
+          </tr>
+		  <tr> 
+            <td colspan="2" class="separator"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <th>Message </th>
+            <td><lisk:field name="message" render="form"  /> 
+				<br /><span style="color:#555">Wiki format: </span><br />
+				<table  width="400" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                  <td width="25%"><p>=h1=<br>
+                    ==h2==<br>
+                    ===h3===
+                  </p></td>
+                  <td width="25%">*list 1<br>
+                    *list 2<br>
+                    *list 3</td>
+                  <td width="25%">#num list 1<br>
+                    #num list 2<br>
+                    #num list 3</td>
+                  <td width="25%">[[quote]]</td>
+                </tr>
+            </table> 
+			</td>
+          </tr>
+        </table>
+
+	  </td>
+    </tr>
+    
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">  
+          <tr><td nowrap="nowrap"> 
+
+
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="Save the record."> 
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="Do not save the record and return to the previous page.">
+			  </td>
+			 
+           </td></tr>
+        </table>
+      </td>
+    </tr>  
+</table>
+<input type="hidden" name="action" value="submit" />
+</form>
+<!-- END reply -->

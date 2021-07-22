@@ -1,0 +1,45 @@
+<!-- BEGIN new -->
+<input type="hidden" name="{NAME}" value="" />
+
+<table border="0" cellspacing="0" cellpadding="5" id="idBlock{NAME}">
+<thead>
+  <tr>
+    <td width="1%" rowspan="2"><img src="[/]img/lisk/clip.gif" width="25" height="26" /></td>
+    <td><input type="file" name="{NAME}[]"  /> <a href="#attach-more" rel="attach-more">attach more</a></td>
+  </tr>
+  <tr>
+    <td>max file size {MAX_SIZE}</td>
+  </tr>
+</thead>
+<tbody>
+	
+</tbody>
+</table>
+<script type="text/javascript">
+	(new LiskFileMulti('{NAME}')).Init();
+</script>
+<!-- END new -->
+
+
+<!-- BEGIN update -->
+	<input type="hidden" name="{NAME}_prev" value="{VALUE}" />
+	<!-- BEGIN uploaded_files -->
+	<ul>
+		<!-- BEGIN uploaded_files_row -->
+		<li>
+			<a href="{FILE_LINK}" target="_blank">{FILE_NAME}</a> {FILE_SIZE}
+			<label><input type="checkbox" name="{NAME}_delete[]" value="{FILE_ID}" /> delete</label>
+		</li>
+		<!-- END uploaded_files_row -->
+	</ul>
+	<!-- END uploaded_files -->
+	{UPLOAD_NEW}
+<!-- END update -->
+
+<!-- BEGIN view -->
+<div class="attachements">
+<!-- BEGIN view_row -->
+	<div class="one"><a href="{LINK}" target="_blank">{NAME}</a> {SIZE}</div>
+<!-- END view_row -->
+</div>
+<!-- END view -->

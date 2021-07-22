@@ -1,0 +1,73 @@
+<!-- BEGIN navigation --> <a href="#" class="nav">Home</a><img src="img/cms/nav_del.gif" width="3" height="7" hspace="3" align="absmiddle">CMS 
+Sttings<img src="img/cms/nav_del.gif" width="3" height="7" hspace="4" align="absmiddle">Users 
+<!-- END navigation -->
+
+<!-- BEGIN back_link -->
+<a href="{URL}"><img src="img/cms/back.gif" width="17" height="10" hspace="2" border="0"></a><a href="{URL}" class="nav" liskHint="[[[main.go_back]]]">Back</a> 
+<!-- END back_link -->
+<!-- BEGIN bookmarks -->
+<table height="26" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td><img src="img/0.gif" width="3" height="1"></td>
+				<!-- BEGIN bookmarks_row -->
+   				 <td>{BOOKMARK}</td>
+				<!-- END bookmarks_row -->
+              </tr>
+            </table>
+<!-- END bookmarks -->
+
+<!-- BEGIN bookmark_on -->
+<table width="95" border="0" cellspacing="0" cellpadding="0">
+                    <tr> 
+                      <td width="3"><img src="img/cms/bm_1_.gif" width="3" height="26"></td>
+                      
+    <td align="left" nowrap background="img/cms/bm_2_.gif">{PICTURE}<strong><a href="{URL}" class="bookmark">{NAME}</a></strong><img src="img/0.gif" height="10" width="1" hspace="2"></td>
+                      <td width="3"><img src="img/cms/bm_3_.gif" width="3" height="26"></td>
+                    </tr>
+                  </table>
+<!-- END bookmark_on -->
+
+<!-- BEGIN bookmark_off -->
+<table width="95" height="26" border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td width="3"><img src="img/cms/bm_1.gif" width="3" height="26"></td>
+                      
+    <td align="left" nowrap background="img/cms/bm_2.gif">{PICTURE}<strong><a href="{URL}" class="bookmark">{NAME}</a></strong><img src="img/0.gif" height="10" width="1" hspace="2"></td>
+                      <td width="3"><img src="img/cms/bm_3.gif" width="3" height="26"></td>
+                    </tr>
+                  </table>
+<!-- END bookmark_off -->
+
+
+
+<!-- BEGIN links -->
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="middle" background="img/cms/links_bg.gif">
+		  <table height="25" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><img src="img/0.gif" width="5" height="24"></td>
+				<!-- BEGIN links_row -->
+                
+          <td valign="bottom" class="TDLink" nowrap="nowrap">{PICTURE}<a href="{URL}" {HINT}>{NAME}</a></td>
+				<!-- BEGIN links_separator -->
+                <td valign="bottom" ><img src="img/cms/links_del.gif" width="2" height="24"></td>
+				<!-- END links_separator -->
+				<!-- END links_row -->
+				<!-- BEGIN links_empty -->
+				<!-- END links_empty -->
+				<td valign="middle" width="100%" align="right">{LIST_FILTER}</td>
+              </tr>
+            </table>
+			</td>
+        </tr>
+      </table>
+<!-- END links -->
+<!-- BEGIN custom_line -->
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td background="img/cms/custom_line_bg.gif">{CONTENT}</td>
+  </tr>
+</table>
+<!-- END custom_line -->
+

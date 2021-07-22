@@ -1,0 +1,29 @@
+<!-- BEGIN view -->
+<table width="262" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr class="pdl">
+    <td height="22" class="htd"><strong>Filter Visits</strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F4F4F8" style="padding:3px 0px">
+		<table width="260" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4F4F8">
+		<tr class="pdl">
+			<td>
+				<lisk:field name="filter" render="form" id="idFilterStatVisit" />
+				&nbsp;
+				<input type="button" value="Apply" id="idApplyFilter" />
+			</td>
+		</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<script type="text/javascript">
+$('#idApplyFilter').click(function(){
+	var url = '{URL}';
+
+	url += '&filter=' + $('#idFilterStatVisit').val();
+
+	location.href = url;
+});
+</script>
+<!-- END view -->

@@ -1,0 +1,7 @@
+.idea
+backup
+cp/3rdparty/pma
+cp/3rdparty/sxd
+init/editors/ckeditor
+init/editors/ckfinder
+init/editors/code

@@ -1,0 +1,45 @@
+<!-- BEGIN dynamic_form -->
+<form method="post" enctype="multipart/form-data" onSubmit="return CheckForm(this,{JS_CHECK})">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">    
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <!-- BEGIN dynamic_form_row -->
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">{CAPTION} {REQUIRED}
+            </td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"> 
+				<lisk:field name="field" render="form" /><br />
+			   <span class="field_hint">{HINT}</span>
+			</td>
+          </tr>
+          <!-- BEGIN dynamic_form_separator -->
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <!-- END dynamic_form_separator -->
+          <!-- END dynamic_form_row -->
+        </table></td>
+    </tr>
+    
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">  
+          <tr><td nowrap="nowrap"> 
+<!-- BEGIN dynamic_form_hidden -->
+              <lisk:field name="hidden" render="form" />
+<!-- END dynamic_form_hidden -->
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="[[[cpmodules.save_rec]]]"> 
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="[[[cpmodules.no_save]]]">
+			  </td>
+			  <td nowrap width="10"><input type="radio" name="post_action" id="idPostAction1"  value="1" checked="checked" liskHint="[[[cpmodules.save_go_back]]]"></td>
+			  <td nowrap><label for="idPostAction1">[[[cpmodules.go_back_2prpage]]]</label></td>
+			  <td width="10"><input type="radio" name="post_action" id="idPostAction2" value="2" liskHint="[[[cpmodules.save_n_add_rec]]]"></td>
+			  <td width="100%"><label for="idPostAction2">[[[cpmodules.add_one_new_rec]]]</label>
+           <input type="hidden" name="action" value="submit" /></td></tr>
+        </table>
+      </td>
+    </tr>  
+</table>
+</form>
+<!-- END dynamic_form -->

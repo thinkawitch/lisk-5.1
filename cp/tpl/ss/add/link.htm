@@ -1,0 +1,176 @@
+<!-- BEGIN form -->
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$('#idLinkRedirect').click(function(){
+		ToggleRedirectType();
+	});
+	
+});
+
+function CheckFormFull(form) 
+{
+	form.link_href.value = $.trim(form.link_href.value);
+
+	if (!CheckForm(form,{JS_CHECK})) return false;
+		
+	if (form.link_href.value.length <= 0 || form.link_href.value == 'http://') 
+	{
+		ShowAlert('Please enter Link!');
+		return false;
+	}
+
+	if (IsRedirect301Active())
+	{
+		var parentUrl = '{PARENT_URL}';
+		form.url_part.value = FormatToSiteUrl(form.url_part.value, false);
+		if (form.url_part.value=='/' || form.url_part.value=='')
+		{
+			ShowAlert('Please enter from what url to redirect');
+			return false;
+		}
+		form.url.value = form.url_part.value;
+	}
+	
+	return true;
+}
+
+function IsRedirect301Active()
+{
+	return $('#idLinkRedirect').is(':checked');
+}
+
+function ToggleRedirectType()
+{
+	if (IsRedirect301Active())
+	{
+		$('#idRowUrl').show();
+		$('#idUrlPart').removeAttr('disabled');
+	}
+	else
+	{
+		$('#idUrlPart').attr('disabled', 'disabled');
+		$('#idRowUrl').hide();
+	}
+}
+</script>
+
+<form method="post" id="idForm"  onSubmit="return CheckFormFull(this)">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" valign="top" class="TDForm"><table  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="449" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif" height="24"><img src="img/cms/scms/i_page_info.gif" alt="" width="19" height="17" hspace="4" vspace="3" align="absmiddle"><strong>Link Information </strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Parent</td>
+                        <td>{PARENT_NAME}
+                          <input name="cat_dropdown" type="hidden" id="cat_dropdown" value="{PARENT_ID}" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Site section name </td>
+                        <td><lisk:field name="name" render="form" class="hform" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Link</td>
+                        <td><lisk:field name="link_href" render="form" class="hform" /></td>
+                      </tr>
+					  <tr>
+                        <td>&nbsp;</td>
+                        <td>Open in the new window</td>
+                        <td><lisk:field name="link_open_type" render="form" /></td>
+                      </tr>
+					  <tr>
+                        <td>&nbsp;</td>
+                        <td>Use 301 redirect </td>
+                        <td><lisk:field name="link_redirect" render="form"  id="idLinkRedirect" /></td>
+                      </tr>
+					  <tr id="idRowUrl" style="display:none">
+                        <td>&nbsp;</td>
+                        <td>From URL </td>
+                        <td><input type="text" name="url_part" id="idUrlPart" class="hform" value="" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+			  <input type="hidden" name="url" value="" id="idUrl"/>
+              <br /></td>
+            <td width="350" valign="top" style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_page_acces.gif" alt="" width="27" height="24" align="absmiddle"><strong>Page Access</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Access level </td>
+                        <td><lisk:field name="access_level" render="form" class="hform" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <br />
+              <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_other_option.gif" alt="" width="26" height="24" align="absmiddle"><strong>Other Options</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">[[[cp_scms.hide_from_menu]]] </td>
+                        <td><lisk:field name="hide_from_menu" render="form" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table><img src="img/0.gif" height="6" width="10" border="0"><br /></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td nowrap><input type="hidden" name="page_type" value="<lisk:field name='page_type' render='key' />" />
+              <input type="hidden" name="action" value="submit" />
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="Save the record.">
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="Do not save the record and return to the previous page.">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END form -->

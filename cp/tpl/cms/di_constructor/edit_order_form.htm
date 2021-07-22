@@ -1,0 +1,56 @@
+<!-- BEGIN list -->
+<div id="order" style="display:none"><br />
+<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+  <tr>
+    <td bgcolor="#F5F5FB" style="border-left: 1px solid #FFFFFF">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/cms/modules/bghh.gif">
+            <tr>
+              <td height="24"><strong class="pdl14">Change Default  Order </strong></td>
+          </tr>
+            <tr>
+              <td bgcolor="#6C6C72"><img src="img/0.gif" width="1" height="1" /></td>
+            </tr>
+        </table>
+          <table border="0" cellpadding="6" cellspacing="2" style="margin-left:10px">
+			<form method="post">
+			<tr>
+				<td>
+				
+				<table valign="top">
+				  <!-- BEGIN list_row -->
+				  <tr>
+					<td width="1%"><input name="field_name" type="radio" value="{NAME}" {SELECTED} /></td>
+					<td width="100%">{LABEL}</td>
+				  </tr>
+				  <!-- END list_row -->
+				 
+				</table>
+				
+				
+				</td>
+				<td valign="top">
+					<table>
+					<tr>
+						<td width="1%"><input name="order_type" type="radio" value="ASC" {ASC_SELECTED} /></td>
+						<td width="100%">Ascending</td>
+					</tr>
+					<tr>
+						<td width="1%"><input name="order_type" type="radio" value="DESC" {DESC_SELECTED} /></td>
+						<td width="100%">Descending</td>
+					</tr>
+					</table>
+					
+					
+				</td>
+			</tr>
+			 <tr>
+					<td colspan="2"><input name="action" type="hidden" id="action" value="change_order" />
+						<input type="image" name="Save2" src="img/cms/order/b_save.gif" hspace="6" />
+					  <img src="img/cms/order/b_cancel.gif" onclick="$('#order').hide();" style="cursor:pointer" /></td>
+				  </tr>
+			</form>
+      </table></td>
+  </tr>
+</table>
+</div>
+<!-- END list -->

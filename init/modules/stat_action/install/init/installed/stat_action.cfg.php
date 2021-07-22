@@ -1,0 +1,107 @@
+<?php
+
+// Define Stat Action Objects
+define ('STAT_OBJECT_NEWSLETTER', 	1);
+define ('STAT_OBJECT_CONTACT',		2);
+define ('STAT_OBJECT_ORDER',		3);
+define ('STAT_OBJECT_ECOM_ITEM',	4);
+define ('STAT_OBJECT_USER',			5);
+define ('STAT_OBJECT_CROSS_SELL',	6);
+define ('STAT_OBJECT_DISCOUNT',		7);
+define ('STAT_OBJECT_POLL',	        8);
+define ('STAT_OBJECT_DOWNLOAD',	    9);
+define ('STAT_OBJECT_SEARCH',	    10);
+define ('STAT_OBJECT_REFERER',	    11);
+
+// Define Action Statistics Objects List
+$GLOBALS['LIST_STAT_ACTION_OBJECTS'] = array(
+	STAT_OBJECT_NEWSLETTER		=> 'Newsletter',
+	STAT_OBJECT_CONTACT			=> 'Contact Form',
+	//STAT_OBJECT_ORDER			=> 'Order',
+	//STAT_OBJECT_ECOM_ITEM		=> 'Catalogue Item',
+	STAT_OBJECT_USER			=> 'Member',
+	//STAT_OBJECT_CROSS_SELL	=> 'Cross Selling',
+	//STAT_OBJECT_DISCOUNT		=> 'Discount Coupons',
+	STAT_OBJECT_POLL			=> 'Poll',
+	STAT_OBJECT_DOWNLOAD		=> 'Download',
+	STAT_OBJECT_SEARCH			=> 'Search',
+	STAT_OBJECT_REFERER         => 'Visitors',
+);
+
+// Define Object Events
+define('STAT_OBJECT_NEWSLETTER_SUBSCRIBE', 	1);
+define('STAT_OBJECT_NEWSLETTER_UNSUBSCRIBE',	2);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_NEWSLETTER] = array(
+	STAT_OBJECT_NEWSLETTER_SUBSCRIBE 		=> 'Subscribe',
+	STAT_OBJECT_NEWSLETTER_UNSUBSCRIBE 	=> 'Unsubscribe'
+);
+
+define('STAT_OBJECT_CONTACT_VIEW',		1);
+define('STAT_OBJECT_CONTACT_SUBMIT',	2);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_CONTACT] = array(
+	STAT_OBJECT_CONTACT_VIEW	=>	'View',
+	STAT_OBJECT_CONTACT_SUBMIT	=>	'Send message',
+);
+
+
+define('STAT_OBJECT_ORDER_COMPLETE',		1);
+define('STAT_OBJECT_ORDER_INCOMPLETE',		2);
+define('STAT_OBJECT_ORDER_PAYMENT_FAILED',	3);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_ORDER] = array(
+	STAT_OBJECT_ORDER_COMPLETE			=> 'Completed orders',
+	STAT_OBJECT_ORDER_INCOMPLETE		=> 'Incomplete checkouts',
+	STAT_OBJECT_ORDER_PAYMENT_FAILED	=> 'Payments failed',
+);
+
+define('STAT_OBJECT_ECOM_ITEM_VIEW',	1);
+define('STAT_OBJECT_ECOM_ITEM_ADD',	    2);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_ECOM_ITEM] = array(
+	STAT_OBJECT_ECOM_ITEM_VIEW		=> 'Item view',
+	STAT_OBJECT_ECOM_ITEM_ADD		=> 'Item add to cart',
+);
+
+define('STAT_OBJECT_USER_REGISTER',		1);
+define('STAT_OBJECT_USER_LOGIN',		2);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_USER] = array(
+	STAT_OBJECT_USER_REGISTER	=> 'Member registrations',
+	STAT_OBJECT_USER_LOGIN		=> 'Member logins',
+);
+
+define('STAT_OBJECT_CROSS_SELL_VIEW',	1);
+define('STAT_OBJECT_CROSS_SELL_ADD',	2);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_CROSS_SELL] = array(
+	STAT_OBJECT_CROSS_SELL_VIEW		=> 'Cross Selling item view',
+	STAT_OBJECT_CROSS_SELL_ADD		=> 'Cross Selling add to cart',
+);
+
+define('STAT_OBJECT_DISCOUNT_USE',		1);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_DISCOUNT] = array(
+	STAT_OBJECT_DISCOUNT_USE	=> 'Discount Coupon use',
+);
+
+define('STAT_OBJECT_POLL_VOTE',		1);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_POLL] = array(
+	STAT_OBJECT_POLL_VOTE	=> 'Vote',
+);
+
+define('STAT_OBJECT_DOWNLOAD_DOWNLOAD',		1);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_DOWNLOAD] = array(
+	STAT_OBJECT_DOWNLOAD_DOWNLOAD	=> 'Download',
+);
+
+define('STAT_OBJECT_SEARCH_SEARCH',		1);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_SEARCH] = array(
+	STAT_OBJECT_SEARCH_SEARCH	=> 'Search',
+);
+
+define('STAT_OBJECT_REFERER_GOOGLE', 1);
+define('STAT_OBJECT_REFERER_YAHOO',  2);
+define('STAT_OBJECT_REFERER_MSN',    3);
+define('STAT_OBJECT_REFERER_OTHER',  4);
+$GLOBALS['LIST_STAT_ACTION_' . STAT_OBJECT_REFERER] = array(
+	STAT_OBJECT_REFERER_GOOGLE	=> 'Google (organic)',
+	STAT_OBJECT_REFERER_YAHOO	=> 'Yahoo  (organic)',
+	STAT_OBJECT_REFERER_MSN     => 'Msn  (organic)',
+	STAT_OBJECT_REFERER_OTHER	=> 'Other',
+);
+?>

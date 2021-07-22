@@ -1,0 +1,32 @@
+Options -Indexes
+
+#in cgi mode options can be set only in php
+#mb strings support
+php_value mbstring.func_overload 2
+php_value mbstring.detect_order utf-8
+php_value mbstring.internal_encoding utf-8
+
+#disable PHPsid in get params
+php_value session.use_trans_sid 0
+php_value session.use_only_cookies 1
+
+
+RewriteEngine On
+
+#close .svn files
+#RewriteRule .svn tpl/404.htm [QSA,L,R=404]
+
+#uncomment this to force www site name
+#RewriteCond %{HTTP_HOST} !^www
+#RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !cp/*
+RewriteCond %{REQUEST_FILENAME} !css/*
+RewriteCond %{REQUEST_FILENAME} !files/*
+RewriteCond %{REQUEST_FILENAME} !img/*
+RewriteCond %{REQUEST_FILENAME} !init/*
+RewriteCond %{REQUEST_FILENAME} !js/*
+RewriteCond %{REQUEST_FILENAME} !tpl/*
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ _error.php [QSA,L]

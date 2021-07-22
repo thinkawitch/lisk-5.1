@@ -1,0 +1,343 @@
+<!-- BEGIN view_media -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="view_tab">
+  <tr>
+    <td height="30px" align="center"><strong id="f_title">
+    <lisk:field name="name" />
+    </strong></td>
+  </tr>
+  <tr>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>File: <strong id="f_size"><lisk:field name="file_media" render="size" /> <a href="?action=download&id=<lisk:field name='id' />" id="f_link">download</a></strong></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td align="center" valign="bottom">
+      <br />
+      <table border="0" align="center" cellpadding="2" cellspacing="1" style="background:#666666;">
+        <tr>
+          <td style="background:#ffffff"><object id="mediaPlayer"
+	codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701"
+	type="application/x-oleobject" standby="Loading Microsoft Windows Media Player components..."
+	classid="CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95"
+	width="320"
+	height="256">
+            <param name="fileName" value="<lisk:field name='file_media' render='src' />" />
+            <param name="autoStart" value="true" />
+            <param name="showControls" value="true" />
+            <embed type="application/x-mplayer2"
+			width="320"
+			height="256"
+			autostart="1"
+			pluginspage="http://www.microsoft.com/Windows/MediaPlayer/"
+			src="<lisk:field name='file_media' render='src' />"
+			showcontrols="true"></embed>
+          </object></td>
+        </tr>
+      </table>
+      <br />
+    </td>
+  </tr>
+</table>
+<!-- END view_media -->
+<!-- BEGIN view_flash -->
+<table border="0" cellpadding="0" cellspacing="0" id="view_tab" width="100%">
+  <tr>
+    <td height="30px" align="center"><strong id="f_title">
+    <lisk:field name="name" />
+    </strong></td>
+  </tr>
+  <tr>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><span id="width_span">&nbsp;Width: <strong id="f_width">{ORIGINAL_WIDTH}px</strong> </span></td>
+          <td>&nbsp;</td>
+          <td><span id="height_span"> Height: <strong id="f_height">{ORIGINAL_HEIGHT}px</strong></span> </td>
+          <td>&nbsp;</td>
+          <td>File: <strong id="f_size"><lisk:field name="file_media" render="size" /> <a href="?action=download&id=<lisk:field name='id'/>" id="f_link">download</a></strong></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td align="center"><br />
+      <table border="0" align="center" cellpadding="2" cellspacing="1" style="background:#666666;">
+        <tr>
+          <td style="background:#ffffff">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="{ORIGINAL_WIDTH}" height="{ORIGINAL_HEIGHT}" id="flashObj" name="flashObj">
+              <param name="movie" value="<lisk:field name='file_media' render='src' />" />
+              <param name="quality" value="high" />
+              <param name="wmode" value="transparent" />
+              <embed src="<lisk:field name='file_media' render='src' />" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="{ORIGINAL_WIDTH}" height="{ORIGINAL_HEIGHT}" id="flashEmb" name="flashEmb"></embed>
+            </object>
+		  </td>
+        </tr>
+      </table>
+      <br /></td>
+  </tr>
+</table>
+<script type="text/javascript">
+var width = '{ORIGINAL_WIDTH}';
+var height = '{ORIGINAL_HEIGHT}';
+var resizedWidth = '{MEDIUM_WIDTH}';
+var resizedHeight = '{MEDIUM_HEIGHT}';
+
+var k1 = width/height;
+var k2 = resizedWidth/resizedHeight;
+
+var q = k1/k2;
+
+var newWidth, newHeight;
+
+var arr = new Array('flashObj', 'flashEmb');
+for (var i=0;i<arr.length ;i++ )
+{
+	var idDivImg = $('#'+arr[i])[0];
+	
+	if (k1 >= 1) {
+		if (q >= 1) {
+			newWidth = resizedWidth;
+			newHeight = width/k1;
+		} else {
+			newWidth = resizedWidth*q;
+			newHeight = resizedHeight;
+		}
+	} else { 
+		if (q >= 1) {
+			newHeight = resizedHeight/q;
+			newWidth = height*k1;
+		} else {
+			newHeight = resizedHeight;
+			newWidth = height*q;
+		}
+	}
+
+	if (width<=resizedWidth && height<=resizedHeight) {
+		newWidth = width;
+		newHeight = height;
+	}
+	idDivImg.width=newWidth;
+	idDivImg.height=newHeight;
+}
+
+</script>
+<!-- END view_flash -->
+<!-- BEGIN view_image -->
+<table border="0" cellpadding="0" cellspacing="0" id="view_tab" width="100%">
+  <tr>
+    <td height="30px" align="center"><strong id="f_title">
+    <lisk:field name="name" />
+    </strong></td>
+  </tr>
+  <tr>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><span id="width_span">&nbsp;Width: <strong id="f_width">{ORIGINAL_WIDTH}px</strong> </span></td>
+          <td>&nbsp;</td>
+          <td><span id="height_span"> Height: <strong id="f_height">{ORIGINAL_HEIGHT}px</strong></span> </td>
+          <td>&nbsp;</td>
+          <td>File: <strong id="f_size"><lisk:field name="file_media" render="size" /> <a href="?action=download&id=<lisk:field name='id'/>" id="f_link">download</a></strong></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td align="center" valign="bottom"><br />
+      <table border="0" align="center" cellpadding="2" cellspacing="1" style="background:#666666;">
+        <tr>
+          <td style="background:#ffffff"><img src="<lisk:field name='file_media' render='src' />" border="0" id="idDivImg" alt="" /></td>
+        </tr>
+      </table>
+    <br /> </td>
+  </tr>
+</table>
+<script type="text/javascript" language="javascript">
+var width = '{ORIGINAL_WIDTH}';
+var height = '{ORIGINAL_HEIGHT}';
+var resizedWidth = '{MEDIUM_WIDTH}';
+var resizedHeight = '{MEDIUM_HEIGHT}';
+
+var idDivImg = $('#idDivImg')[0];
+
+var k1 = width/height;
+var k2 = resizedWidth/resizedHeight;
+
+var q = k1/k2;
+
+var newWidth, newHeight;
+
+if (k1 >= 1) {
+	if (q >= 1) {
+		newWidth = resizedWidth;
+		newHeight = width/k1;
+	} else {
+		newWidth = resizedWidth*q;
+		newHeight = resizedHeight;
+	}
+} else { 
+	if (q >= 1) {
+		newHeight = resizedHeight/q;
+		newWidth = height*k1;
+	} else {
+		newHeight = resizedHeight;
+		newWidth = height*q;
+	}
+}
+if (width<=resizedWidth && height<=resizedHeight) {
+	newWidth = width;
+	newHeight = height;
+}
+idDivImg.width=newWidth;
+idDivImg.height=newHeight;
+
+
+</script>
+<!-- END view_image -->
+<!-- BEGIN view_image_slideshow -->
+<table border="0" cellpadding="0" cellspacing="0" id="view_tab" width="100%">
+  <tr>
+    <td height="30px" align="center"><strong id="f_title"> <lisk:field name="name" /> </strong></td>
+  </tr>
+  <tr>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><span id="width_span">&nbsp;Width: <strong id="f_width"><lisk:field name="file_image" render="original" thumbnail="width" />px</strong></span></td>
+          <td>&nbsp;</td>
+          <td><span id="height_span"> Height: <strong id="f_height"><lisk:field name="file_image" render="original" thumbnail="height"/>px</strong></span> </td>
+          <td>&nbsp;</td>
+          <td>File: <strong id="f_size"><lisk:field name="file_image" render="filesize" /></strong> <strong><a href="?action=download&id=<lisk:field name='id' />" id="f_link">download</a></strong></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td align="center" valign="bottom"><br />
+      <table border="0" align="center" cellpadding="2" cellspacing="1" style="background:#666666;">
+        <tr>
+          <td style="background:#ffffff"><img src="<lisk:field name='file_image' render='medium' thumbnail='src' />" border="0" id="idDivImg" alt="" /></td>
+        </tr>
+      </table>
+    <br /> </td>
+  </tr>
+  <tr>
+    <td height="30px" align="center"><table id="bottom_prop" cellpadding="0" cellspacing="0" width="100%" border="0" style="border:0px hidden #E7E7EB;">
+        <tr>
+          <td align="center" width="100%" style="text-align:center"><input type="checkbox" name="slideToggle" id="slideToggle" value="0" onclick="javascript: showSlideShow();" />
+            <strong>
+            <label for="slideToggle"> slide show</label>
+            </strong></td>
+        </tr>
+        <tr>
+          <td align="center" width="100%" style="text-align:center"><div id="idPaging" align="center">{PAGING}</div></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<script type="text/javascript" language="javascript">
+{PICS_LIST}
+{PICS_IDS}
+{PICS_HEIGHT}
+{PICS_WIDTH}
+{PICS_SIZE}
+{PICS_NAME}
+var ind = {IND};
+var first = true;
+var slideTimer1 = null;
+var slideTimer2 = null;
+ImgArr = new Array ();
+
+//preload
+for (var i=1;i<gallery.length;i++) 
+{
+	ImgArr[i] = new Image ();
+	ImgArr[i].src = gallery[i];
+}
+
+function reloadSlides() 
+{
+	var obj = $('#idDivImg')[0];
+	if(!obj) return;
+	$(obj).fadeOut(300);
+	ind++;
+	if (ind > gallery.length-1) { ind = 1; }
+	
+	setTimeout(function()
+	{
+			obj.src = gallery[ind];
+			$(obj).fadeIn(700);
+			$('#f_height').html(gallery_height[ind]+'px');
+			$('#f_width').html(gallery_width[ind]+'px');
+			$('#f_size').html(gallery_size[ind]);
+			$('#f_link').attr('href', '?action=download&id='+galleryIds[ind]+'/' );
+			$('#f_title').html(gallery_name[ind]);
+	}, 300);
+}
+
+function showSlideShow() 
+{
+	var rtime = 3000;
+
+	var checkbox = $("#slideToggle")[0];
+    
+	clearTimeout(slideTimer1);
+	clearTimeout(slideTimer2);
+
+	if (checkbox.checked) 
+	{
+		slideTimer1 = setTimeout('reloadSlides()', rtime);
+		slideTimer1 = setTimeout('showSlideShow()', rtime);
+		$("#idPaging").css({visibility:'hidden'});
+	} 
+	else 
+	{
+		$("#idPaging").css({visibility:'visible'});	
+	}
+}
+</script>
+<!-- END view_image_slideshow -->
+
+<!-- BEGIN pics_ids -->
+var galleryIds = new Array(''
+<!-- BEGIN pics_ids_row -->
+,'<lisk:field name="id" />'
+<!-- END pics_ids_row -->
+);
+<!-- END pics_ids -->
+<!-- BEGIN pics_list -->
+var gallery = new Array(''
+<!-- BEGIN pics_list_row -->
+,'<lisk:field name="file_image" render="medium" thumbnail="src" />'
+<!-- END pics_list_row -->
+);
+<!-- END pics_list -->
+<!-- BEGIN pics_height -->
+var gallery_height = new Array(''
+<!-- BEGIN pics_height_row -->
+,'<lisk:field name="file_image" render="original" thumbnail="height" />'
+<!-- END pics_height_row -->
+);
+<!-- END pics_height -->
+<!-- BEGIN pics_width -->
+var gallery_width = new Array(''
+<!-- BEGIN pics_width_row -->
+,'<lisk:field name="file_image" render="original" thumbnail="width" />'
+<!-- END pics_width_row -->
+);
+<!-- END pics_width -->
+<!-- BEGIN pics_size -->
+var gallery_size = new Array(''
+<!-- BEGIN pics_size_row -->
+,'<lisk:field name="file_image" render="filesize"/>'
+<!-- END pics_size_row -->
+);
+<!-- END pics_size -->
+<!-- BEGIN pics_name -->
+var gallery_name = new Array(''
+<!-- BEGIN pics_name_row -->
+,'<lisk:field name="name" />'
+<!-- END pics_name_row -->
+);
+<!-- END pics_name -->

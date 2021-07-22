@@ -1,0 +1,96 @@
+<!-- 
+CMS Dynamic list TPL. 
+version 5.1
+-->
+<!-- BEGIN cms_list -->
+
+<script type="text/javascript" src="js/lisk/cms_list.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var cl = new CmsList('idCmsList');
+	cl.Init(0, '{DATAITEM_NAME}');
+	cl.msgDeleteSelected = '[[[cpmodules.sure_u_want_2_del_all]]]';
+	cl.BindControls();
+});
+</script>
+
+<!-- BEGIN cms_list_searchform -->
+<div id="list_form_search" style="display:{DISPLAY}">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+     <tr>	
+      <td colspan="100" background="img/cms/links_bg.gif" height="25px" width="100%">&nbsp;[[[main.search]]]: 
+		<select name="searchfield" id="search_field" style="font-size: 10px;">
+		{ALL_FIELDS}
+		</select>
+		<input type="text" name="qq" id="search_qq" style="font-size: 10px;" value="{KEYWORD}" /> 
+		<select name="match" id="search_match" style="font-size: 10px;">
+		{OPTIONS_MATCH}
+		</select>
+		<input name="list_{LIST_NAME_SEARCH}_action" style="font-size: 10px;" value="Search" class="btnSubmit" type="button" onclick="location.href='{SEARCH_LINK}'+$('#search_qq').val()+'&match='+$('#search_match').val()+'&searchfield='+$('#search_field').val();" />
+		</td>
+    </tr>   
+</table>
+</div>
+<!-- END cms_list_searchform -->
+
+<!-- BEGIN cms_list_alphabetic -->
+<div id="alphabetic_form" style="display:{DISPLAY}">
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0" >
+     <tr>	
+      <td colspan="100"  background="img/cms/links_bg.gif" height="25px"  width="100%">&nbsp;[[[main.letters]]]: <a href="{ALL}">All</a> | {ALPHA_LETTERS} <select name="alpha_field" style="font-size: 10px;" onchange="location.href='{ALPHA_LINK}'+this.value">
+		{ALL_FIELDS}
+		</select></td>
+    </tr>   
+	</table>
+	</div>
+<!-- END cms_list_alphabetic -->
+
+<form id="idCmsList" method="post" onsubmit="return false">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="cl-table">
+    <tr>
+	  {CAPTIONS}
+      <td colspan="100" class="ListTDTop" width="1%">&nbsp;</td>
+    </tr>
+	<!-- BEGIN cms_list_row -->
+	<tr id="{ROW_ID}" class="cl-row {DECORATION}">
+		{FIELDS}
+		{BUTTONS}
+	</tr>
+	<!-- END cms_list_row -->
+	<!-- BEGIN cms_list_empty -->
+	<tr> 
+      <td colspan="100" align="center"><br>
+        [[[cpmodules.no_records]]]<br>&nbsp;
+      </td>
+	</tr>
+	<!-- END cms_list_empty -->
+    <tr id="idRowNoRecords" style="display:none;"> 
+      <td colspan="100" align="center"><br>
+        All records were deleted, please reload the page!<br>&nbsp;
+      </td>
+	</tr>
+    <tr> 
+      <td colspan="106"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+            <td width="1%" class="ListTDBottom">
+			<!-- BEGIN cms_list_delete_all -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr> 
+                  <td align="right" nowrap="nowrap" style="padding:0 20px 0 0">
+                  	<input name="list_{LIST_NAME}_action" type="hidden" value="delete_selected" />
+                  	<img src="img/cms/list/delete_selected.gif" width="15" height="9" align="absmiddle"> 
+                    <a href="#delete-selected" rel="delete-selected"  onclick="return false" liskHint="[[[cpmodules.delete_sel_recs]]]">[[[cpmodules.delete_selected]]]</a> 
+                  </td>
+                  <td width="1" align="center"><a href="#select-all" rel="select-all" onclick="return false" liskHint="[[[cpmodules.sel_dissel_all_recs]]]"><img src="img/cms/list/select_all.gif" width="30" height="12" hspace="5" border="0" align="absmiddle" /></a></td>
+                </tr>
+              </table>
+			  <!-- END cms_list_delete_all -->
+			  </td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END cms_list -->

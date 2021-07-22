@@ -1,0 +1,38 @@
+<!-- BEGIN form -->
+
+<form method="post" enctype="multipart/form-data">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr> 
+            <td width="20%" valign="top" style="padding:5px 5px 5px 10px">
+				{STATUS}
+			</td>
+            <td style="padding:5px 5px 5px 10px">
+				<lisk:field name="content" render="form" />
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+            <td width="80%"> 
+              <input type="hidden" name="action" value="submit" /> <input name="submit" type="submit" value="Submit" class="btnSubmit" /> 
+            <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" /></td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END form -->
+
+<!-- BEGIN installed -->
+<p>Google Analytics is installed</p>
+<!-- END installed -->
+
+<!-- BEGIN not_installed -->
+<p><span style="color:red">Google Analytics is not installed </span></p>
+<!-- END not_installed -->

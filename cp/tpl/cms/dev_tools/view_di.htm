@@ -1,0 +1,18 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<!-- BEGIN list_row -->
+  <tr>
+    <td width="20%" valign="top">{NAME}</td>
+    <td><a href="#toggle" onclick="$('#di_{ID}').toggle(); return false">show/hide code </a>
+      <table width="400" border="0" cellpadding="5" cellspacing="1" bgcolor="#D9FFCC" id="di_{ID}" style="display: none">
+        <tr>
+          <td nowrap="nowrap"><pre>{CODE}</pre></td>
+        </tr>
+      </table></td>
+    <td width="1%" valign="top"><a href="?action=edit_di&name={NAME}&back=0">edit</a></td>	  
+    <td width="1%" valign="top"><a href="di_constructor.php?name={NAME}&back=0">constructor</a></td>
+    <td width="1%" valign="top"><a href="?action=delete_di&name={NAME}">delete</a></td>
+  </tr>
+<!-- END list_row -->
+</table>
+<!-- END list -->

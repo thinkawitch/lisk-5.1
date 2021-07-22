@@ -1,0 +1,84 @@
+<!-- BEGIN export_form -->
+<script type="text/javascript">
+function SwitchFormat()
+{
+	if (jQuery('#idFormat1').is(':checked')) jQuery('#idRowFieldsNames').show();
+	else jQuery('#idRowFieldsNames').hide();
+}
+
+function CheckExportForm()
+{
+	var fieldsCount = 0;
+	jQuery('#idExportForm input').each(function(e){
+		var elem = jQuery(this).get(0);
+		if (elem.name=='fields_to_export[]' && elem.checked) fieldsCount++;
+	});
+	
+	if (fieldsCount<1)
+	{
+		ShowAlert('Please select at least one field');
+		return false;
+	}
+	return true;
+}
+</script>
+
+<form method="POST" action="[./]" id="idExportForm" onsubmit="return CheckExportForm()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">    
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm">
+
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td style="margin:5px; padding:5px" valign="top"> Export format:
+			</td>
+			<td style="margin:5px; padding:5px">
+					<input type="radio"  name="export_format" id="idFormat1" value="1" checked="checked" onclick="SwitchFormat()" />	 <label for="idFormat1">CSV</label>
+					<br />
+					<input type="radio" name="export_format" id="idFormat2" value="2" onclick="SwitchFormat()" /> <label for="idFormat2">XML</label>
+			</td>
+		</tr>
+		<tr>
+			<td style="margin:5px; padding:5px" valign="top"> </td>
+			<td style="margin:5px; padding:5px"><input type="checkbox" name="real_lists" id="idRealLists" value="1" checked="checked" /><label for="idRealLists">Export real list values</label></td>
+		</tr>
+		<tr id="idRowFieldsNames">
+			<td style="margin:5px; padding:5px" valign="top"></td>
+			<td style="margin:5px; padding:5px"><input type="checkbox" name="csv_add_fields_names" id="idCsvFields" value="1" checked="checked" /><label for="idCsvFields">Put fields names in the first row</label></td>
+		</tr>
+		<tr>
+			<td style="margin:5px; padding:5px" valign="top"> Select fields: </td>
+			<td style="margin:5px; padding:5px">
+
+				<table border="0" cellpadding="5" cellspacing="1" style="background-color:#000">
+				  <tr>
+					<td width="130" bgcolor="#EEEEEE">Field</td>
+					<td width="130" bgcolor="#EEEEEE">Description</td>
+					<td width="60" bgcolor="#EEEEEE">&nbsp;</td>
+				  </tr>
+				  <!-- BEGIN export_form_row -->
+				  <tr>
+					<td nowrap="nowrap" bgcolor="#FFFFFF">{FIELD}</td>
+					<td nowrap="nowrap" bgcolor="#FFFFFF">{CAPTION}</td>
+					<td align="center" nowrap="nowrap" bgcolor="#FFFFFF"><input type="checkbox" value="{FIELD}" name="fields_to_export[]"  checked="checked" /></td>
+				  </tr>
+				  <!-- END export_form_row -->
+				</table>    
+
+			</td>
+		</tr>
+		<tr>
+		  <td class="TDFormFooter">&nbsp;</td>
+		  <td class="TDFormFooter">
+			<input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="[[[main.import_data]]]"> 
+			<input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="[[[main.no_import]]]"><input type="hidden" name="action" value="submit" /></td>
+		</tr>	
+        </table>
+		
+	  </td>
+    </tr>
+</table>
+
+</form>
+<!-- END export_form -->

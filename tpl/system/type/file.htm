@@ -1,0 +1,27 @@
+<!-- BEGIN new -->
+<input type="hidden" name="{NAME}" value="" />
+<input type="hidden" name="{NAME}_edit_action" value="change" />
+<input type="hidden" name="{NAME}_upload_method" value="http" />
+
+Max file size: {MAX_SIZE} &nbsp; <input type="file" name="{NAME}_upload_http" {PARAMS} />
+<!-- END new -->
+
+
+<!-- BEGIN update -->
+<input type="hidden" name="{NAME}" value="" />
+<input type="hidden" name="{NAME}_edit_action" value="change" />
+<input type="hidden" name="{NAME}_upload_method" value="http" />
+
+<table width="100%"  border="0" cellpadding="3" cellspacing="1">
+	<tr>
+	  <td>Max file size: {MAX_SIZE} <input name="{NAME}_upload_http" type="file" {PARAMS} /></td>
+	</tr>
+	<tr>
+	  <td>{FILE_NAME} {FILE_SIZE} | <a href="{FILE_LINK}" target="_blank">download</a> | <label><input type="checkbox" name="{NAME}_edit_action" value="delete" /> delete</label></td>
+	</tr>
+</table>
+<!-- END update -->
+
+<!-- BEGIN view -->
+<a href="{LINK}">{FILE_NAME}, {SIZE}</a> 
+<!-- END view -->

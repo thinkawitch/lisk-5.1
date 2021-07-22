@@ -1,0 +1,70 @@
+<!-- BEGIN form -->
+<style type="text/css">
+.ui-autocomplete-loading { background: white url('img/jquery-ui/ui-anim_basic_16x16.gif') right center no-repeat; }
+
+.ui-autocomplete {
+	max-height: 150px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	/* add padding to account for vertical scrollbar */
+	padding-right: 20px;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+	height: 150px;
+}
+</style>
+
+<input type="hidden" name="{NAME}" value="{VALUE}" />
+<input type="text" name="{NAME}_caption" style="width:180px;" value="{CAPTION}" {PARAMS} />
+
+<script type="text/javascript">
+
+(function(){
+	
+	var cache = {}, lastXhr;
+	
+	$("input[name={NAME}_caption]").autocomplete(
+	{
+		minLength: 1,
+		source: function(request, response) 
+		{
+			var term = request.term;
+			if (term in cache) 
+			{
+				response(cache[term]);
+				return;
+			}
+			
+			lastXhr = $.getJSON(
+				"../ajax.php?action=suggest&type={TYPE}&name={NAME}", 
+				request, 
+				function(data, status, xhr) 
+				{
+					cache[term] = data;
+					if (xhr === lastXhr) 
+					{
+						response(data);
+					}
+				}
+			);
+		},
+		select: function(event, ui) 
+		{
+			if (ui.item)
+			{
+				$('input[name={NAME}]').val(ui.item.id);
+			}
+			else
+			{
+				$('input[name={NAME}]').val('');
+			}
+		}
+	});
+
+})();
+</script>
+<!-- END form -->

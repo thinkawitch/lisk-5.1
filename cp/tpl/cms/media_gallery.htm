@@ -1,0 +1,87 @@
+<!-- BEGIN upload -->
+{TEMP}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" enctype="multipart/form-data">
+    <tr>
+      <td colspan="2" valign="top" class="TDForm">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr>
+            <td width="18%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">            </td>
+            <td width="82%" style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			 <table width="100%" border="0" cellspacing="0" cellpadding="3" id="{NAME}_table_upload" style="display:block;">
+  <tr>
+  <td width="154" align="right"><nobr>[[[cpmodules.sel_arch_2upload]]]</nobr></td>
+    <td width="30" align="right"><img src="img/data_types/image_upload.gif" width="25" height="22"></td>
+    <td width="624"><b> </b> <input name="userfile" type="file"> </td>
+  </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td align="right">&nbsp;</td>
+    <td class="tdImageDescription">[[[cpmodules.upload_from_disk]]] {MAX_SIZE} </td>
+  </tr>
+</table> </td>
+          </tr>
+
+
+
+        </table></td>
+    </tr>
+
+    <tr>
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr><td nowrap>
+
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="[[[cpmodules.upload_archive]]]">
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="[[[cpmodules.no_save]]]">
+			  </td><td nowrap width="10"><input name="post_action" type="radio" value="1" checked liskHint="[[[cpmodules.save_go_back]]]"></td><td nowrap>
+              [[[cpmodules.go_back_2prpage]]]</td><td width="10"><input type="radio" name="post_action" value="2" liskHint="[[[cpmodules.save_n_add_rec]]]">
+              </td><td width="100%">[[[cpmodules.add_one_new_rec]]]
+          </td></tr>
+        </table>
+      </td>
+    </tr>
+	<input name="id" type="hidden" value="{ID}">
+	<input type="hidden" name="action" value="upload">
+  </form>
+</table>
+<!-- END upload -->
+
+
+<!-- BEGIN empty -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="5" class="ListTDTop">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="5" align="center" class="ListTD1"><br>
+      <br>
+      [[[cpmodules.no_records]]]<br><br>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" class="ListTDBottom">&nbsp;</td>
+  </tr>
+</table>
+<!-- END empty -->
+
+<!-- BEGIN move -->
+<td width="20%" align="right"> <input type="button" name="moveSelectedToBtn" value="Move sel to" onClick="moveSelectedTo();">
+  {MOVE} </td>
+<!-- END move -->
+
+<!-- BEGIN additional_navigation -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="padding-left: 10px;"><strong>[[[cpmodules.cur_location]]]</strong> <img src="img/cms/directory.gif" width="11" height="9" hspace="2" align="absmiddle" vspace="4">{NAVIGATION}</td>
+    <td width="1%" align="right" style="padding-right: 5px;" nowrap>[[[cpmodules.q_jump_to]]] {JUMP_FIELD}</td></tr>
+</table>
+<!-- END additional_navigation -->
+
+<!-- BEGIN nav -->
+<!-- BEGIN nav_row -->
+<a href="?cl={ID}&back={BACK}">{NAME}</a> <img src="img/cms/nav_del.gif" width="3" height="7" align="absmiddle" hspace="2" vspace="4">
+<!-- END nav_row -->
+{NAME}
+<!-- END nav -->

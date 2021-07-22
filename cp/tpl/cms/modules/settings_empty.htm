@@ -1,0 +1,38 @@
+<!-- BEGIN dynamic_form -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="65%" valign="top" style="padding-right:8px;">&nbsp;</td>
+    <td width="35%" valign="top" style="padding-top:5px;">{SYS_INFO}<br />
+
+{SYS_CUSTOM} <br />{SYS_CONF}<br />
+{SNIPPETS}</td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	
+	jQuery('#idHeaderSysInfo, #idHeaderSysConf, #idHeaderSysCust, #idHeaderSysSnippets').mouseover(function(){
+		this.style.cursor = 'pointer';
+	});
+
+	jQuery('#idHeaderSysConf').click(function(){
+		PanelToggle('sys_conf');
+	});
+
+	jQuery('#idHeaderSysInfo').click(function(){
+		PanelToggle('sys_info');
+	});
+
+	jQuery('#idHeaderSysCust').click(function(){
+		PanelToggle('sys_cust');
+	});
+
+	jQuery('#idHeaderSysSnippets').click(function(){
+		PanelToggle('sys_snippets');
+	});
+	
+});
+</script>
+
+<!-- END dynamic_form -->

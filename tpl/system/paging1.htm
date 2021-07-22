@@ -1,0 +1,69 @@
+<!-- BEGIN paging -->
+<table border="0" align="center" cellpadding="0" cellspacing="4" class="mgt8">
+<tr>
+<!-- BEGIN first -->
+<!-- END first -->
+
+<!-- BEGIN first_empty -->
+<!-- END first_empty -->
+
+<!-- BEGIN prev -->
+	<td><a href="{HREF}">&laquo;</a></td>
+<!-- END prev -->
+
+<!-- BEGIN prev_empty -->
+<!-- END prev_empty -->
+
+<td class="txt">&nbsp;
+<!-- BEGIN pages -->
+
+<!-- BEGIN page -->
+<a href="{HREF}">{NUMBER}</a>
+<!-- END page -->
+
+<!-- BEGIN cur_page -->
+<strong>{NUMBER}</strong>
+<!-- END cur_page -->
+
+<!-- BEGIN page_separator -->
+	&nbsp;&nbsp;|&nbsp;&nbsp;
+  <!-- END page_separator -->
+
+<!-- END pages -->
+  &nbsp;
+</td>  
+
+<!-- BEGIN next -->
+<td><a href="{HREF}">&raquo;</a></td>
+<!-- END next -->
+
+<!-- BEGIN next_empty -->
+<!-- END next_empty -->
+
+<!-- BEGIN last -->
+<!-- END last -->
+
+<!-- BEGIN last_empty -->
+<!-- END last_empty -->
+
+
+<!-- BEGIN user_selection -->
+<td style="padding: 0 0 0 10px;">
+	<script type="text/javascript">
+	function UpdateUserPaging(pi)
+	{
+		var baseUrl = '{BASE_URL}';
+		location.href = baseUrl + 'pi_' + pi + '/';
+	}
+	</script>
+	<select name="pi" onchange="UpdateUserPaging(this.value)" style="font-size:10px">
+		<option value=""> </option>
+		{OPTIONS}
+	</select>
+</td>
+<!-- END user_selection -->
+
+
+	  </tr>
+  </table>
+<!-- END paging -->

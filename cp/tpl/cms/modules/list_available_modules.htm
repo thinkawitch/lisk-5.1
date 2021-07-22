@@ -1,0 +1,35 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+	  <td class="ListTDTop">Module name </td>
+	  <td class="ListTDTop">Version</td>
+	  <td width="10%" nowrap="nowrap" class="ListTDTop"><strong>Multi</strong>-<strong>Instance</strong></td>
+	  <td width="10%" nowrap="nowrap" class="ListTDTop">SS Integrated </td>
+      <td class="ListTDTop">Description</td>
+	  <td width="1%" class="ListTDTop">&nbsp;</td>
+    </tr>
+
+<!-- BEGIN list_row -->
+	<tr class="{DECORATION}" onMouseOver="this.className='ListTDOn';" onMouseOut="this.className='{DECORATION}';">
+	<td height="22" id="pad">{NAME}</td>
+	<td height="22" id="pad">{VERSION}</td>
+	<td id="pad">{MULTIINSTANCE}</td>
+	<td height="25" id="pad">{SSINTEGRATED}</td>
+	<td nowrap id="pad">{DESCRIPTION}</td>
+	<td nowrap id="pad"><!-- BEGIN install --><a href="?action=install&module={INSTALL}" liskHint="Install module"><img src="img/cms/modules_management/b_install.gif" width="16" height="8" border="0" align="absmiddle" />&nbsp;Install</a><!-- END install -->
+	<!-- BEGIN uninstall --><a href="?action=uninstall&module_id={UNINSTALL}" liskHint="Uninstall module" onclick="return ShowConfirm('Are you sure that you want to unintall this module? (All data will be lost)', this);"><img src="img/cms/modules_management/b_uninstall.gif" width="13" height="12" border="0" align="absmiddle" />&nbsp;Uninstall</a><!-- END uninstall -->	</td>
+	</tr>
+
+<!-- END list_row -->
+
+    <tr>
+      <td colspan="11"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="ListTDBottom" style="padding-left: 10px">&nbsp;</td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+
+<!-- END list -->

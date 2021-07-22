@@ -1,0 +1,57 @@
+<!-- BEGIN view -->
+<style type="text/css">
+<!--
+.cgr {color: #555563}
+-->
+</style>
+
+
+<!-- END additional_navigation -->
+<!-- BEGIN poll_block_voted -->
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="99%" valign="top">{LIST}</td>
+    <td>{CHART}</td>
+  </tr>
+</table>
+<!-- END view -->
+
+
+
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="ListTDTop" width="1%">N#</td>
+      <td class="ListTDTop" width="50%">{LIST_LABEL}</td>
+      <td width="1%" class="ListTDTop">Visits</td>
+      <td width="1%" class="ListTDTop">%</td>
+   </tr>
+    
+	<!-- BEGIN list_row -->
+	<tr class="{DECORATION}">
+		<td align="center" >{N}</td>
+		<td style="padding-left:5px;">{SUBJ}&nbsp;</td>
+		<td align="center">{VISITS}&nbsp;</td>
+		<td align="center">{VISITS_}&nbsp;</td>
+	</tr>
+	<!-- END list_row -->
+	<!-- BEGIN list_empty -->
+	<tr> 
+      <td colspan="100" align="center"><br>
+        No visits.<br>&nbsp;
+      </td>
+	</tr>
+	<!-- END list_empty -->
+    
+    <tr> 
+      <td colspan="106">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+</table>
+<!-- END list -->
+

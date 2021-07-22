@@ -1,0 +1,83 @@
+<!-- BEGIN view -->
+
+<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#F8F8FE">
+<tr> 
+	<td width="1%" valign="top">{CALENDAR}</td>
+	<td width="1%" valign="top" style="padding-top:25px">{SUMMARY_INFO}</td>
+	<td valign="top" style="padding-top:25px">{FILTER}</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+
+{STATISTICS}
+<!-- END view -->
+<!-- BEGIN summary_info -->
+<table width="262" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr class="pdl">
+    <td height="22" class="htd"><strong>Summary Info </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F4F4F8" style="padding:3px 0px"><table width="260" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4F4F8">
+      
+      <tr class="pdl">
+        <td width="140" height="18" >Total visits:</td>
+        <td >{TOTAL_VISITS}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Total pages: </td>
+        <td >{TOTAL_PAGES}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Total visitors:</td>
+        <td >{TOTAL_VISITORS}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Avg. pages per visit:</td>
+        <td >{AVG_PAGES}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Avg. time of visit:</td>
+        <td >{AVG_TIME}</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<!-- END summary_info -->
+<!-- BEGIN day_statistics -->
+<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+	  	<!-- BEGIN view_live_status --><td height="23" align="center" class="htd">Status</td>
+	  	<!--{VIEW_LIVE_STATUS}--><!-- END view_live_status -->
+		<td height="23" align="center" class="htd">Time</td>
+		<td height="23" align="center" class="htd">Comment </td>
+		<td height="23" align="center" class="htd">Country</td>
+		<td height="23" align="center" class="htd" >Referrer</td>
+		<td height="23" align="center" class="htd">Entry page</td>
+		<td height="23" align="center" nowrap="nowrap" class="htd">Visit time</td>
+		<td height="23" align="center" class="htd">Browsed</td>
+		<td height="23" align="center" class="htd">Visits</td>
+		<td height="23" align="center" class="htd">&nbsp;</td>
+	</tr>
+<!-- BEGIN day_statistics_row -->
+	<tr class="{DECORATION} pdtd">
+	    <!-- BEGIN live_status --><td align="center"><img src="img/modules/stat_visit/user_{LIVE_STATUS}.gif" width="10" height="13" /></td><!-- END live_status -->
+		<td height="20" align="center">{TIME}</td>
+		<td height="20" align="center">{COMMENT}{SEARCH_ENGINE_INFO}{ACTION_CONTACT_PAGE}{ACTION_LEAD}<!--{VISITOR_ID}--><!-- BEGIN visitor_name -->&nbsp;({LOGIN})<!-- END visitor_name --></td>
+		<td height="20" align="center">
+		
+			<span class="flag flag-{COUNTRY_SHORT}" title="{COUNTRY_NAME}" liskHint="{COUNTRY_NAME}"></span>
+
+		</td>
+		<td height="20" align="center"><a href="{REFERRER_URL}" target="_blank">{REFERRER_NAME}</a></td>
+		<td height="20">{ENTER_PAGE}</td>
+		<td height="20" align="center" nowrap="nowrap">{VISIT_TIME}</td>
+		<td height="20" align="center" nowrap="nowrap">{PAGES_BROWSED}</td>
+		<td height="20" align="center">{TOT_VISITS}</td>
+		<td height="20" align="center"><img src="img/cms/list/view.gif" width="8" height="14" align="absmiddle" / style="margin-right:4px"><a href="javascript: popupWindow('?action=clickstream&visitor_id={VISITOR_ID}&visit_id={ID}',500,500,true);">details</a></td>	
+	</tr>
+<!-- END day_statistics_row -->	
+</table>
+<!-- END day_statistics -->

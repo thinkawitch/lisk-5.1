@@ -1,0 +1,81 @@
+
+.creole  { }
+
+.creole h1 {
+	border-top:solid; 
+	border-top-width:1px; 
+	border-top-color:#333;
+	padding-top:10px;
+	font-size: 22px;
+	color: #333;
+	font-weight: bold;
+}
+
+.creole h2
+{
+	border-top:dotted; 
+	border-top-width:1px; 
+	border-top-color:#777;
+	padding-top:5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.creole h3
+{
+	padding-top:5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.creole h4
+{
+	padding-top:5px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.creole hr
+{
+	background-color: #777;
+}
+
+.creole ul, .creole ol
+{
+	padding-left: 20px;
+	margin: 0px;
+	padding-bottom: 10px;
+	padding-top: 0px;
+}
+
+
+.creole em { 
+	font-style: italic; 
+}
+
+.creole .quote {
+	background-color:#C2DFED; 
+	padding:5px;
+	float: none;
+}
+
+
+.creole-form-link { text-decoration:none; border-bottom:1px dashed #333;}
+.creole-form-link:hover{ border-bottom:none; }
+
+
+.creole-help-panel { 
+	display: none;
+	margin: 10px 0;
+}
+
+.creole-preview-panel { 
+	display:none; 
+	margin: 10px 10px 10px 0;
+	
+}
+.creole-preview-panel .container {
+	margin: 0 0 5px 0;
+	padding: 5px;
+	border: 1px dashed #555;
+}

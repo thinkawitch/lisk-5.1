@@ -1,0 +1,67 @@
+<?php
+$GLOBALS['LANGUAGE_MAIN'] = array(
+	'welcome'				=> 'Welcome back',
+	'intro'					=> 'Please use menu on the left to start working with control panel. To receive assinstance on how to use the control panel please visit our   help center. If you have a question which is not covered by help topics, feel free to contact us using Support form.',
+	'help_center'			=> 'Help Center',
+	'general_help'			=> 'General Help',
+	'tutorials'				=> 'Tutorials',
+	'modules_help'			=> 'Modules Help',
+	'support_form'			=> 'Support Form',
+	'submit'				=> 'Submit',
+	'project'				=> 'Project',
+	'login'					=> 'Login',
+	'password'				=> 'Password',
+	'latest_cp_logins'		=> 'Latest CP Logins',
+	'cp_users_online'		=> 'CP Users Online',
+	'your_name'				=> 'Your name:',
+	'email'					=> 'Email',
+	'message'				=> 'Message',
+	'logged_in_as'			=> 'You are logged in as',
+	'logout'				=> 'Logout',
+	'are_you_sure_to_logout'=> 'Are you sure to logout?',
+	'server_time'			=> 'Server time.',
+	'hint_hint'				=> 'Mouse over page element to see the hint.',
+	'cp_go_home'			=> 'Go to Control Panel home page.',
+	'open_site'				=> 'Open site in a new window.',
+	'scroll_up'				=> 'Scroll menu up.',
+	'scroll_down'			=> 'Scroll menu down.',
+	'view'					=> 'View',
+	'edit'					=> 'Edit',
+	'delete'				=> 'Delete',
+	'add'					=> 'Add',
+	'order'					=> 'Order',
+	'properties'			=> 'Properties',
+	'delete_selected'		=> 'Delete selected',
+	'empty_list'			=> 'No Records Found',
+
+	//Buttons
+	'create'				=> 'Create',
+	'cancel'				=> 'Cancel',
+	'upload'				=> 'Upload',
+	'submit'				=> 'Submit',
+	'letters'				=> 'Quick Navigation',
+	'search'				=> 'Quick Search',
+	'go_back'				=> 'Go back to previous page',
+
+	// CP IMPORT-EXPORT DATA
+	'import_export'				=> 'Import/Export',
+	'sel_file_2upload'			=> 'Select file to upload:',
+	'sel_data_format'			=> 'Select data format:',	
+	'import_data'			=> 'Import data',
+	'no_import'			=> 'Do not import data and return to the previous page.',
+	'import_go_back'			=> 'Go to the previous page after import.',
+	'import_data_to_table'		=> 'Import Data',
+	'import_more_data'			=> 'Add another data after import',
+
+	
+	'showListSearchForm'		=> 'Quick search',
+	'showAlphabeticForm'		=> 'Quick navigation',
+
+	'quick_custom_links'		=> 'Quick Custom Links',
+	'report_title'			=> 'Report',
+	'add_modify_custom_links'	=> 'Add/Modify Quick Links',
+	'view_all_messages'			=> 'view all messages',
+	'inbox'						=> 'Inbox',
+);
+
+?>

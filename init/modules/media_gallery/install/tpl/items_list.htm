@@ -1,0 +1,43 @@
+<!-- BEGIN list -->
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top"><table width="100%" border="0" align="center" cellpadding="6" cellspacing="1">
+      <!-- BEGIN list_row -->
+      <tr class="{DECORATION}">
+        <td class="pdl14"><a href="<? ('{_PREVIEW_POPUP}') ? 'javascript: popupWindow(\'[/]<lisk:field name='url' />\',500,450);' : '[/]<lisk:field name='url' />' ?>"><lisk:field name="name" /></a></td>
+        <td width="80" align="center"><img src="img/iso_preview.gif" alt="" width="7" height="8" hspace="4" /><a href="javascript: popupWindow('[/]<lisk:field name='url' />',500,450);">preview</a></td>
+      </tr>
+      <!-- END list_row -->
+    </table>
+      {PAGING}</td>
+  </tr>
+</table>
+<!-- END list -->
+
+<!-- BEGIN tbl_images -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<!-- BEGIN tbl_images_row -->
+<tr>
+<!-- BEGIN tbl_images_column -->
+<td width="25%" valign="top" align="center">
+		<table border="0" cellpadding="0" cellspacing="4" style="background:#E5E5E5; margin-bottom:6px;">
+	      <tr>
+	        <td class="brd"><table width="100%" border="0" cellpadding="0" cellspacing="0" style="background:#F0F0F0;">
+					<tr>
+						<td align="center" valign="bottom" ><a href="<? ('{_PREVIEW_POPUP}') ? 'javascript: popupWindow(\'[/]<lisk:field name='url' />\',500,450);' : '[/]<lisk:field name='url' />' ?>"><lisk:field name="file_image" render="small" />
+</a></td>
+					</tr>
+			</table></td>
+	      </tr>
+	  </table>
+	<a href="<? ('{_PREVIEW_POPUP}') ? 'javascript: popupWindow(\'[/]<lisk:field name='url' />\',500,450);' : '[/]<lisk:field name='url' />' ?>"><lisk:field name="name" /></a>
+</td>
+<!-- END tbl_images_column -->
+<!-- BEGIN tbl_images_empty -->
+<td width="25%"></td>
+<!-- END tbl_images_empty -->
+</tr>
+<!-- END tbl_images_row -->
+<tr><td colspan="4">{PAGING}</td></tr>
+</table>
+<!-- END tbl_images -->

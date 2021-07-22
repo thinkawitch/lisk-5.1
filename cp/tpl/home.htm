@@ -1,0 +1,274 @@
+<!-- BEGIN content -->
+<style type="text/css">
+.homebg { background: #ffffff url(img/home/lisk.jpg) top right no-repeat;}
+.welc { color: #7f7f7f; font-size: 20px;}
+.wlh { line-height: 1.6;}
+.green { color: #669933;}
+.pdbok { padding-left: 12px; padding-right: 12px;}
+.style1 {color: #669933; font-weight: bold; }
+</style>
+
+<table width="100%" border="0" cellpadding="26" cellspacing="0" class="homebg">
+  <tr>
+    <td valign="top" style="padding-top:12px;"><div class="wlh"><span class="welc">[[[main.welcome]]] <span class="green" style="text-transform:capitalize;">{CP_USER_LOGIN_NAME}</span></span><br />
+        your last login: <span class="green">{CP_USER_LOGIN_DATE}</span> <br />
+        your are the member of <span class="style1" style="text-transform:uppercase;">{CP_USER_LOGIN_GROUP}</span> group</div>
+      <br />
+      <br />
+      <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+        <tr>
+          <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="img/module_info/bgh.gif"><img src="img/home/quik_links.gif" alt="" width="40" height="24" /></td>
+                <td width="100%" background="img/module_info/bgh.gif"><strong>[[[main.quick_custom_links]]] </strong></td>
+                <td nowrap="nowrap" background="img/module_info/bgh.gif" class="pdbok"><a href="cp_custom_links.php">[[[main.add_modify_custom_links]]]</a></td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>
+            </table>
+            {QUICK_CUSTOM_LINKS}
+		  </td>
+        </tr>
+      </table>
+      <br />
+      <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+        <tr>
+          <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="img/module_info/bgh.gif"><img src="img/home/quik_links.gif" alt="" width="40" height="24" /></td>
+                <td width="100%" background="img/module_info/bgh.gif"><strong>[[[main.report_title]]] </strong></td>
+                <td nowrap="nowrap" background="img/module_info/bgh.gif" class="pdbok">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>
+            </table>
+            {REPORT}
+		  </td>
+        </tr>
+      </table>
+	  <br />
+      <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+        <tr>
+          <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="img/module_info/bgh.gif"><img src="img/home/inbox.gif" width="40" height="24" /></td>
+                <td width="100%" background="img/module_info/bgh.gif"><strong>New Messages </strong></td>
+                <td nowrap="nowrap" background="img/module_info/bgh.gif" class="pdbok"><a href="cp_messages.php">Inbox</a> | <a href="cp_messages.php?action=new">New Message</a></td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>              
+            </table>
+            {LAST_INBOX_MESSAGES}
+		  </td>
+        </tr>
+      </table>
+      <br />	  
+      <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+        <tr>
+          <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td background="img/module_info/bgh.gif"><img src="img/homepage/last_login.gif" width="23" height="22" hspace="8" vspace="1" /></td>
+                <td width="100%" background="img/module_info/bgh.gif"><strong>[[[main.latest_cp_logins]]] </strong></td>
+                <td nowrap="nowrap" background="img/module_info/bgh.gif" class="pdbok"><a href="cp_users.php?action=history">View History </a></td>
+              </tr>
+              <tr>
+                <td colspan="3" bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+              </tr>
+              
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+              <tr>
+                <td colspan="2">{LAST_LOGINS}</td>
+              </tr>
+              <tr>
+                <td width="38" height="27" bgcolor="#F4F4FB"><img src="img/homepage/user.gif" width="25" height="20" hspace="7" /></td>
+                <td bgcolor="#F4F4FB"><strong>[[[main.cp_users_online]]] </strong></td>
+              </tr>
+              <tr>
+                <td height="21">&nbsp;</td>
+                <td>{CP_USERS_ONLINE}</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+
+    </td>
+    <td width="166" valign="top" style="padding-top:152px;"><table width="158" border="0" cellspacing="13" cellpadding="0">
+        <tr>
+          <td><strong>Corporate Edition <br />
+            version  {LISK_VERSION} </strong><br />
+            Licensed to:<br />
+          {LISK_LICENSED_TO}</td>
+        </tr>
+      </table>
+      {STAT_VISIT}
+    </td>
+  </tr>
+</table>
+<!-- END content -->
+
+<!-- BEGIN last_logins -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap class="ListTDTop" width="50%">User Login </td>
+	<td nowrap class="ListTDTop" width="25%">CP Group</td>
+	<td nowrap class="ListTDTop" width="25%">Date</td>
+  </tr>
+  <!-- BEGIN last_logins_row -->
+  <tr>
+    <td style="padding:4px 4px 4px 12px">{LOGIN}</td>
+	<td style="padding:4px 4px 4px 12px">{LEVEL}</td>
+	<td>{DATE}</td>
+  </tr>
+  <!-- END last_logins_row -->
+  <tr>
+    <td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+<!-- END last_logins -->
+
+<!-- BEGIN cp_users_online -->
+<table width="302" border="0" cellspacing="0" cellpadding="0">
+<!-- BEGIN cp_users_online_row -->
+  <tr>
+	<td width="18"><img src="img/homepage/bul.gif" width="11" height="11" vspace="4" /></td>
+	<td>{LOGIN}</td>
+  </tr>
+<!-- END cp_users_online_row -->
+</table>
+<!-- END cp_users_online -->
+
+
+<!-- BEGIN report -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td>Cron jobs. Active: {JOBS_ACTIVE}, Paused: {JOBS_PAUSED} </td>
+    <td>Status: {CRON_STATUS} </td>
+    <td><a href="cron_jobs.php">more</a></td>
+  </tr>
+  <tr>
+    <td>Mail dispatcher. Mails to send: {MAILS_TO_SEND} </td>
+    <td>Status: {MAIL_STATUS} </td>
+    <td><a href="mail_dispatcher.php">more</a></td>
+  </tr>
+  <tr>
+    <td>File permissions </td>
+    <td>Status: {FILES_STATUS} </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>Last backup </td>
+    <td>{BACKUP_DATE}</td>
+    <td><a href="backup.php">more</a></td>
+  </tr>
+</table>
+<!-- END report -->
+
+<!-- BEGIN cron_job -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="ListTDTop">Cron Job</td>
+		<td class="ListTDTop">Last Run</td>
+		<td class="ListTDTop">Status</td>
+	</tr>
+	<tr class="ListTD1" onMouseOver="this.className='ListTDOn';" onMouseOut="this.className='ListTD1';">
+		<td>{NAME}</td>
+		<td>{LASTRUN}</td>
+		<td>{STATUS}</td>
+	</tr>
+</table>
+<!-- END cron_job -->
+
+<!-- BEGIN quick_links -->
+<table width="100%%" border="0" align="center" cellpadding="0" cellspacing="8" bgcolor="#FFFFFF">
+<!-- BEGIN quick_links_row -->
+  <tr>
+<!-- BEGIN quick_links_column -->
+	<td width="16" align="right" valign="top"><img src="img/home/str.gif" alt="" width="12" height="13" /></td>
+	<td valign="top" width="33%" align="left"><a href="{LINK}">{NAME}</a></td>
+<!-- END quick_links_column -->
+<!-- BEGIN quick_links_empty -->
+	<td width="16" align="right" valign="top">&nbsp;</td>
+	<td valign="top" width="30%">&nbsp;</td>
+<!-- END quick_links_empty -->
+  </tr>
+<!-- END quick_links_row -->
+</table>
+<!-- END quick_links -->
+
+<!-- BEGIN quick_links_absent -->
+<table width="100%%" border="0" align="center" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+	<td align="left">You have no custom links</td>
+  </tr>
+</table>
+<!-- END quick_links_absent -->
+
+
+<!-- BEGIN last_inbox_messages -->
+<table width="100%" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+	<td class="ListTDTop" width="20">&nbsp;</td>
+	<td width="60" nowrap="nowrap" class="ListTDTop">From</td>
+	<td class="ListTDTop">Subject</td>
+	<td nowrap="nowrap" class="ListTDTop">Date</td>
+  </tr>
+<!-- BEGIN last_inbox_messages_row -->
+  <tr>
+	<td width="20" align="right" valign="top" nowrap="nowrap"><img src="img/home/mail.gif" alt="" width="16" height="12" /></td>
+	<td valign="top" nowrap="nowrap"><lisk:field name="id_from" /></td>
+	<td class="pdbok"><strong><a href="cp_messages.php?action=view_inbox&id=<lisk:field name='id' />"><lisk:field name="subject" /></a></strong></td>
+	<td valign="top" nowrap="nowrap"><lisk:field name="date" /></td>
+  </tr>
+<!-- END last_inbox_messages_row -->
+<!-- BEGIN last_inbox_messages_empty -->
+  <tr>
+	<td valign="top" nowrap="nowrap" colspan="4">There are no new messages</td>
+  </tr>
+<!-- END last_inbox_messages_empty -->
+</table>
+<!-- END last_inbox_messages -->
+<!-- BEGIN stat_visit -->
+<table width="158" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="img/home/stat.gif" alt="" width="20" height="18" hspace="8" vspace="8" align="absmiddle" /><strong>Today's Statistics</strong></td>
+        </tr>
+        <tr>
+          <td bgcolor="#B1B1B7"><img src="img/0.gif" alt="" width="1" height="1" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="#F4F4FB"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="8">
+            <tr>
+              <td nowrap="nowrap">visitors online: </td>
+              <td><strong class="green">{USERS_ONLINE}</strong></td>
+            </tr>
+            <tr>
+              <td>visitors today: </td>
+              <td><strong class="green">{USERS_TODAY}</strong></td>
+            </tr>
+            <tr>
+              <td>avg. ppv </td>
+              <td><strong class="green">{PPV}</strong></td>
+            </tr>
+            <tr>
+              <td>avg. tpv </td>
+              <td class="green"><strong>{TPV} </strong></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="right"><a href="module_stat_visit.php">details &raquo;</a></td>
+            </tr>
+          </table></td>
+        </tr>
+</table>
+<!-- END stat_visit -->

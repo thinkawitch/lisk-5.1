@@ -1,0 +1,74 @@
+<!-- BEGIN view -->
+
+
+<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#F8F8FE">
+  <tr>
+    <td width="1%" valign="top"><br />{CALENDAR}</td> 
+    <td valign="top"><br />{SUMMARY_INFO}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+{STATISTICS}
+<!-- END view -->
+
+
+<!-- BEGIN summary_info -->
+<table width="262" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr class="pdl">
+    <td height="22" class="htd"><strong>Summary Info </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F4F4F8" style="padding:3px 0px"><table width="260" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4F4F8">
+      <tr class="pdl">
+        <td width="140" height="18" >Total visits:</td>
+        <td >{TOTAL_VISITS}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Total pages: </td>
+        <td >{TOTAL_PAGES}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Total visitors:</td>
+        <td >{TOTAL_VISITORS}</td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">Avg. pages per visit:</td>
+        <td >{AVG_PAGES}</td>
+      </tr>
+      <!--tr class="pdl">
+        <td height="18">Avg. time of visit:</td>
+        <td >{AVG_TIME}</td>
+      </tr-->
+    </table></td>
+  </tr>
+</table>
+<!-- END summary_info -->
+<!-- BEGIN year_statistics -->
+<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+  <tr>
+    <!-- BEGIN view_live_status -->
+    <!--{VIEW_LIVE_STATUS}-->
+    <!-- END view_live_status -->
+    <td height="23" align="center" class="htd">Date</td>
+    <td height="23" align="center" class="htd">Visitors</td>
+    <td height="23" align="center" class="htd">Visits</td>
+    <td height="23" align="center" class="htd" >Pages browsed</td>
+    <td height="23" align="center" class="htd">Average pages per visit</td>
+    <td height="23" align="center" nowrap="nowrap" class="htd">Average site visits</td>
+  </tr>
+  <!-- BEGIN year_statistics_row -->
+  <tr class="{DECORATION} pdtd">
+    <td height="20" align="center">{YEAR}
+    - <a href="?action=view&amp;view=monthly&amp;year={YEAR}&amp;month={MONTH}">{MONTH_NAME}</a></td>
+    <td height="20" align="center">{VISITORS} </td>
+    <td height="20" align="center">{VISITS}</td>
+    <td height="20" align="center">{PAGES}</td>
+    <td height="20" align="center">{APAGES}</td>
+    <td height="20" align="center" nowrap="nowrap">{AVISITS}</td>
+  </tr>
+  <!-- END year_statistics_row -->
+</table>
+<!-- END year_statistics -->

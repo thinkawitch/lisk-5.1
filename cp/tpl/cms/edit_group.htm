@@ -1,0 +1,98 @@
+<!-- BEGIN section -->
+<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#F5F5FB" >
+    <tr> 
+      <td width="20px"></td>
+	  <td align="left" valign="top" nowrap>{SHIFT}<input type="hidden" value="0" name="checks[{ID}]"><input type="checkbox" {CHECKED} name="checks[{ID}]" id="{PARENT}_zzz_{ID}" onclick="UpdateChilds(this);" value="1" {DISABLED}><label for="{PARENT}_zzz_{ID}">{NAME}</label></td>
+	</tr>
+</table>
+<!-- END section -->
+
+
+
+<!-- BEGIN view -->
+<script language="javascript">
+
+var pattern = "/^_zz[0-9a-zA-Z_]+$/";
+
+function UpdateChilds(obj) {
+	
+	var form = $('#rights_form');
+	
+	var checked = (obj.checked);
+	var objId = new String(obj.id);
+	var val = objId.indexOf("_zzz_");
+	var parentId = objId.substring(0,val);
+	var realId = objId.substring(val+5);	
+	
+	UpdateChilds2(realId,checked);
+	return true;	
+}
+
+function UpdateChilds2(parent,value) {
+	var form = $('#rights_form');
+	
+	for (var i=0; i<form.elements.length; i++) {
+		if (form.elements[i].type != 'checkbox') continue;
+		var objId = form.elements[i].id.toString();
+
+		var val = objId.indexOf("_zzz_");
+		var parentId = objId.substring(0,val);
+		var realId = objId.substring(val+5);	
+		
+		if (parentId == parent && form.elements[i].disabled == false) {
+			form.elements[i].checked=value;
+			UpdateChilds2(realId,value);
+		}
+	}	
+
+}
+
+function ChangeAll(value) {
+
+	var form = $('#rights_form');
+	for (var i=0; i<form.elements.length; i++) {
+		if (form.elements[i].type != 'checkbox') continue;
+		
+		if (!form.elements[i].disabled) form.elements[i].checked=value;
+	}	
+	
+}
+</script>
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="middle" background="img/cms/links_bg.gif">
+		  <table height="25" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><img src="img/0.gif" width="5" height="24"></td>
+				
+                
+          		<td valign="middle"><a href="javascript:ChangeAll(true);" liskHint="[[[cpmodules.check_all]]]"><img src="img/cms/list/select_all.gif" name="select_all" width="30" height="12" hspace="3" border="0" align="absmiddle" id="select_all"></a></td>
+			
+<td valign="middle"><a href="javascript:ChangeAll(true);" liskHint="[[[cpmodules.check_all]]]">[[[cpmodules.check_all]]]</a>&nbsp;&nbsp;</td>		
+			
+<td valign="middle"><a href="javascript:ChangeAll(false);" liskHint="[[[cpmodules.uncheck_all]]]"><img src="img/cms/list/unselect_all.gif" name="unselect_all" width="30" height="12" hspace="3" border="0" align="absmiddle" id="unselect_all"></a></td>		
+<td valign="middle"><a href="javascript:ChangeAll(false);" liskHint="[[[cpmodules.uncheck_all]]]">[[[cpmodules.uncheck_all]]]</a></td>									
+			
+              </tr>
+            </table>
+		  </td>
+        </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" id="rights_form"><input type="hidden" name="group_id" value="{GROUP_ID}" {DISABLED}>	
+<tr><td colspan="2" align="left">
+	{ROWS}
+</td>
+  </tr>
+<tr><td width="20%" align="center" class="TDFormFooter">&nbsp;</td>
+  <td class="TDFormFooter"><input type="hidden" name="action" value="save_rights"><input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="[[[cpmodules.save_changes]]]" {disabled} />
+    <input type="button" name="Submit" value="Cancel" class="btnCancel" onclick="document.location.href='<<<BACK>>>';" liskHint="[[[cpmodules.no_save_changes]]]" />
+    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr>
+      <td width="80%"><!-- BEGIN dynamic_form_hidden --></td>
+    </tr>
+  </table>
+    </td>
+</tr></form>
+</table>
+<!-- END view -->

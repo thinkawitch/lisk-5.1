@@ -1,0 +1,55 @@
+<!-- BEGIN pages -->
+<table width="100%" border="0" cellpadding="3" cellspacing="1" style="background:#999999">
+<tr>
+	<td colspan="2" style="background:#DDDDDD"><b>Pages:</b></td>
+</tr>
+<!-- BEGIN pages_row -->
+<tr>
+	<td height="20" style="background:#FFFFFF">{PAGE}</td>
+	<td width="80" style="background:#FFFFFF" nowrap="nowrap">{TIME}</td>
+</tr>
+<!-- END pages_row -->
+</table>
+<!-- END pages -->
+
+<!-- BEGIN total -->
+<a name="{ANCHOR}" />
+<table width="100%" border="0" cellpadding="3" cellspacing="1" style="background:#999999">
+  <tr>
+    <td colspan="2" style="background:#DDDDDD"><strong>Visit Info</strong></td>
+  </tr>
+  <tr class="ListTD1">
+    <td width="77" style="background:#FFFFFF">Visitor ID </td>
+    <td width="323" style="background:#FFFFFF">{VISITOR_ID}</td>
+  </tr>
+  <tr class="ListTD2">
+    <td style="background:#FFFFFF">Country</td>
+    <td style="background:#FFFFFF">{COUNTRY_NAME}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF">IP</td>
+    <td style="background:#FFFFFF">{IP} <a href="http://ripe.net/fcgi-bin/whois?form_type=simple&full_query_string=&searchtext={IP}&submit=Search" target="_blank">RIPE.net whois </a></td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF">Entry page </td>
+    <td style="background:#FFFFFF">{PAGE}</td>
+  </tr>
+  <tr >
+    <td style="background:#FFFFFF">Referrer</td>
+    <td style="background:#FFFFFF"><a href="{REFERRER}" target="_blank">{REFERRER_NAME}</a></td>
+  </tr>
+  <tr>
+    <td style="background:#FFFFFF">Time</td>
+    <td style="background:#FFFFFF">{ENTRANCE_TIME}</td>
+  </tr>
+</table>
+<br />
+{VISIT_PAGES}
+<a href="#{DAY_ANCHOR}"><div align="right"><strong>Top</strong></div>
+</a>
+<br />
+<br />
+<br />
+<!-- END total -->
+
+

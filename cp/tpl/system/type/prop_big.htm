@@ -1,0 +1,42 @@
+<!-- BEGIN form -->
+<div id="idProp{NAME}">
+	<input type="hidden" name="{NAME}" value="" />
+	<table rel="list" class="tbl-prop-big">
+    <colgroup>
+        <col width="30" />
+        <col />
+    </colgroup>
+    <thead>
+	<tr>
+		<td colspan="2">
+			<select name="{NAME}_all" rel="all">
+				<option value=""> - </option>
+				{ALL_OPTIONS}
+			</select>
+			<input type="button" rel="add" value="add" />
+		</td>
+	</tr>
+    </thead>
+    <tbody>
+	<!-- BEGIN form_prop_row -->
+	<tr rel="idVal{NAME}{VALUE}">
+		<td><input type="checkbox" name="{NAME}[]" value="{VALUE}" id="idVal{NAME}{VALUE}" checked="checked" /></td>
+		<td><label for="idVal{NAME}{VALUE}">{CAPTION}</label></td>
+	</tr>
+	<!-- END form_prop_row -->
+    </tbody>
+	</table>
+</div>
+<script type="text/javascript">
+    (new LiskPropBig('{NAME}')).Init();
+</script>
+<!-- END form -->
+
+<!-- BEGIN view -->
+<!-- BEGIN view_row --><!-- {ROW} -->
+<!-- BEGIN yes --><!--{YES}-->{NAME}<br /><!-- END yes -->
+<!-- BEGIN no --><!--{NO}--><!-- {NAME} --><!-- END no -->
+<!-- BEGIN view_separator --><!-- {SEPARATOR} --><!-- END view_separator -->
+<!-- END view_row -->
+<!-- BEGIN view_empty --><!-- {EMPTY} --><!-- END view_empty -->
+<!-- END view -->

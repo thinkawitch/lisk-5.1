@@ -1,0 +1,30 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr>
+    <td bgcolor="#FFFFFF" style="border-left:1px solid #FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/cms/modules/bghh.gif">
+      <tr id="idHeaderSysCust">
+        <td><img src="img/cms/modules/ico_sys_custom.gif" width="25" height="24" hspace="4" align="absmiddle" /><strong>System Customization </strong></td>
+        <td align="right"><img id="sys_cust_button" src="img/cms/show.gif" width="13" height="13" hspace="6" border="0" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" bgcolor="#6C6C72"><img src="img/0.gif" width="1" height="1" /></td>
+      </tr>
+    </table>
+	<div id="sys_cust" style="display:none;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3" style="margin:4px 0px 6px 0px">
+        <!-- BEGIN list_row -->
+        <tr>
+          <td width="30%" nowrap="nowrap" style="padding-left:10px">{LABEL}</td>
+          <td width="70%"><img src="img/cms/modules/manage.gif" width="15" height="15" hspace="3" align="absmiddle" /><a href="di_constructor.php?name={NAME}&back={BACK}">Manage</a></td>
+        </tr>
+        <!-- END list_row -->
+		<!-- BEGIN list_empty -->
+        <tr>
+          <td colspan="2" nowrap="nowrap" style="padding-left:10px">No objects  available for customization. </td>
+          </tr>		
+		<!-- END list_empty -->
+      </table>
+	  </div></td>
+  </tr>
+</table>
+<!-- END list -->

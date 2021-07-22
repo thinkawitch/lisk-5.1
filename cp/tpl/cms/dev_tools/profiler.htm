@@ -1,0 +1,29 @@
+<!-- BEGIN info -->
+<table width="100%" border="0" cellspacing="0" cellpadding="6">
+  <tr>
+    <td width="1%" nowrap="nowrap">Profiler status: <strong>{STATUS}</strong> </td>
+    <td width="1%" nowrap="nowrap">Min.log time: <strong>{MIN_TIME} sec.</strong></td>
+    <td width="1%" nowrap="nowrap">Min SQL queries log: <strong>{MIN_SQL} sec.</strong></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<!-- END info -->
+<!-- BEGIN condition -->
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+<form method="post">
+  <tr>
+    <td colspan="4" nowrap="nowrap"><lisk:field name="apply_time" render="form" />apply time condition &nbsp;&nbsp; <lisk:field name="date_from" render="form" /> - <lisk:field name="date_to" render="form" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="1%" nowrap="nowrap">Min. total time: 
+      <lisk:field name="total" render="form" size="8" />     </td>
+    <td width="1%" nowrap="nowrap">Min.render time: <lisk:field name="render" render="form" /></td>
+    <td width="1%" nowrap="nowrap">Min SQL time: <lisk:field name="sql" render="form" /></td>
+    <td width="1%" nowrap="nowrap"><input name="action" type="hidden" id="action" value="submit" />
+    <input type="submit" name="button" id="button" value="Apply" /></td>    
+    <td>&nbsp;</td>
+  </tr>
+</form>
+</table>
+<!-- END condition -->

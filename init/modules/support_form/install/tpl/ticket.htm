@@ -1,0 +1,115 @@
+<!-- BEGIN ticket -->
+<table width="758" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="4" background="img/bg1.gif"><img src="img/0.gif" width="4" height="1" /></td>
+    <td width="100%" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="5" valign="top"><img src="img/h_left.gif" width="5" height="43" /></td>
+          <td rowspan="2" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="h">
+              <tr>
+                <td width="100%" valign="top"><table width="100%"  border="0" cellspacing="16" cellpadding="0">
+                    <tr>
+                      <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="4"><img src="img/left.gif" width="4" height="31" /></td>
+                            <td width="100%" valign="bottom" background="img/bg_news_h.gif"><img src="img/tickets/h_ticket_info.gif" width="67" height="14" hspace="12" vspace="8" /></td>
+                            <td width="5"><img src="img/right.gif" width="5" height="31" /></td>
+                          </tr>
+                          <tr>
+                            <td width="4" class="feat">&nbsp;</td>
+                            <td width="100%" class="feat"><table width="100%" border="0" cellspacing="12" cellpadding="0">
+                                <tr>
+                                  <td width="20%" class="head">Ticket Id : </td>
+                                  <td>{TICKET_ID}</td>
+                                </tr>
+                                <tr>
+                                  <td class="head">Opened on : </td>
+                                  <td>{DATE} </td>
+                                </tr>
+                                <tr>
+                                  <td class="head">Opened by : </td>
+                                  <td>{FROM_FIRST_NAME} {FROM_LAST_NAME} </td>
+                                </tr>
+                                <tr>
+                                  <td class="head">Email : </td>
+                                  <td>{FROM_EMAIL}</td>
+                                </tr>
+                                <tr>
+                                  <td class="head">Messages : </td>
+                                  <td>{MESSAGES} <a href="[./]#messages" class="orange" style="text-decoration:underline"><strong>View</strong></a></td>
+                                </tr>								
+                              </table></td>
+                            <td width="5" class="feat">&nbsp;</td>
+                          </tr>
+                        </table>
+                        <!-- END ticket -->
+                        <!-- BEGIN reply -->
+                        <br />
+                        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="4"><img src="img/left.gif" width="4" height="31" /></td>
+                            <td width="100%" valign="bottom" background="img/bg_news_h.gif"><img src="img/tickets/h_reply.gif" width="35" height="17" hspace="12" vspace="6" /></td>
+                            <td width="5"><img src="img/right.gif" width="5" height="31" /></td>
+                          </tr>
+                          <tr>
+                            <td width="4" class="feat">&nbsp;</td>
+                            <td width="100%" class="feat"><table width="100%" border="0" cellspacing="12" cellpadding="0">
+                                <form method="post" name="reply" id="reply">
+                                  <tr>
+                                    <td width="20%" valign="top" class="head">Message :</td>
+                                    <td><textarea name="message" id="message" class="send" style="width:100%; height:200px;"></textarea></td>
+                                  </tr>
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                    <td><input name="action" type="hidden" id="action" value="reply" />
+                                      <input type="image" name="imageField" src="img/b_reply.gif" alt="REPLY" />
+                                      </td>
+                                  </tr>
+                                </form>
+                              </table></td>
+                            <td width="5" class="feat">&nbsp;</td>
+                          </tr>
+                        </table>
+                        <!-- END reply -->
+                        <!-- BEGIN messages -->
+                        <br />
+                        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="4"><img src="img/left.gif" width="4" height="31" /></td>
+                            <td width="100%" valign="bottom" background="img/bg_news_h.gif"><img src="img/tickets/h_messages_history.gif" width="113" height="17" hspace="12" vspace="6" /><a name="messages" id="messages"></a></td>
+                            <td width="5"><img src="img/right.gif" width="5" height="31" /></td>
+                          </tr>
+                          <tr>
+                            <td width="4" class="feat">&nbsp;</td>
+                            <td width="100%" class="feat"><table width="100%" border="0" cellspacing="12" cellpadding="0">
+                                <!-- BEGIN messages_row -->
+                                <tr>
+                                  <td width="20%" valign="top"><span class="head">{NAME}</span><br />
+                                    {DATE}</td>
+                                  <td valign="top">{MESSAGE} </td>
+                                </tr>
+                                <tr>
+                                  <td height="1" colspan="2" valign="top" bgcolor="#ACB5C3"><!-- --></td>
+                                </tr>
+                                <!-- END messages_row -->
+                              </table></td>
+                            <td width="5" class="feat">&nbsp;</td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+                <td><img src="img/0.gif" width="12" height="1" /></td>
+              </tr>
+            </table>
+            <br /></td>
+          <td width="5" valign="top"><img src="img/h_right.gif" width="5" height="43" /></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table></td>
+    <td width="4" background="img/bg2.gif"><img src="img/0.gif" width="4" height="1" /></td>
+  </tr>
+</table>
+<!-- END messages -->

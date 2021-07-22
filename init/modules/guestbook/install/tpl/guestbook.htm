@@ -1,0 +1,103 @@
+<!-- BEGIN add_form --> 
+<form method="post" onsubmit="return CheckForm(this,{JS_CHECK});" style="margin:0px;padding:0px;"> 
+  <table width="490" border="0" align="center" cellpadding="1" cellspacing="3" style="background:#BAC5EF">
+    <tr>
+      <td bgcolor="#FFFFFF"><table width="100%"  border="0" cellpadding="0" cellspacing="0" style="background:#FFFFFF">
+          <tr>
+            <td style="background:#F4F4F4" class="pdl14"><table width="100%"  border="0" cellspacing="10" cellpadding="0">
+                <tr>
+                  <td width="90" class="gr"><strong>Your Name: </strong></td>
+                  <td><lisk:field name="name" render="form" class="inp_cont" /></td>
+                </tr>
+                <tr>
+                  <td class="gr"><strong>Your Email :</strong></td>
+                  <td><lisk:field name="email" render="form" class="inp_cont" /></td>
+                </tr>
+                <tr>
+                  <td class="gr"><strong>Caption:</strong></td>
+                  <td><lisk:field name="caption" render="form" class="inp_cont" /></td>
+                </tr>
+                <tr>
+                  <td valign="top" class="gr"><strong>Your Message: </strong></td>
+                  <td><lisk:field name="message" render="form" class="text_cont" /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input name="action" type="hidden" id="action" value="submit" />
+                  <input name="imageField" type="image" src="img/b_submit.gif" alt="Submit" /></td>
+                </tr>
+            </table></td>
+          </tr>
+      </table></td>
+    </tr>
+  </table>
+  <input type="hidden" name="_zxcv" id="_zxcv" value="0" /> 
+</form> 
+<script type="text/javascript">
+<!--
+var GuestBookStarter = 0;
+function GuestbookFloodProtection() 
+{
+	document.getElementById('_zxcv').value = GuestBookStarter;
+	GuestBookStarter = GuestBookStarter + 1;
+	setTimeout('GuestbookFloodProtection()', 1000);
+}
+jQuery(document).ready(function(){ GuestbookFloodProtection(); });
+
+-->
+</script> 
+<!-- END add_form --> 
+
+<!-- BEGIN list --> 
+<!-- BEGIN list_row --> 
+<table width="502" border="0" align="center" cellpadding="0" cellspacing="6" class="mgt8"> 
+  <tr> 
+    <td><span class="date2"><lisk:field name="date" /></span></td> 
+  </tr> 
+  <tr> 
+    <td><strong class="gr"><lisk:field name="name" /></strong></td> 
+  </tr> 
+  <tr> 
+    <td class="txt"><p><lisk:field name="message" /></p></td> 
+  </tr> 
+  <tr> 
+    <td><lisk:field name="caption" /> <a href="mailto:<lisk:field name="email" />"><lisk:field name="email" /></a></td> 
+  </tr> 
+</table> 
+<!-- BEGIN list_separator --> 
+<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="mgt8"> 
+  <tr> 
+    <td style="background:#F3F3F3"><img src="img/0.gif" alt="" width="1" height="3" /></td> 
+  </tr> 
+</table> 
+<!-- END list_separator --> 
+<!-- END list_row --> 
+<br />
+<table cellspacing="1" cellpadding="2" align="center"> 
+  <tr>  
+    <td colspan="2">{PAGING}</td> 
+  </tr> 
+  <tr>  
+    <td colspan="2">{ADD_RECORD}</td> 
+  </tr> 
+  </table>
+<!-- END list --> 
+<!-- BEGIN view --> 
+{DATE} <br /> 
+{NICKNAME} <a href="mailto:{EMAIL}">{EMAIL}</a> <br /> 
+{MESSAGE} <br /> 
+<br /> 
+<a href="{BACK}">return to guestbook</a> 
+<!-- END view --> 
+
+<!-- BEGIN record_added_1 --> 
+<p> your message added to guestbook <br /> 
+  <br /> 
+  <a href="{BACK}">return to guestbook</a> </p> 
+<!-- END record_added_1 --> 
+<!-- BEGIN record_added_2 --> 
+<br />
+<p> your message added to guestbook and will be published after admin approving <br /> 
+<br /> 
+<a href="{BACK}">return to guestbook</a> </p> 
+<!-- END record_added_2 --> 

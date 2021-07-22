@@ -1,0 +1,80 @@
+<!-- BEGIN visit_info --><style type="text/css">
+<!--
+body {
+	margin-left: 2px;
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-bottom: 2px;}
+
+
+.pdtd td { padding: 3px}
+.htd {background-color: #D3D3D9; border-left: 1px solid #FFFFFF; border-top:  1px solid #FFFFFF; border-bottom:  1px solid #999999; border-right: 1px solid #999999; padding:3px;}
+.pdl td { padding-left: 8px}
+-->
+</style>
+<link href="css/lisk/stat_visit.css" rel="stylesheet" type="text/css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr class="pdl">
+    <td height="27" colspan="2" class="htd"><strong>Visit Info </strong></td>
+  </tr>
+  <tr class="ListTD1 pdl">
+    <td width="77">Visitor ID </td>
+    <td width="323">{VISITOR_ID}</td>
+  </tr>
+  <tr class="ListTD2 pdl">
+    <td>Country</td>
+    <td>
+		<span class="flag flag-{COUNTRY_SHORT}" title="{COUNTRY_NAME}"></span>
+		&nbsp;
+		<span class="flag-caption">{COUNTRY_NAME}</span>
+	</td>
+  </tr>
+  <tr class="ListTD1 pdl">
+    <td>IP</td>
+    <td>{IP} <a href="http://ripe.net/fcgi-bin/whois?form_type=simple&full_query_string=&searchtext={IP}&submit=Search" target="_blank">RIPE.net whois </a></td>
+  </tr>
+  <tr class="ListTD2 pdl">
+    <td>Entry page </td>
+    <td>{PAGE}</td>
+  </tr>
+  <tr class="ListTD1 pdl">
+    <td>Referrer</td>
+    <td><a href="{REFERRER}" target="_blank">{REFERRER_NAME}</a></td>
+  </tr>
+  <tr class="ListTD2 pdl">
+    <td>Browser</td>
+    <td>{BW}</td>
+  </tr>
+</table>
+<!-- END visit_info -->
+
+<!-- BEGIN visits -->
+<title>Visit Details</title></head>
+<body onLoad="window.focus()">
+<link href="css/lisk/main.css" rel="stylesheet" type="text/css"> 
+{VISIT_INFO}<br>
+
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+<!-- BEGIN visits_row -->
+	<tr class="pdl">
+		<td height="27" colspan="2" class="htd"><strong>{VISIT_N}. </strong>{DATE}</td>
+	</tr>
+	{PAGES}
+<!-- END visits_row -->	
+</table>
+<p align="center">
+  <input type="submit" name="Submit" value="Close" onClick="window.close()">
+</p>
+</body>
+<!-- END visits -->
+
+<!-- BEGIN pages -->
+<!-- BEGIN pages_row -->
+<tr class="pdl">
+	<td height="21" bgcolor="#FFFFFF">{PAGE}</td>
+	<td width="50" bgcolor="#FFFFFF" nowrap="nowrap">{TIME}</td>
+</tr>
+<!-- END pages_row -->
+<!-- END pages -->
+
+

@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/lisk/main.css" rel="stylesheet">
+<script src="../js/jquery/jquery.js"></script>
+<script src="js/lisk/hint.js"></script>
+<script type="text/javascript">
+
+var LiskClock = function()
+{
+	this.hour = parseInt('{HOURS}', 10);
+	this.minute = parseInt('{MINUTES}', 10);
+	this.second = parseInt('{SECONDS}', 10);
+	
+	//month day
+	this.day = parseInt('{DAY}', 10);
+	
+	this.weekdays = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+	
+	this.weekdayNum = parseInt('{WEEKDAY_NUM}', 10);
+
+	this.ticker = (new Date()).getTime();
+}
+
+LiskClock.prototype.Start = function()
+{
+	setInterval(function(clock){
+		return function()
+		{
+			clock.Tick();
+		}
+	}(this), 500);
+}
+
+LiskClock.prototype.Tick = function()
+{
+	var now = (new Date()).getTime();
+	var secondsPassed = (now - this.ticker)/1000;
+
+	if (secondsPassed>=1) 
+	{
+		this.Render();
+		this.ticker = now;
+	}
+}
+
+LiskClock.prototype.Render = function()
+{
+	
+	if (this.second==59)
+	{
+		if (this.minute==59)
+		{
+			if (this.hour==23)
+			{
+				this.second = 0;
+				this.minute = 0;
+				this.hour = 0;
+				
+				this.day++;
+				
+				this.weekdayNum++;
+				if (this.weekdayNum>6) this.weekdayNum = 0;
+			}
+			else 
+			{
+				this.second = 0;
+				this.minute = 0;
+				this.hour++;
+			}
+		}
+		else
+		{
+			this.second = 0;
+			this.minute++;
+		}
+	}
+	else
+	{
+		this.second++;
+	}
+
+	$('#clockWeekdayName').html(this.weekdays[this.weekdayNum]);
+	$('#clockDay').html(this.day);
+	$('#clockHour').html(this.AddLZ(this.hour));
+	$('#clockMinute').html(this.AddLZ(this.minute));
+	$('#clockSecond').html(this.AddLZ(this.second));
+}
+
+LiskClock.prototype.AddLZ = function(str) 
+{
+	return (str.toString().length==1) ? '0' + str : str;
+}
+
+$(document).ready(function(){
+
+	//start clock
+	(new LiskClock()).Start();
+});
+
+
+
+</script>
+</head>
+
+<body>
+<table width="100%" height="95" border="0" cellpadding="0" cellspacing="0" background="img/top/5.gif">
+  <tr> 
+    <td width="1" valign="top"><img src="img/top/logo.gif" width="183" height="90"></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="1" rowspan="2" class="loginTDWhite"><img src="img/top/del.gif" width="5" height="38"></td>
+          <td class="loginTDWhite">[[[main.project]]]</td>
+        </tr>
+        <tr> 
+          <td class="loginTDGreen"><lisk:snippet name="appname" /></td>
+        </tr>
+      </table></td>
+    <td width="1" align="right" valign="top"><table width="100%" border="0" cellspacing="10" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="3">
+              <tr>
+                <td align="right" nowrap class="TDWhite">[[[main.logged_in_as]]] 
+                  <strong>{USER_NAME}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/top/logout.gif" width="10" height="13" border="0" align="absmiddle"> 
+                  <a href="javascript: if(confirm('[[[main.are_you_sure_to_logout]]]')) location.href='login.php?action=logout'" class="white" liskHint="[[[main.logout]]]">[[[main.logout]]]</a></td>
+              </tr>
+              <tr>
+                <td nowrap class="TDWhite" liskHint="[[[main.server_time]]]"><img src="img/top/clock.gif" width="13" height="13" align="absmiddle"> 
+                  <span id="clockWeekdayName">{WEEKDAY}</span>, 
+                  {MONTH} 
+                  <span id="clockDay">{DAY}</span>, 
+                  <span id="clockYear">{YEAR}</span> 
+                  <span id="clockHour">{HOURS}</span>:<span id="clockMinute">{MINUTES}</span>:<span id="clockSecond">{SECONDS}</span> 
+                  GMT
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

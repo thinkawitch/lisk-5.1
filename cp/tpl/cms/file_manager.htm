@@ -1,0 +1,281 @@
+<!-- BEGIN filestab -->
+	
+<script src="js/lisk/file_manager.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+      var DEL_DIR           = "[[[cp_filemgr.del_dir]]]";
+      var DEL_FILE          = "[[[cp_filemgr.del_file]]]";
+      var ENTER_FNAME       = "[[[cp_filemgr.enter_fname]]]";
+      var VIEWMOVIE_INPOPUP = "[[[cp_filemgr.viewmovie_inpopup]]]";
+      var ENLARGE_MOVIE     = "[[[cp_filemgr.enlarge_movie]]]";
+      var VIEW_INPOPUP      = "[[[cp_filemgr.view_inpopup]]]";
+      var ENLARGE_PIC       = "[[[cp_filemgr.enlarge_pic]]]";
+      var folder 			= "{FOLDER}";
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td valign="top" width="430px">
+	<!--browse td begin-->
+
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr><td colspan="3">
+
+	<table cellpadding="0" cellspacing="0"  background="img/cms/links_bg.gif" height="25px" width="100%" style="background-repeat : repeat-x;" border="0">
+	<tr valign="middle">
+		<td width="25px"><img src="img/file_manager/ico_upload_dir.gif" style="vertical-align:top"></td>
+		<td width="100px" valign="middle"> <a href="javascript: fmMakeUpload('dir');" liskHint="[[[cp_filemgr.c_newdir]]]">[[[cp_filemgr.cdir]]]</a></td>
+		<td width="25px"><img src="img/file_manager/ico_addfile.gif"></td>
+		<td><a href="javascript: fmMakeUpload('file');" liskHint="[[[cp_filemgr.up_newfile]]]">[[[cp_filemgr.upload_file]]]</a></td>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+
+
+	<table style="display:none;" id="upload_file_tab" cellpadding="0" cellspacing="0" width="100%" border="0" background="#F8F8FE">
+	<tr style="background-color : #F8F8FE">
+	<td width="154" align="center" style="background-color : #F8F8FE">
+		<table cellpadding="4" cellspacing="0" border="0" width="100%" height="100%"><tr>
+		<tr>
+			<td align="right" valign="bottom" style="vertical-align:bottom"><nobr>
+				<img src="img/file_manager/ico_upload.gif" style="vertical-align:bottom">&nbsp;<span style="vertical-align:bottom;">[[[cp_filemgr.select_file]]]</span> </nobr>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<br><br><br>
+			</td>
+		</tr>
+		</table>
+	</td>
+	<td width="276" style="background-color : #F8F8FE">
+		<form method="post" name="formFileUpload" id="idFormFileUpload" enctype="multipart/form-data">
+		<table cellpadding="3" cellspacing="0" border="0" width="70%">
+		<tr style="background-color : #F8F8FE"><td style="background-color : #F8F8FE">
+        <input name="action" type="hidden" value="upload_file">
+        <input name="dir" type="hidden" value="{CURRENT_DIR}">
+        <input style="width:200px; height:20px" type="file" id="inpFile" name="file" size="10">
+</td></tr>
+		<tr><td><font style="font-size:10px;color:gray; height:10px; vertical-align:middle">[[[cp_filemgr.get_file_msize]]] {MAX_FILE_SIZE} [[[cp_filemgr.from_disk]]]</font></td></tr>
+
+		<tr><td><input type="submit" value="[[[main.upload]]]" class="submit60"  liskHint="[[[cp_filemgr.upload_file]]]">
+		<input type="button" name="Submit" value="[[[main.cancel]]]" class="btnCancel" onClick="fmMakeUpload('file');" liskHint="[[[cp_filemgr.dnot_upload_file]]]"></td>
+		</td></tr>
+		</table>
+		</form>
+	</td>
+	
+	</tr>
+
+	</table>
+
+
+
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="display:none;" id="upload_dir_tab" background="#F8F8FE">
+
+    <tr style="background-color : #F8F8FE">
+
+	  <td align="right" style="text-align:right;" width="154">
+      	<table cellpadding="4" cellspacing="0" border="0" width="100%" height="100%"><tr>
+		<tr><td align="right" valign="bottom" style="vertical-align:bottom;border-width:5px;border-style:hidden;border-color:'#F8F8FE'" nowrap="nowrap">&nbsp;
+      	<img src="img/file_manager/ico_upload_dir2.gif" style="vertical-align:top">&nbsp;<nobr><span style="vertical-align:bottom;">[[[cp_filemgr.fname]]]</span></nobr><br />
+<br />
+<br />
+
+      	</td></tr></table>
+      </td>
+
+      <td style="background-color : #F8F8FE" width="276">
+	    <form method="post" name="formCreateDir"  id="idFormCreateDir" onsubmit="return fmCheckNewDir();">
+      	<table cellpadding="3" cellspacing="0" width="70%">
+      	<tr>
+			<td>
+		      	<input name="action" type="hidden" value="create_dir" />
+		       	<input type="hidden" name="dir" value="{CURRENT_DIR}" />
+		        <input style="width:200px;height:20px" type="text" id="idDirName" name="dir_name">
+	      	</td>
+		</tr>
+      	<tr>
+			<td>
+		      	<input type="submit" value="[[[main.create]]]" class="submit60" liskHint="[[[cp_filemgr.c_newdir]]]">
+			  	<input type="button" name="Submit" value="[[[main.cancel]]]" class="btnCancel" onClick="fmMakeUpload('dir');" liskHint="[[[cp_filemgr.dc_newdir]]]">
+			</td>
+      	</tr>
+      	</table>
+		</form>
+
+      </td>
+	  </tr>
+      </table>
+
+	</td></tr>
+	<tr>
+	<td colspan="3" height="25px" align="left"  background="img/cms/links_bg.gif">{NAVIGATION}</td></tr>
+	<tr>
+		<td>
+			<div style="overflow:auto;height:300px;" id="browse_div">
+			<table cellpadding="1" cellspacing="0" border="0" style="overflow:auto; margin-right:1px">
+			{DIRSTAB}
+		    {FILESTAB}
+		    </table>
+		    </div>
+	    </td>
+	</tr>
+	<tr>
+		<td colspan='3' background="img/cms/border_bg.gif" height='25px' style="background-repeat: repeat-x;">&nbsp;</td>
+	</tr>
+	</table>
+
+
+	<!--browse td end-->
+	</td>
+
+	<td>&nbsp;&nbsp;</td>
+
+	<td valign="top" align="center">
+	<!--view td begin-->
+
+
+	<table border="0" cellpadding="0" cellspacing="0" style="display:none;" id="view_tab">
+	<tr style="background-color:#ffffff"><td height="6px"></td></tr>
+	<tr style="background-color:#E7E7EB"><td height="30px" align="center"><b id="f_title"></b></td></tr>
+	<tr style="background-color:#E7E7EB">
+	<td align="center">
+
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	<td><span id="width_span"><img src="img/file_manager/ico_width.gif" style="vertical-align:middle">&nbsp;Width: <b id="f_width">n/a</b> </span></td><td><span id="height_span"> <img src="img/file_manager/ico_height.gif" style="vertical-align:middle;">Height: <b id="f_height">n/a</b></span> </td><td> <img src="img/file_manager/ico_size.gif"></td><td>Size: <b id="f_size">n/a</b></td>
+	</tr>
+	</table>
+
+	</td>
+	</tr>
+	<tr>
+	<td align="center" valign="bottom">
+
+
+
+	<div id="divImg" style="overflow:auto;width:310;"></div>
+
+
+	</td>
+	</tr>
+	<tr>
+	<td height="30px" align="center"  style="background-color:#E7E7EB">
+		<table id="bottom_prop" style="display:none;" cellpadding="0" cellspacing="0" width="100%" height="100%" border="0" style="border:0px hidden #E7E7EB;">
+			<tr style="background-color:#E7E7EB">
+				<td>&nbsp;</td><td align="center" width="100%" style="width:100%; text-align:center; padding:5px 0;">Last modified: <b id="f_lastm">n/a</b></td>
+			</tr>
+			<tr style="background-color:#E7E7EB">
+				<td>&nbsp;</td><td align="center" width="100%" style="width:100%; text-align:center">Publish URL: <input type="text" value="" id="link" style="width:300px;font-size:11px;line-height:11px;"/><input style="margin:0 5px;" type="button" id="select"  style="font-size:11px;" value="Select" onclick="$('#link').select();"></td>
+			</tr>
+			<tr style="background-color:#E7E7EB;" id="copy">
+				<td>&nbsp;</td><td align="center" width="100%" style="width:100%; text-align:center"><div style="margin:5px 0;" id="f_download">n/a</div></td>
+			</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+
+	<!--view td end-->
+	</td>
+</tr>
+</table>
+
+<!-- END filestab -->
+
+
+
+
+<!-- BEGIN dirs_up -->
+             <tr>
+              <td colspan="3" class="td_main" >
+			   <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="1"><img src="img/file_manager/ico_dir.gif"></td>
+                    <td nowrap height="19px">&nbsp;<a href="?action={TYPE}&dir={DIR_PATH}" liskHint='[[[cp_filemgr.move_2prev_fldr]]]'><b>{DIR_NAME}</b></a></td>
+                  </tr>
+                </table></td>
+              <td width="5%" colspan="3" align="center" class="td_main" nowrap></td>
+            </tr>
+<!-- END dirs_up -->
+
+
+
+<!-- BEGIN dirs -->
+             <!-- BEGIN dirs_row -->
+             <tr {DECORATION}>
+              <td colspan="3" class="td_main"  >
+			   <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="1"><img src="img/file_manager/ico_dir.gif"></td>
+                    <td nowrap height="19px"><!--a href="javascript:window.navigate('site_images.php?p={DIR_PATH}')"-->&nbsp;<a href="?action={TYPE}&dir={DIR_PATH}"><b>{DIR_NAME}</b></a></td>
+                  </tr>
+                </table></td>
+              <td width="5%" colspan="3" align="center" class="td_main" nowrap><img src="img/file_manager/delete.gif" alt="[[[cp_filemgr.del_image]]]" border="0" style="cursor:hand;vertical-align : middle;">&nbsp;<a href="javascript: fmDeleteDir('{DIR_PATH}', '{TYPE}')" liskHint="[[[cp_filemgr.delete_dir]]]">[[[main.delete]]]</a></td>
+            </tr>
+             <!-- END dirs_row -->
+<!-- END dirs -->
+
+<!-- BEGIN list -->
+<!-- BEGIN list_row -->
+             <tr {DECORATION}>
+              <td class="td_main"  width="100%"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="1"><img src="img/file_manager/{ICO}"></td>
+                    <td nowrap height="20px">&nbsp;<a href="javascript:fmSelectFile('{PATH1}', '{IWIDTH}', '{IHEIGHT}', '{FILE_TYPE}', '{SIZE}', '{LAST_MODIFIED}', '{NAME}', '{ICO}');">{NAME}</a></td>
+                  </tr>
+                </table></td>
+              <td width="20px" align="center" class="td_main" nowrap><!--<nobr><img src="img/file_manager/view.gif" style="vertical-align : middle;">&nbsp;<a href="javascript: fmShowFile('{PATH1}', '{IWIDTH}', '{IHEIGHT}');" liskHint="[[[cp_filemgr.openfile_inpopup]]]">[[[main.view]]]</a></nobr>--></td>
+              <td width="1px" align="center" class="td_main" ></td>
+              <td width="20px" align="center" class="td_main" nowrap><nobr><img src="img/file_manager/delete.gif" alt="[[[cp_filemgr.delete_file]]]" border="0" style="cursor:hand;vertical-align : middle;">&nbsp;<a href="javascript: fmDeleteFile('{IMG_PATH}', '{FILE_TYPE}')" liskHint="[[[cp_filemgr.delete_file]]]">[[[main.delete]]]</a></nobr></td>
+            </tr>
+<!-- END list_row -->
+<!-- END list -->
+
+<!-- BEGIN listimage -->
+<!-- BEGIN listimage_row -->
+             <tr {DECORATION}>
+              <td class="td_main"  width="100%"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="1"><img src="img/file_manager/{ICO}"></td>
+                    <td nowrap height="20px">&nbsp;<a href="javascript:fmSelectFile('{PATH1}', '{IWIDTH}', '{IHEIGHT}', '{FILE_TYPE}', '{SIZE}', '{LAST_MODIFIED}', '{NAME}', '{ICO}');">{NAME}</a></td>
+                  </tr>
+                </table></td>
+              <td width="20px" align="center" class="td_main" nowrap><!--<nobr><img src="img/file_manager/view.gif" style="vertical-align : middle;" alt="[[[main.view]]]">&nbsp;<a href="{PATH1}" liskZoom="true" liskHint="[[[cp_filemgr.openfile_inpopup]]]">[[[main.view]]]</a>&nbsp;</nobr>--></td>
+              <td width="20px" align="center" class="td_main" nowrap="nowrap"><nobr><img src="img/file_manager/edit.gif" style="vertical-align : middle;" alt="[[[main.edit]]]">&nbsp;<a href="javascript: popupWindow('../init/editors/image/edit.php?filename={PATH2}','640','479');" liskHint="[[[cp_filemgr.open_imageeditor]]]">[[[main.edit]]]</a>&nbsp;</nobr></td>
+              <td width="20px" align="center" class="td_main" nowrap><nobr><img src="img/file_manager/delete.gif" alt="[[[cp_filemgr.delete_file]]]"border="0" style="cursor:hand;vertical-align : middle;">&nbsp;<a href="javascript: fmDeleteFile('{IMG_PATH}', '{FILE_TYPE}')" liskHint="[[[cp_filemgr.delete_file]]]">[[[main.delete]]]</a></nobr></td>
+            </tr>
+<!-- END listimage_row -->
+<!-- END listimage -->
+
+
+<!-- BEGIN listdocument -->
+<!-- BEGIN listdocument_row -->
+             <tr {DECORATION}>
+              <td class="td_main"  width="100%"> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="1"><img src="img/file_manager/{ICO}" /></td>
+                    <td nowrap height="20px"><nobr>&nbsp;<a href="javascript:fmSelectFileExt('{ICO_BIG}', '{IWIDTH}', '{IHEIGHT}', '{SIZE}', '{LAST_MODIFIED}', '{ICO}', '{NAME}');">{NAME}</a></nobr></td>
+                  </tr>
+                </table></td>
+              <td width="5%" align="center" class="td_main" nowrap><!--<nobr><img src="img/file_manager/view.gif" style="vertical-align : middle;">&nbsp;<a href="javascript: fmShowFile('{PATH1}', '{IWIDTH}', '{IHEIGHT}');" liskHint="[[[cp_filemgr.enlarge_item]]]">[[[main.view]]]</a></nobr>--></td>
+              <td width="1px" align="center" class="td_main"></td>
+              <td width="5%" align="center" class="td_main" nowrap><nobr><img src="img/file_manager/delete.gif" alt="[[[cp_filemgr.del_image]]]"border="0" style="cursor:hand;vertical-align : middle;">&nbsp;<a href="javascript:fmDeleteFile('{IMG_PATH}', '{FILE_TYPE}')" liskHint="[[[cp_filemgr.delete_file]]]">[[[main.delete]]]</nobr></td>
+            </tr>
+<!-- END listdocument_row -->
+<!-- END listdocument -->
+
+
+<!-- BEGIN navigation -->
+<table border="0" cellpadding="0" cellspacing="0"><tr>
+	<td><img src="img/file_manager/ico_location.gif" style="virtical-align:middle;"></td>
+<!-- BEGIN navigation_row -->
+	<td width="10px"><nobr><a href="?action={TYPE}&dir={LINK_DIR_PATH}">{LINK_NAME}</a></nobr></td>
+	<td width="15px" align="center" valign="middle"><img src="img/file_manager/ico_array.gif" style="vertical-align:middle;margin-top:3px" align="middle"></td>
+<!-- END navigation_row -->
+	<td width="10px"><nobr>{CURRENT_NAME}</nobr></td>
+	<td></td>
+</tr>
+</table>
+<!-- END navigation -->  		

@@ -1,0 +1,23 @@
+.liskStarsReset {float:left;}
+.liskStarsReset a {
+    cursor:pointer;
+    width:16px;
+    height:16px;
+    float:left;
+    background:url("../../../img/lisk/type_star/delete.gif") no-repeat;
+    cursor:pointer;
+    float:left;
+}
+.liskStarsReset a:hover {background-position:0 -16px;}
+.liskStars {
+    float:left;
+    height:16px;
+    background:url("../../../img/lisk/type_star/star.gif") repeat-x;
+}
+.liskStars div {
+    height:16px;
+    background:url("../../../img/lisk/type_star/star.gif") repeat-x 0 -32px;
+}
+.liskStars div.edit {
+    background:url("../../../img/lisk/type_star/star.gif") repeat-x 0 -16px;
+}

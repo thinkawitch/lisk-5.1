@@ -1,0 +1,70 @@
+<!-- BEGIN view -->
+<style type="text/css">
+.t-header { 
+	font-weight: bold; 
+	font-size: 12px;
+}
+.t-key { 
+	color: #777;
+}
+</style>
+
+<table>
+<tr>
+	<td valign="top">{DATE_TIME}</td>
+	<td valign="top" style="padding-left:40px">{FORCE_DEBUG}</td>
+</tr>
+<tr>
+	<td colspan="2" class="t-header" style="padding-top:20px">Database</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<a href="[/]cp/3rdparty/pma/index.php?a=b" target="_blank">phpMyAdmin</a> 
+		| <a href="[/]cp/3rdparty/sxd/" target="_blank">Sypex Dumper</a>
+	</td>
+</tr>
+</table>
+<!-- END view -->
+
+<!-- BEGIN date_time -->
+<table>
+<tr>
+	<td colspan="2" class="t-header">Time settings</td>
+</tr>
+<tr>
+	<td class="t-key">PHP timezone:</td>
+	<td>{PHP_TIME_ZONE}</td>
+</tr>
+<tr>
+	<td class="t-key">PHP datetime:</td>
+	<td>{PHP_TIME}</td>
+</tr>
+<tr>
+	<td class="t-key">HTTP Server difference:</td>
+	<td>{HTTP_DIFF}</td>
+</tr>
+<tr>
+	<td class="t-key">MySQL Server datetime:</td>
+	<td>{MYSQL_TIME}</td>
+</tr>
+</table>
+<!-- END date_time -->
+
+<!-- BEGIN debug -->
+<form method="post">
+<table>
+<tr>
+	<td colspan="2" class="t-header">Debug state</td>
+</tr>
+  <tr>
+    <td nowrap="nowrap">Force debug:</td>
+    <td>{FD}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="Submit" value="Submit" /></td>
+  </tr>
+</table>
+<input name="action" type="hidden" value="submit_debug" />
+</form>
+<!-- END debug -->

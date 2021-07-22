@@ -1,0 +1,149 @@
+<!-- BEGIN ticket -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Ticket ID </td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="ticket_id" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Department</td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="department" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>  
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Opened on </td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="date" /> </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Opened by </td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="from_first_name" /> <lisk:field name="from_last_name" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Email</td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="from_email" /></td>
+  </tr>  
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>  
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Reply required </td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">{REPLY_REQUIRED}</td>
+  </tr>  
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>    
+</table>
+<!-- END ticket -->
+
+<!-- BEGIN reply -->
+<br />
+<script language="javascript">
+
+function ApplyTemplate() 
+{
+	var list        = $('#templatesList')[0];
+	var textarea    = $('#message')[0];
+	
+	if (list.value!=0) {
+		textarea.value = list.value;
+	}
+	
+}
+
+function InsertTemplate() {
+	var ta = $('#message')[0];
+	var list = $('#template_paragraph')[0];
+	if (list.value==0) return;
+	var insText = list.value;
+	
+	var pos = ta.selectionStart;
+	var value = new String(ta.value);
+	
+	var p1 = value.substr(0,pos);
+	var p2 = value.substr(pos);
+	
+	ta.value=p1+insText+p2;
+}
+
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form method="post" name="reply">
+
+  <tr >
+    <td width="20%" class="ListTDTop">Reply</td>
+    <td class="ListTDTop" >&nbsp;</td>
+  </tr>
+  
+  <tr >
+    <td colspan="2" class="ListTD1" style="padding-left:10px">Apply reply template: {TEMPLATE_FIELD} 
+      <input type="button" name="Submit2" value="Apply" onClick="ApplyTemplate();" /> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert paragraph 
+      {PARAGRAPH_FIELD}
+      <input type="button" name="Submit3" value="Insert" onclick="InsertTemplate();" /></td>
+    </tr>  
+    <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><p>Message</p>
+      <p>&nbsp;</p></td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><textarea name="message" id="message" style="width:100%; height:200px;"></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Mark as replied </td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><input name="replied" type="checkbox" id="replied" value="1" checked="checked" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#F4F4F8" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">&nbsp;</td>
+    <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><input name="action" type="hidden" id="action" value="reply" />
+      <input type="submit" name="Submit" value="Reply" />
+      <input name="Submit" type="submit" id="Submit" value="Junk" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>  
+</form>
+</table>
+
+
+<script language="javascript" src="js/textarea_zoom.js" > </script>
+<!-- END reply -->
+<!-- BEGIN messages --><br />
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+<!-- BEGIN messages_row -->
+  <tr>
+    <td width="20%" valign="top" nowrap="nowrap" bgcolor="#FFFF99" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><strong>{NAME}</strong><br />
+    {DATE}</td>
+    <td valign="top" style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">{MESSAGE} </td>
+  </tr>
+  <!-- BEGIN messages_separator -->
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr>
+  <!-- END messages_separator -->
+ <!-- END messages_row -->
+  <tr>
+    <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2" /></td>
+  </tr> 
+</table>
+<!-- END messages -->

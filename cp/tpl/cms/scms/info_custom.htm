@@ -1,0 +1,152 @@
+<!-- BEGIN view -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" valign="top"><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="449" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			
+				<a href="javascript: parent.location.href='scms.php?action=edit&id=<lisk:field name='id' />'; void(0);"><img src="img/cms/scms/i_settings.gif" border="0" width="12" height="12" align="absmiddle">&nbsp;Properties</a>
+				&nbsp;&nbsp;&nbsp;
+				<a href="javascript: parent.location.href='scms.php?action=manage_content&id=<lisk:field name='id' />'; void(0);"><img src="img/cms/scms/i_content.gif" border="0" width="16" height="12" align="absmiddle">&nbsp;Edit Content</a>
+				&nbsp;&nbsp;&nbsp;
+				<a href="javascript: parent.location.href='<lisk:field name='cp_handler' />'; void(0);"><img src="img/cms/scms/manage.gif" border="0" width="15" height="17" align="absmiddle">&nbsp;Manage</a>
+				<br /><br />
+				
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif" height="24"><img src="img/cms/scms/i_page_info.gif" alt="" width="19" height="17" hspace="4" vspace="3" align="absmiddle"><strong>Custom Page Information </strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Parent</td>
+                        <td>{PARENT}</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Site section name </td>
+                        <td><lisk:field name="name" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Title</td>
+                        <td><lisk:field name="title" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.site_handler]]]</td>
+                        <td><lisk:field name="site_handler" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.cp_handler]]]</td>
+                        <td><lisk:field name="cp_handler" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <br />
+              <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_templates.gif" alt="" width="30" height="24" align="absmiddle"><strong>Templates</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Global template </td>
+                        <td><lisk:field name="global_tpl" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.section_tpl]]]</td>
+                        <td><lisk:field name="section_tpl" /> </td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>[[[cp_scms.page_tpl]]]</td>
+                        <td><lisk:field name="page_tpl" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+			  <br />
+			  <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_page_acces.gif" alt="" width="27" height="24" align="absmiddle"><strong>Page Access</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">Access level </td>
+                        <td><lisk:field name="access_level" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Is Locked </td>
+                        <td><lisk:field name="is_locked" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+			  <br />
+			  <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#B1B1B7">
+                <tr>
+                  <td bgcolor="#E6E6EA" style="border-bottom:1px solid #FFFFFF; border-left:1px solid #FFFFFF;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td background="img/cms/scms/bgh.gif"><img src="img/cms/scms/ico_other_option.gif" alt="" width="26" height="24" align="absmiddle"><strong>Other Options</strong></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#6C6C72"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#FFFFFF"><img src="img/0.gif" alt="" width="1" height="1"></td>
+                      </tr>
+                    </table>
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td width="1">&nbsp;</td>
+                        <td width="120">[[[cp_scms.hide_from_menu]]] </td>
+                        <td><lisk:field name="hide_from_menu" /></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>Site URL </td>
+                        <td><a href="<lisk:field name='url' />" target="_blank">Click here to open the page</a></td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+			  <img src="img/0.gif" height="6" width="10" border="0"><br /></td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+<!-- END view -->

@@ -1,0 +1,97 @@
+<!-- BEGIN form -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" enctype="multipart/form-data" onSubmit="return CheckForm(this,{JS_CHECK})" name="form1">
+    
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Type</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="field_type"/></td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">System Name</td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="name"/> </td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Name (Label) </td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">  <lisk:field name="label" render="form"/></td>
+          </tr>
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr> 
+            <td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Files path </td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="path"/>           </td>
+          </tr>	
+		  <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+		  <tr> 
+			<td width="20%" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Thumbnails </td>
+            <td style="padding-left: 5px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">{THUMBNAILS}           </td>
+          </tr>
+	    </table>		  		  		  		  		  		  
+        
+	  </td>
+    </tr>
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">  
+          <tr><td nowrap>
+		      <input type="hidden" name="action" value="submit" /> 
+              <input name="submit" type="submit" value="Submit" class="btnSubmit" liskHint="Save the record."> 
+              <input type="button" name="Submit" value="Cancel" class="btnCancel" onClick="document.location.href='<<<BACK>>>';" liskHint="Do not save the record and return to the previous page.">
+			  </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </form>
+</table>
+<!-- END form -->
+
+
+<!-- BEGIN thumbnails -->
+<table border="0" cellpadding="1" cellspacing="1" bgcolor="#D4D4D8">
+  <tr>
+	<td width="304" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="4" bgcolor="#E8E8EE">
+	  <tr>
+		<td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+		  <tr>
+			<td><span style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Big</span></td>
+			<td><img src="img/cms/th.gif" width="16" height="18" hspace="4" /></td>
+			<td align="right">width:</td>
+			<td><input name="big_w" type="text" id="big_w" value="{BIG_W}" size="4" maxlength="4" /></td>
+			<td align="right">height:</td>
+			<td><input name="big_h" type="text" id="big_h" value="{BIG_H}" size="4" maxlength="4" /></td>
+		  </tr>
+		  <tr>
+			<td><span style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Medium</span></td>
+			<td><img src="img/cms/th.gif" width="16" height="18" hspace="4" /></td>
+			<td align="right">width:</td>
+			<td><input name="medium_w" type="text" id="medium_w" value="{MEDIUM_W}" size="4" maxlength="4" /></td>
+			<td align="right">height:</td>
+			<td><input name="medium_h" type="text" id="medium_h" value="{MEDIUM_H}" size="4" maxlength="4" /></td>
+		  </tr>
+		  <tr>
+			<td><span style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Small</span></td>
+			<td><img src="img/cms/th.gif" width="16" height="18" hspace="4" /></td>
+			<td align="right">width:</td>
+			<td><input name="small_w" type="text" id="small_w" value="{SMALL_W}" size="4" maxlength="4" /></td>
+			<td align="right">height:</td>
+			<td><input name="small_h" type="text" id="small_h" value="{SMALL_H}" size="4" maxlength="4" /></td>
+		  </tr>
+		</table></td>
+	  </tr>
+	</table>
+	</td>
+  </tr>
+</table>
+<!-- END thumbnails -->

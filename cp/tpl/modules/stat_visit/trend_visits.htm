@@ -1,0 +1,43 @@
+<!-- BEGIN view -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+    <td width="100%">{LIST}</td>
+    <td>{CHART}</td>
+  </tr>
+</table>
+<!-- END view -->
+
+<!-- BEGIN trends_list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="ListTDTop" align="center">Date</td>
+      <td class="ListTDTop" align="center">Visits</td>
+      <td class="ListTDTop" align="center">Pages</td>
+   </tr>
+    
+	<!-- BEGIN trends_list_row -->
+	<tr class="ListTD<? 1 + ($sd = 1 - (int)@$sd) ?>">
+		<td align="center">{DATE}&nbsp;</td>
+		<td align="center">{VISITORS}&nbsp;</td>
+		<td align="center">{VISITS}</td>
+	</tr>
+	<!-- END trends_list_row -->
+	<!-- BEGIN trends_list_empty -->
+	<tr> 
+      <td colspan="100" align="center"><br>
+        No visits.<br>&nbsp;
+      </td>
+	</tr>
+	<!-- END trends_list_empty -->
+    
+    <tr> 
+      <td colspan="106">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+          </tr>
+        </table>
+		</td>
+    </tr>
+</table>
+<!-- END trends_list -->

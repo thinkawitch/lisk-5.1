@@ -1,0 +1,348 @@
+<!-- BEGIN new -->
+<style type="text/css">
+.tdImageDescription {
+	color: #717177;
+	font-size: 10px;
+}
+.brd1 {
+	border-bottom:1px solid #D4D4D8;
+	border-left:1px solid #D4D4D8;
+	border-right:1px solid #D4D4D8;
+	width:450px;
+	margin-top:1px}
+.brd2 {
+	border-right: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	background-color: #E8E8EE;}
+.brd3 {
+	border:1px solid #D4D4D8;
+	width:450px}
+.brd4 {
+	border: 1px solid #FFFFFF;
+	background-color: #E8E8EE}
+</style>
+
+<script type="text/javascript" src="js/lisk/type/image.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	(new LiskTypeImage('{NAME}')).Init();
+});
+</script>
+
+<div id="idField{NAME}">
+
+	<input name="{NAME}" type="hidden" value="{CUR_VALUE}" />
+
+	<table width="100%"  border="0" cellpadding="3"  cellspacing="0">
+	<tr>
+		<td width="120">
+			<strong>Original Image</strong>
+	    </td>
+	    <td>
+	    	<input name="{NAME}_add_image_method" type="radio" value="upload" checked="checked"  align="absmiddle" liskHint="Upload an image from your computer." />
+	      	Upload
+	      	<input type="radio" name="{NAME}_add_image_method" value="my_pictures" liskHint="Select an image from My Pictures." />
+	      	Select from &quot;My Pictures&quot;
+		</td>
+	</tr>
+	</table>
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="3" rel="panel_http" style="display:block;">
+	  <tr>
+	    <td width="120" align="right"><img src="img/data_types/image_upload.gif" width="25" height="22"></td>
+	    <td><input name="{NAME}_upload" type="file"/></td>
+	  </tr>
+	  <tr>
+	    <td align="right">&nbsp;</td>
+	    <td class="tdImageDescription">Upload a file from your disk. Max File Size {MAX_SIZE} </td>
+	  </tr>
+	</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="3" rel="panel_ftp" style="display:none;">
+	  <tr>
+	    <td width="120" align="right"><img src="img/data_types/image_select.gif" width="21" height="22"></td>
+	    <td><input type="text" name="ftp_{NAME}" type="file" id="ftp_{NAME}"> <input type="button" name="Button" value="Select" rel="ftp_dialog" /></td>
+	  </tr>
+	</table>
+	<table width="100%"  border="0" cellpadding="3"  cellspacing="0" rel="thumbnails_creation" style="display:block;">
+	  <tr>
+	    <td width="120"><p><strong>Thumbnails creation</strong></p></td>
+	    <td> 
+	    	<input type="radio" name="{NAME}_thumbnails_creation" value="auto" checked="checked" align="absmiddle" liskHint="Create image thumbnails automatically.">
+	      	Automatically
+	      	<input type="radio" name="{NAME}_thumbnails_creation" value="custom" align="absmiddle" liskHint="Upload all thumbnails separately.">
+	      	Custom
+	    </td>
+	  </tr>
+	</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" rel="thumbnails" style="display:none;">
+	  <tr>
+	    <td><div class="brd3"><div class="brd4"><table width="100%"  border="0" cellpadding="3"  cellspacing="0">
+	        <tr>
+	          <td width="120"><p><strong>Autoresizing</strong></p></td>
+	          <td>
+	          	<input type="radio" name="{NAME}_resizing" rel="resizing_on" value="0" checked="checked" align="absmiddle" liskHint="Uploaded thumbnails will be resized automatically using the preset sizes.">
+	            On
+	            <input type="radio" name="{NAME}_resizing" rel="resizing_off" value="1" align="absmiddle" liskHint="Keep original sizes of uploaded thumbnails.">
+	            Off
+	          </td>
+	        </tr>
+	      </table></div></div>
+		   <!-- BEGIN new_thumbnail -->
+	      <div class="brd1"><div class="brd2"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+	        <tr>
+	          <td width="120" align="right">{THUMBNAIL_NAME} ({THUMBNAIL_WIDTH}x{THUMBNAIL_HEIGHT})
+	            <img src="img/data_types/image_upload.gif" width="25" height="22" align="absmiddle"></td>
+	          <td><b> </b>
+	            <input name="{NAME}_upload_{THUMBNAIL_KEY}" type="file" /> </td>
+	        </tr>
+	      </table></div></div>
+		  <!-- END new_thumbnail -->
+	    </td>
+	  </tr>
+	</table>
+
+</div>
+<!-- END new -->
+
+
+
+
+
+
+
+<!-- BEGIN update -->
+<script type="text/javascript" src="js/lisk/type/image.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	(new LiskTypeImage('{NAME}')).Init();
+});
+</script>
+
+<div id="idField{NAME}">
+
+	<input name="{NAME}" type="hidden" value="{CUR_VALUE}" />
+
+	<table width="100%"  border="0" cellpadding="3"  cellspacing="0">
+	<tr>
+    	<td width="1%" rowspan=101 align="center" valign="top" >
+    		<table border="0" cellpadding="1" cellspacing="0" bgcolor="#C8C8CE">
+        	<tr>
+          		<td>
+          			<table border="0" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
+              		<tr>
+                		<td><img src="{ORIGINAL_THUMBNAIL_SRC}?{TIMESTAMP}" {ORIGINAL_THUMBNAIL_INFO} border="0"></td>
+              		</tr>
+            		</table>
+            	</td>
+        	</tr>
+      		</table>
+      		<a href="{ORIGINAL_ZOOM}"><img src="img/data_types/image_view.gif" width="18" height="22" border="0" align="absmiddle">Zoom</a>
+    	</td>
+    	<td colspan="6" valign="top">
+    		<table border="0" cellpadding="3" cellspacing="0">
+        	<tr>
+          		<td nowrap><strong><span class="sml">{ORIGINAL_SRC}</span></strong></td>
+        	</tr>
+      		</table>
+      		<table border="0" cellpadding="3" cellspacing="0">
+	        <tr>
+	          <td nowrap><img src="img/data_types/image_size.gif" width="18" height="22" align="absmiddle">{IMAGE_W} x {IMAGE_H}</td>
+	          <td><img src="img/data_types/image_type.gif" width="18" height="22" align="absmiddle">{IMAGE_TYPE}</td>
+	          <td><img src="img/data_types/image_filesize.gif" width="18" height="22" align="absmiddle">{IMAGE_FILE_SIZE}</td>
+	        </tr>
+			</table>
+			
+			<table border="0" cellspacing="0" cellpadding="3">
+        	<tr>
+          		<td><strong>Thumbnail(s):</strong></td>
+          		<td>
+          			<table border="0" cellspacing="0" cellpadding="0" rel="thumbnails_view">
+              		<tr>
+                		<td nowrap><img src="img/data_types/image_view_thumbnails.gif" width="13" height="12" align="absbottom" >
+                  			<a href="#show" rel="existing-thumbs-show" liskHint="View image thumbnails.">View details</a>
+                  		</td>
+              		</tr>
+            		</table>
+            		<table border="0" cellspacing="0" cellpadding="0" rel="thumbnails_hide" style="display:none;">
+              		<tr>
+                		<td nowrap><img src="img/data_types/image_hide_thumbnails.gif" width="13" height="12" align="absmiddle">
+                  			<a href="#hide" rel="existing-thumbs-hide" liskHint="Hide image thumbnails.">Hide details</a>
+                  		</td>
+              		</tr>
+            		</table>
+            	</td>
+        	</tr>
+      		</table>
+
+      		<table width="450" border="0" cellpadding="1" cellspacing="0" bgcolor="#D4D4D8" rel="thumbnails_info" style="display:none;">
+       		<tr>
+          		<td>
+          			<table width="448" border="0" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
+              		<tr>
+                		<td>
+							<table width="446" border="0" cellpadding="0" cellspacing="0" bgcolor="#E8E8EE" >
+		                    <!-- BEGIN update_thumbnail -->
+        		            <tr>
+								<td width="100" nowrap style="padding-right: 40px; padding-left: 10px;">{THUMBNAIL_NAME}</td>
+                      			<td style="padding-right: 20px;"><img src="img/data_types/image_size.gif" width="18" height="22" align="absmiddle">
+                        			{THUMBNAIL_W} x {THUMBNAIL_H}
+                        		</td>
+                      			<td style="padding-right: 20px;"><img src="img/data_types/image_filesize.gif" width="18" height="22" align="absmiddle">
+                        			{THUMBNAIL_FILE_SIZE}
+                        		</td>
+                      			<td><img src="img/cms/list/view.gif" width="8" height="14" border="0" align="absmiddle">
+                        			<a href="{THUMBNAIL_ZOOM}">View</a>
+                        		</td>
+                    		</tr>
+                    		<!-- END update_thumbnail -->
+                  			</table>
+
+						</td>
+              		</tr>
+            		</table>
+            	</td>
+        	</tr>
+      		</table>
+
+
+
+
+
+      		<table border="0" cellpadding="3" cellspacing="0">
+       		<tr>
+          		<td nowrap="nowrap"><strong>Choose Action: </strong></td>
+          		<td><input name="{NAME}_edit_action" type="radio" value="none" checked="checked"  align="top">None</td>
+          		<td><input type="radio" name="{NAME}_edit_action" value="change" align="absmiddle" liskHint="Replace the image with a different one.">Change</td>
+          		<td><input type="radio" name="{NAME}_edit_action" value="delete" align="absmiddle" liskHint="Delete the image.">Delete</td>
+          		<td><input type="radio" name="{NAME}_edit_action" value="recreate" align="absmiddle" liskHint="Recreate thumbnails using the original image.">Recreate thumbnails</td>
+        	</tr>
+      		</table>
+
+
+     		<div rel="change_picture" style="display:none;border:1px solid #D4D4D8;width:450px">
+	 			<div style="border: 1px solid #FFFFFF;background-color: #E8E8EE">
+	 				<table width="100%"  border="0" cellpadding="3" cellspacing="0">
+			        <tr>
+          				<td width="120"><strong>Original Image</strong></td>
+          				<td><input type="radio" name="{NAME}_add_image_method" value="upload" checked="checked" liskHint="Upload an image from your computer.">
+							Upload
+            				<input type="radio" name="{NAME}_add_image_method" value="my_pictures" align="absmiddle" liskHint="Select an image from My Pictures.">
+            				Select from &quot;My Pictures&quot;
+            			</td>
+        			</tr>
+      				</table>
+      			</div>
+      		</div>
+
+
+      		<div rel="panel_http" style="display:none;border-bottom:1px solid #D4D4D8;border-left:1px solid #D4D4D8;border-right:1px solid #D4D4D8;width:450px;margin-top:1px">
+	  			<div style="border-right: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;background-color: #E8E8EE">
+	  				<table width="100%" border="0" cellspacing="0" cellpadding="3">
+        			<tr>
+          				<td width="120" align="right"><img src="img/data_types/image_upload.gif" width="25" height="22"></td>
+          				<td><input name="{NAME}_upload" type="file" /></td>
+        			</tr>
+        			<tr>
+          				<td align="right">&nbsp;</td>
+          				<td class="tdImageDescription">Upload a file from your disk. Max File Size {MAX_SIZE} </td>
+        			</tr>
+      				</table>
+      			</div>
+      		</div>
+
+
+      		<div rel="panel_ftp" style="display:none;border-bottom:1px solid #D4D4D8;border-left:1px solid #D4D4D8;border-right:1px solid #D4D4D8;width:450px;margin-top:1px">
+	  			<div style="border-right: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;background-color: #E8E8EE">
+	  				<table width="100%" border="0" cellspacing="0" cellpadding="3">
+        			<tr>
+          				<td width="120" align="right"><img src="img/data_types/image_select.gif" width="21" height="22"></td>
+          				<td><input type="text" name="ftp_{NAME}" type="file" id="ftp_{NAME}"> <input type="button" name="Button" value="Select" rel="ftp_dialog" /></td>
+       				</tr>
+      				</table>
+      			</div>
+			</div>
+
+
+      		<div rel="thumbnails_creation" style="display:none;border-bottom:1px solid #D4D4D8;border-left:1px solid #D4D4D8;border-right:1px solid #D4D4D8;width:450px;margin-top:1px ">
+				<div style="border-right: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;background-color: #E8E8EE">
+					<table width="100%"  border="0" cellpadding="3"  cellspacing="0">
+        			<tr>
+          				<td width="120"><p><strong>Thumbnails creation</strong></p></td>
+          				<td><input name="{NAME}_thumbnails_creation" type="radio" value="auto" checked="checked" align="absmiddle" liskHint="Create image thumbnails automatically.">
+            				Automatically
+            				<input type="radio" name="{NAME}_thumbnails_creation" value="custom" align="absmiddle" liskHint="Upload all thumbnails separately.">
+            				Custom
+            			</td>
+        			</tr>
+      				</table>
+      			</div>
+      		</div>
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" rel="thumbnails" style="display:none;">
+			<tr>
+				<td>
+					<div style="border-bottom:1px solid #D4D4D8;border-left:1px solid #D4D4D8;border-right:1px solid #D4D4D8;width:450px;margin-top:1px">
+						<div style="border-right: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;background-color: #E8E8EE">
+						
+							<table width="100%"  border="0" cellpadding="3"  cellspacing="0">
+	              			<tr>
+	                			<td width="120"><p><strong>Autoresizing</strong></p></td>
+	                			<td>
+	                				<input type="radio" name="{NAME}_resizing" rel="resizing_on" value="0" checked="checked" align="absmiddle" liskHint="Uploaded thumbnails will be resized automatically using the preset sizes.">
+	                				On
+	                  				<input type="radio" name="{NAME}_resizing" rel="resizing_off" value="1" align="absmiddle" liskHint="Keep original sizes of uploaded thumbnails.">
+	                  				Off
+	                  			</td>
+	              			</tr>
+	            			</table>
+	            		</div>
+	            	</div>
+	            	<!--  BEGIN upload_thumbnail -->
+	            	<div style="border-bottom:1px solid #D4D4D8;border-left:1px solid #D4D4D8;border-right:1px solid #D4D4D8;width:450px;margin-top:1px">
+						<div style="border-right: 1px solid #FFFFFF;border-left: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;background-color: #E8E8EE">
+							<table width="100%" border="0" cellspacing="0" cellpadding="3">
+		              		<tr>
+		                		<td width="120" align="right">
+		                			{THUMBNAIL_NAME} ({THUMBNAIL_W}x{THUMBNAIL_H})
+		                  			<img src="img/data_types/image_upload.gif" width="25" height="22" align="absmiddle">
+		                  		</td>
+		                		<td><input name="{NAME}_upload_{THUMBNAIL_KEY}" type="file" /></td>
+		              		</tr>
+		            		</table>
+	            		</div>
+	            	</div>
+	            	<!-- END upload_thumbnail -->
+	          </td>
+			</tr>
+			</table>
+		
+		</td>
+	</tr>
+	</table>
+
+</div>
+<!-- END update -->
+
+<!-- BEGIN view -->
+<table width="1%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td width="1%">
+
+		<table border="0" cellpadding="1" cellspacing="0" bgcolor="#C8C8CE">
+		<tr>
+		  <td><table border="0" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
+		      <tr>
+		        <td>{IMG}</td>
+		      </tr>
+		    </table></td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+<tr>
+	<td align="center"><a href="{ZOOM}"><img src="img/data_types/image_view.gif" width="18" height="22" border="0" align="absmiddle">Zoom</a></td>
+</tr>
+</table>
+<!-- END view -->

@@ -1,0 +1,295 @@
+<!-- BEGIN tree -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+          <tr> 
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			
+	
+<link rel="StyleSheet" href="css/nls_tree/nlstree.css" type="text/css">
+<link rel="StyleSheet" href="css/nls_tree/nlsctxmenu.css" type="text/css">
+<script language="javascript" src="js/nls_tree/nlstree.js"></script>
+<script language="javascript" src="js/nls_tree/nlsctxmenu.js"></script>
+<script language="javascript" src="js/nls_tree/nlstreeext_ctx.js"></script>
+<script language="javascript">
+
+var nodeName = "{NODE_NAME}";
+var pointName = "{POINT_NAME}";
+var curNavLevel = "{CUR_NAV_LEVEL}";
+
+function EditRecord(id) {
+	var s = new String(id);
+	if (s.substring(0,5)=="99999") {
+		id = s.substring(5);
+		document.location.href="edit.php?type="+pointName+"&id="+id+"&back="+curNavLevel;
+	} else {
+		document.location.href="edit.php?type="+nodeName+"&id="+id+"&back="+curNavLevel;
+	}
+}
+
+function DeleteRecord(id) {
+	var s = new String(id);
+	if (s.substring(0,5)=="99999") {
+		id = s.substring(5);
+		document.location.href="del.php?type="+pointName+"&id="+id+"&back="+curNavLevel;
+	} else {
+		document.location.href="del.php?type="+nodeName+"&id="+id+"&back="+curNavLevel;
+	}
+}
+
+function ViewRecord(id) {
+
+	var s = new String(id);
+	if (s.substring(0,5)=="99999") {
+		id = s.substring(5);
+		document.location.href="view.php?type="+pointName+"&id="+id+"&back="+curNavLevel;
+	} else {
+		document.location.href="view.php?type="+nodeName+"&id="+id+"&back="+curNavLevel;
+	}
+}
+
+function AddToList(id) {
+
+	var s = new String(id);
+	if (s.substring(0,5)=="99999") {
+		id = s.substring(5);
+		document.location.href="{QUERY_STRING}&{TREE_NAME}_action=add&{TREE_NAME}_id="+id+"&back="+curNavLevel;
+	} 
+}
+
+function AddCategory(id) {
+	document.location.href="add.php?type="+nodeName+"&HIDDEN_parent_id="+id+"&back="+curNavLevel;
+}
+
+function AddItem(id) {
+	document.location.href="add.php?type="+pointName+"&HIDDEN_parent_id="+id+"&back="+curNavLevel;
+}
+
+function OrderCategories(id) {
+	document.location.href="order.php?type="+nodeName+"&cond=parent_id="+id+"&back="+curNavLevel;
+}
+
+function OrderItems(id) {
+	document.location.href="order.php?type="+pointName+"&cond=parent_id="+id+"&back="+curNavLevel;
+}
+
+var t = new NlsTree("Pub");
+
+function expandAll() {
+  t.expandAll();
+}
+
+function collapseAll() {
+  t.collapseAll();
+}
+
+
+var ctx = new NlsCtxMenu("Ctx");
+
+function globalCtxMenu(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "2":
+			ViewRecord(t.getSelNode().orgId);
+			break;
+    	case "1":
+			AddToList(t.getSelNode().orgId);
+			break;
+	}
+	return false;
+}
+
+function RootMenuClick(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "1":
+			t.expandNode(selNode.orgId);
+			break;
+		case "2":
+			t.collapseNode(selNode.orgId);
+       		break;
+		case "3":		
+			AddCategory(t.getSelNode().orgId);
+			break;
+		case "4":
+			OrderCategories(t.getSelNode().orgId);
+			break;	
+	}
+	return false;
+}
+
+function Node2MenuClick(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "1":
+			t.expandNode(selNode.orgId);
+			break;
+		case "2":
+			t.collapseNode(selNode.orgId);
+        	break;
+		case "3":
+			ViewRecord(t.getSelNode().orgId);
+			break;
+		case "4":
+			EditRecord(t.getSelNode().orgId);
+			break;
+		case "5":
+			if (ShowConfirm("Are you sure to delete the selected category and it's items ?")) {
+        		DeleteRecord(t.getSelNode().orgId);
+			}
+			break;
+		case "6":
+			AddItem(t.getSelNode().orgId);
+			break;
+		case "7":
+			OrderItems(t.getSelNode().orgId);
+			break;
+	}
+	return false;
+}
+
+function Node1MenuClick(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "1":
+			t.expandNode(selNode.orgId);
+			break;
+		case "2":
+			t.collapseNode(selNode.orgId);
+			break;		
+		case "3":
+			ViewRecord(t.getSelNode().orgId);
+			break;
+		case "4":
+			EditRecord(t.getSelNode().orgId);
+			break;
+		case "5":
+			if (ShowConfirm("Are you sure to delete the selected category and it's items ?")) {
+        		DeleteRecord(t.getSelNode().orgId);
+			}
+			break;
+		case "6":
+			AddCategory(t.getSelNode().orgId);
+			break;
+		case "7":
+			OrderCategories(t.getSelNode().orgId);
+			break;                      
+	}
+	return false;
+}
+
+function Node0MenuClick(selNode, menuId, itemId) {
+	switch (itemId) {
+		case "3":
+			ViewRecord(t.getSelNode().orgId);
+			break;
+		case "4":
+			EditRecord(t.getSelNode().orgId);
+			break;
+		case "5":
+			if (ShowConfirm("Are you sure to delete the selected category ?")) {
+        		DeleteRecord(t.getSelNode().orgId);
+			}
+			break;
+		case "6":
+			AddCategory(t.getSelNode().orgId);
+			break;
+		case "7":
+			AddItem(t.getSelNode().orgId);
+			break;
+	}
+	return false;
+}
+
+
+function treeCheck(id) {
+
+	var obj = document.getElementById('ch_'+id);
+	if (obj) {
+		
+		if(obj.value==0) {
+			obj.value = 1;
+		} else if(obj.value==1) {
+			obj.value = 0;
+		} else {
+			obj.value = 0;
+		}
+	}
+}
+
+function init() {
+	/*
+		1 - id 
+		2 - parent_id
+		3 - name
+		4 - ? Url custom vrode kak 
+		5 - custom image
+		6 - ? otkrit true zakrit null po default
+	*/
+
+{JS_TREE}
+    
+    t.opt.check = {VIEW_CHECK};
+    
+    ctx.absWidth=150;
+	ctx.add("1", "Add to Hot Products", "", "img/cms/add.gif");
+	ctx.addSeparator();
+    ctx.add("2", "View record", "", "img/cms/list/view.gif", true);
+    
+    ctx.menuOnClick=globalCtxMenu;
+    t.setGlobalCtxMenu(ctx);
+    
+    t.treeOnCheck = treeCheck;
+    
+    var nodeMenu2 = new NlsCtxMenu("NodeMenu2");
+    nodeMenu2.add("1", "Expand this node", "", "img/cms/tree/arrowdown.gif");
+    nodeMenu2.add("2", "Collapse this node", "", "img/cms/tree/arrowright.gif");
+    nodeMenu2.menuOnClick=Node2MenuClick;
+    
+    var nodeMenu1 = new NlsCtxMenu("NodeMenu1");
+    nodeMenu1.add("1", "Expand this node", "", "img/cms/tree/arrowdown.gif");
+    nodeMenu1.add("2", "Collapse this node", "", "img/cms/tree/arrowright.gif");
+    nodeMenu1.menuOnClick=Node1MenuClick; 
+    
+    var nodeMenu0 = new NlsCtxMenu("NodeMenu0");
+    nodeMenu0.menuOnClick=Node0MenuClick;     
+    
+	{NODES_MENU}    
+    
+    var rootMenu = new NlsCtxMenu("RootMenu");
+    rootMenu.add("1", "Expand this node", "", "img/cms/tree/arrowdown.gif");
+    rootMenu.add("2", "Collapse this node", "", "img/cms/tree/arrowright.gif");
+    rootMenu.menuOnClick=RootMenuClick;
+    t.setNodeCtxMenu(1, rootMenu);
+}
+</script>
+
+<form method="post" style="padding:0px;margin:0px;" id="treeForm">
+<table border="0" cellpadding="5" cellspacing="1" width="100%">
+  <tr valign="top">
+    <td id="tree">
+        <script type="text/javascript">
+            init();
+            t.render();
+        </script>
+    </td>
+ </tr>
+</table>
+{HIDDEN_CHECKBOXES}
+<input type="hidden" name="action" value="js_delete">
+</form>
+
+
+
+
+			</td>
+          </tr>
+        </table></td>
+    </tr>
+    
+    <tr> 
+      <td width="20%" class="TDFormFooterSmall"><img src="img/0.gif" height="1" width="1" /></td>
+      <td class="TDFormFooterSmall"><img src="img/0.gif" height="1" width="1" /></td>
+    </tr>
+
+</table>
+<!-- END tree -->
+

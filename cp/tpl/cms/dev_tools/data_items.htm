@@ -1,0 +1,94 @@
+<!-- BEGIN form -->
+<form method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="20%">DI name </td>
+    <td><input name="name" type="text" value="{NAME}" style="width:300px" /></td>
+  </tr>
+  <tr>
+    <td>DI config array </td>
+    <td><textarea name="conf_array" cols="80" rows="10">{CODE}</textarea></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="button" value="Cancel" onclick="location.href='dev_tools.php?action=data_items'" /> <input type="submit" name="Submit" value="Submit" /></td>
+  </tr>
+</table>
+<input name="action" type="hidden"  value="submit" />
+</form>
+<!-- END form -->
+
+
+<!-- BEGIN db_items -->
+<h2>Dynamic data items</h2>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<!-- BEGIN db_items_row -->
+  <tr>
+    <td width="20%" valign="top">{NAME}</td>
+    <td><a href="#toggle" onclick="$('#di_{ID}').toggle(); return false">show/hide code </a>
+      <table width="400" border="0" cellpadding="5" cellspacing="1" bgcolor="#D9FFCC" id="di_{ID}" style="display: none">
+        <tr>
+          <td nowrap="nowrap"><pre>{CODE}</pre></td>
+        </tr>
+      </table></td>
+	<td width="1%" nowrap="nowrap" valign="top">
+		<!-- BEGIN recreate -->
+		<a href="dev_tools.php?action=recreate_thumbs&name={NAME_RECREATE}">recreate thumbnails</a>
+		<!-- END recreate -->
+	</td>
+    <td width="1%" valign="top"><a href="dev_tools.php?action=edit_di&name={NAME}&back=0">edit</a></td>	  
+    <td width="1%" valign="top"><a href="di_constructor.php?name={NAME}&back=0">constructor</a></td>
+    <td width="1%" valign="top"><a href="dev_tools.php?action=delete_di&name={NAME}" onclick="return confirm('Delete this DI?')">delete</a></td>
+  </tr>
+<!-- END db_items_row -->
+</table>
+<!-- END db_items -->
+
+<!-- BEGIN code_items -->
+<h2>Static data items</h2>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<!-- BEGIN code_items_row -->
+<tr>
+    <td width="20%" valign="top">{NAME}</td>
+    <td><a href="#toggle" onclick="$('#di_{NAME}').toggle(); return false">show/hide code </a>
+		<table width="400" border="0" cellpadding="5" cellspacing="1" bgcolor="#D9FFCC" id="di_{NAME}" style="display: none">
+        <tr>
+          <td nowrap="nowrap"><pre>{CODE}</pre></td>
+        </tr>
+      	</table>
+	</td>
+	<td width="1%" valign="top">
+		<!-- BEGIN recreate -->
+		<a href="dev_tools.php?action=recreate_thumbs&name={NAME_RECREATE}">recreate thumbnails</a>
+		<!-- END recreate -->
+	</td>
+</tr>
+<!-- END code_items_row -->
+</table>
+<!-- END code_items -->
+
+<!-- BEGIN recreate_form -->
+<h2>Recreate thumbnails for DataItem</h2>
+<span style="color:red">Warning! Be sure it is possible to recreate all thumbnails in one pass.</span>
+<br /><br />
+<form method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="120">DI name:</td>
+    <td>{NAME}</td>
+  </tr>
+  <tr>
+    <td>Records with images:</td>
+    <td>{RECORDS_WITH_IMAGES}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+    	<input type="button" value="Cancel" onclick="location.href='dev_tools.php?action=data_items'" /> 
+    	<input type="submit" name="Submit" value="Submit" />
+    </td>
+  </tr>
+</table>
+<input name="action" type="hidden"  value="submit" />
+</form>
+<!-- END recreate_form -->

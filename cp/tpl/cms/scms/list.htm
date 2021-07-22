@@ -1,0 +1,70 @@
+<!-- BEGIN list -->
+
+<script type="text/javascript" src="js/lisk/cms_list.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var cl = new CmsList('idCmsList');
+	cl.Init({PAGING_PCP}, '{DATAITEM_NAME}');
+	cl.msgDeleteSelected = '[[[cp_scms.wanna_del_all]]]';
+	cl.BindControls();
+});
+</script>
+
+<form id="idCmsList" method="post" onsubmit="return false">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="cl-table">
+    <tr>
+      <td width="1%" class="ListTDTop">&nbsp;</td>
+      <td width="1%" class="ListTDTop">&nbsp;</td>
+	  <td class="ListTDTop">[[[cp_scms.name]]]</td>
+	  <td width="1%" class="ListTDTop"></td>
+	  <td width="1%" class="ListTDTop"></td>
+	  <td width="1%" class="ListTDTop"></td>
+	  <td width="1%" class="ListTDTop"></td>
+      <td colspan="1" class="ListTDTop" width="1%">&nbsp;</td>
+    </tr>
+
+	<!-- BEGIN list_row -->
+	<tr id="{ROW_ID}" class="cl-row {DECORATION}">
+	  <td><a href="[/]{URL}" target="_blank" title="Click to preview this page"><img src="img/cms/scms/type/<lisk:field name='page_type' render='key' />.gif" liskHint="<lisk:field name='page_type' />. Click to open on site." alt="{PAGE_TYPE}" width="17" height="17" hspace="4" border="0" /></a></td>
+	  <td><img src="img/cms/scms/access/<lisk:field name='access_level' render='key' />.gif" liskHint="<lisk:field name='access_level' />" width="14" height="15" hspace="3" border="0" /></td>
+		<td> <lisk:field name="name" /> </td>
+		<td nowrap style="padding:4;">{ADDITIONAL_LINK}</td>
+		<td  nowrap style="padding:4;">{MANAGE_CONTENT}</td>
+		<td  nowrap style="padding:4;"><a href="?action=edit&id=<lisk:field name='id' />&back={BACK}" liskHint="[[[cp_scms.edit_pprop]]]"><img src="img/cms/scms/i_settings.gif" width="12" height="12" border="0" align="absmiddle">&nbsp;[[[main.properties]]]</a></td>
+		<td nowrap style="padding:2;">{DELETE_BUTTON}</td>
+		<td>{CHECKBOX}</td>
+	</tr>
+	<!-- END list_row -->
+	<!-- BEGIN list_empty -->
+	<tr>
+      <td colspan="8" align="center"><br>[[[empty_list]]]<br>&nbsp;</td>
+	</tr>
+	<!-- END list_empty -->
+	<tr id="idRowNoRecords" style="display:none;"> 
+      <td colspan="8" align="center"><br>
+        All pages were deleted, please reload the page!<br>&nbsp;
+      </td>
+	</tr>
+    <tr>
+      <td colspan="8"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="ListTDBottom" style="padding-left: 10px">{PAGING}</td>
+            <td width="1%" class="ListTDBottom">
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="right" nowrap="nowrap" style="padding:0 20px 0 0">
+					<input name="action" type="hidden" value="delete_selected" />
+					<img src="img/cms/list/delete_selected.gif" width="15" height="9" align="absmiddle">
+                    <a href="#delete-selected" rel="delete-selected"  onclick="return false" liskHint="[[[cp_scms.del_selected]]]">[[[main.delete_selected]]]</a>
+				  </td>
+                  <td width="1" align="center"><a href="#select-all" rel="select-all" onclick="return false" liskHint="[[[cp_scms.sel_dissel_all]]]"><img src="img/cms/list/select_all.gif" name="select_all" width="30" height="12" hspace="5" border="0" align="absmiddle" /></a></td>
+                </tr>
+              </table>			  </td>
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END list -->

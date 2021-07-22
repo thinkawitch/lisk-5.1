@@ -1,0 +1,50 @@
+<!-- BEGIN form -->
+
+<input type="hidden" name="{NAME}" id="{NAME}" value="{VALUE}" />
+
+<!-- BEGIN form_year -->
+<select name="{NAME}_year" id="{NAME}_year" {PARAMS}>
+	<!-- BEGIN form_year_row -->
+	<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+	<!-- END form_year_row -->
+</select>
+<!-- END form_year -->
+
+<!-- BEGIN form_month -->
+<select name="{NAME}_month" id="{NAME}_month" {PARAMS}>
+	<!-- BEGIN form_month_row -->
+	<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+	<!-- END form_month_row -->
+</select>
+<!-- END form_month -->
+
+<!-- BEGIN form_day -->
+<select name="{NAME}_day" id="{NAME}_day" {PARAMS} style="width:50px">
+	<!-- BEGIN form_day_row -->
+	<option value="{VALUE}"{SELECTED}>{CAPTION}</option>
+	<!-- END form_day_row -->
+</select>
+<!-- END form_day -->		
+
+<a href="#datepicer" rel="{NAME}" onclick="return false"><img src="img/lisk/calendar.gif" width="20" height="18" alt="" align="absmiddle" /></a>
+
+<script type="text/javascript" src="../js/lisk/type/date.js"></script>
+<script type="text/javascript">
+(new LiskTypeDate('{NAME}')).Init({minDate: '{MIN_DATE}', maxDate:'{MAX_DATE}'});
+</script>
+<!-- END form -->
+
+<!-- BEGIN inline -->
+<input type="hidden" name="{NAME}" id="{NAME}" value="{VALUE}" />
+
+<input type="hidden" name="{NAME}_year" id="{NAME}_year" value="{YEAR}" />
+<input type="hidden" name="{NAME}_month" id="{NAME}_month" value="{MONTH}" />
+<input type="hidden" name="{NAME}_day" id="{NAME}_day" value="{DAY}" />
+
+<div id="idInlineCalendar_{NAME}"> </div>
+
+<script type="text/javascript" src="../js/lisk/type/date.js"></script>
+<script type="text/javascript">
+(new LiskTypeDate('{NAME}')).Init({minDate: '{MIN_DATE}', maxDate:'{MAX_DATE}', render:'inline'});
+</script>
+<!-- END inline -->

@@ -1,0 +1,103 @@
+<!-- BEGIN poll_block_not_voted -->
+
+<script type="text/javascript">
+function ToggleOption(id) {
+	var obj = document.getElementById(id);
+	var flag = document.getElementById('flag_selected');
+	if(flag && obj.checked) {
+		flag.value = obj.value;
+	}
+}
+function CheckPoll() {
+	var obj = document.getElementById('flag_selected');
+	if (obj) {
+		if (obj.value>0) {
+			return true;
+		}
+	}
+	alert('Please select poll option!');
+	return false;
+}
+</script>
+
+<form action="{URL_VOTE}" method="post" style="margin:0px;padding:0px;" onsubmit="return CheckPoll();">
+  <table width="250" border="0" cellpadding="1" cellspacing="3" style="margin-left:12px; background:#BAC5EF">
+    <tr>
+      <td style="background:#FFFFFF"><table width="100%"  border="0" cellpadding="0" cellspacing="1">
+          <tr>
+            <td style="padding: 14px 20px 14px 20px; background:F4F4F4" class="txt"><strong>{NAME}</strong><strong><br />
+              <br />
+            </strong>
+              {POLL_OPTIONS}<br />
+                  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td><input name="imageField" type="image" src="img/b_vote.gif" width="75" height="24" border="0" /></td>
+                      <td width="100%" align="right"><a href="{URL_RESULT}">view result</a></td>
+                    </tr>
+              </table></td></tr>
+      </table></td>
+    </tr>
+  </table>
+<input type="hidden" name="flag_selected" id="flag_selected" value="0" />
+<input type="hidden" name="poll_id" value="{ID}" />
+<input type="hidden" name="action" value="poll_post" />
+</form>
+
+<!-- END poll_block_not_voted -->
+
+<!-- BEGIN poll_block_voted -->
+
+
+<table width="250" border="0" cellpadding="1" cellspacing="3" style="margin-left:12px; background:#BAC5EF">
+  <tr>
+    <td style="background:#FFFFFF"><table width="100%"  border="0" cellpadding="0" cellspacing="1">
+        <tr>
+          <td style="padding: 14px 20px 14px 20px; background:#F4F4F4" class="txt"><strong>{NAME}</strong><br />
+              <br />
+              {POLL_GRAPHIC}
+              <table width="100%"  border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td class="txt"><b>Total votes: {TOTAL_VOTES}</b></td>
+                  </tr>
+               <!-- BEGIN vote -->
+			   <tr>
+                  <td><a href="{URL_VOTE}">Vote for this poll</a>	&nbsp;</td>
+                </tr>
+				<!-- END vote -->
+            </table></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+<!-- END poll_block_voted -->
+
+
+<!-- BEGIN poll_options_list -->
+<!-- BEGIN poll_options_list_row -->
+<input id="option{ID}" type="radio" name="answer" value="{ID}" onclick="ToggleOption('option{ID}');" />&nbsp;<label for="option{ID}">{ANSWER}</label><br />
+<!-- END poll_options_list_row -->
+<!-- END poll_options_list -->
+
+
+<!-- BEGIN poll_graphic -->
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+	<tr>
+		<td colspan="3" align="center"><b>{NAME}</b></td>
+	</tr>
+<!-- BEGIN poll_graphic_row -->
+	<tr>
+		<td width="0%" nowrap="nowrap">{ANSWER} :</td>
+		<td width="1%" nowrap="nowrap">({VOTES})</td>
+		<td width="99%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="{PERCENTAGE}" align="right" style="color:#ffffff; background:#A0C656">&nbsp;</td>
+					<td width="100%">&nbsp;{PERCENTAGE}</td>
+				</tr>
+			</table>
+	  </td>
+	</tr>
+<!-- END poll_graphic_row -->
+</table>
+<!-- END poll_graphic -->

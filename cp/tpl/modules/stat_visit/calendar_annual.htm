@@ -1,0 +1,68 @@
+<!-- BEGIN calendar --> 
+<style type="text/css">
+<!--
+.calendar_inp_year{ background: #FFFFFF; border: #A5ACB2 1px solid;
+			font-size: 10px; font: Verdana; width: 60px;}
+			
+.calendar_inp_month{ background: #FFFFFF; border: #A5ACB2 1px solid;
+			font-size: 10px; font: Verdana; width: 60px; }
+			
+.calendar_inp_day{ background: #FFFFFF; border: #A5ACB2 1px solid; 
+			font-size: 10px; font: Verdana; width: 38px; }
+									
+.calendar_td_cur {
+	background-color: #FFC1C7;
+	cursor: hand;
+	cursor: pointer;
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;
+}
+.calendar_td_day_caption {
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	background-color: #D3D3D9;
+}
+.calendar_td_empty { background-color: #F4F4F8; }
+.calendar_td1 { background-color: #D2F09D; cursor: hand; cursor: pointer; 	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;	
+}
+.calendar_td2 { background-color: #FFFFFF; cursor: hand; cursor: pointer; 
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;
+}
+.calndar_tbl { font: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 12px; }
+-->
+</style>
+<table width="170" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td bgcolor="#6C6C72"><img src="img/0.gif" width="1" height="1"></td>
+  </tr>
+  <form method="post" action="{FORM_ACTION}">
+  <tr> 
+      <td class="ListTDTop"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="1%">{FIELD_YEAR}</td>
+            <td width="1%">&nbsp;</td>
+            <td style="padding-bottom: 1px;"><input name="imageField" type="image" src="img/modules/calendar/go.gif" width="28" height="20" border="0"></td>
+          </tr>
+        </table></tr> </form>
+  <tr> 
+    <td bgcolor="#F8F8FE" style="padding-left: 4px; padding-bottom: 5px;"> <table width="162" border="0" cellpadding="0" cellspacing="1" bgcolor="#6C6C72" class="calndar_tbl">
+        <!-- BEGIN row -->
+          <!-- BEGIN column -->
+          <!-- END column -->
+        <!-- END row -->
+      </table></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#6C6C72"><img src="img/0.gif" width="1" height="1"></td>
+  </tr>
+</table>
+<!-- END calendar -->

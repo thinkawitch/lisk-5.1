@@ -1,0 +1,68 @@
+<!-- BEGIN view -->
+<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#F8F8FE">
+<tr> 
+	<td width="1%" valign="top" style="padding-top:5px">{FORM}</td>
+</tr>
+</table>
+<div style="padding:3px;">
+	{REPORT}
+</div>
+<!-- END view -->
+
+
+<!-- BEGIN form -->
+<form method="post">
+<table width="362" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <tr class="pdl">
+    <td height="22" class="htd"><strong>Keywords Report </strong></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F4F4F8" style="padding:3px 0px"><table width="360" border="0" cellpadding="0" cellspacing="0" bgcolor="#F4F4F8">
+      <tr class="pdl">
+        <td height="18" >From:</td>
+        <td ><lisk:field name="start" render="form" /></td>
+      </tr>
+      <tr class="pdl">
+        <td height="18">To: </td>
+        <td ><lisk:field name="end" render="form" /></td>
+      </tr>
+	  <tr class="pdl">
+        <td height="18">Type: </td>
+        <td><lisk:field name="type" render="form" /></td>
+      </tr>
+	  <tr class="pdl">
+        <td height="18">Sort by: </td>
+        <td><lisk:field name="sort_by" render="form" /></td>
+      </tr>
+	  <tr class="pdl">
+        <td height="18"> </td>
+        <td ><input type="submit" value="Submit" class="btnSubmit" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<input type="hidden" name="action" value="keywords_report" />
+</form>
+<!-- END form -->
+
+
+<!-- BEGIN report -->
+<table width2="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+	<tr>
+		<td height="23" class="htd"><b>Keyword</b></td>
+		<td height="23" align="center" class="htd"><b>Total</b></td>
+		<td height="23" align="center" class="htd" colspan="2"><b>Contact Page</b></td>
+		<td height="23" align="center" class="htd" colspan="2"><b>Lead</b></td>
+	</tr>
+<!-- BEGIN report_row -->
+	<tr class="{DECORATION} pdtd">
+		<td height="20">{KEYWORD}</td>
+		<td height="20" align="center"><b>{COUNT}</b></td>
+		<td height="20" align="center"><b>{COUNT_CONTACT_PAGE}</b></td>
+		<td height="20" align="center">{PERCENT_CONTACT_PAGE}%</td>
+		<td height="20" align="center"><b>{COUNT_LEAD}</b></td>
+		<td height="20" align="center">{PERCENT_LEAD}%</td>
+	</tr>
+<!-- END report_row -->	
+</table>
+<!-- END report -->

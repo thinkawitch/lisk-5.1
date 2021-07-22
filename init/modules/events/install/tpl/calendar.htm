@@ -1,0 +1,87 @@
+<!-- BEGIN calendar -->
+<style type="text/css">
+<!--
+.calendar_inp_year{ background: #FFFFFF; border: #A5ACB2 1px solid;
+			font-size: 10px; font: Verdana; width: 49px;}
+			
+.calendar_inp_month{ background: #FFFFFF; border: #A5ACB2 1px solid;
+			font-size: 10px; font: Verdana; width: 44px; }
+			
+.calendar_inp_day{ background: #FFFFFF; border: #A5ACB2 1px solid; 
+			font-size: 10px; font: Verdana; width: 35px; }
+									
+.calendar_td_cur {
+	background-color: #FFC1C7;
+	cursor: hand;
+	cursor: pointer;
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;
+}
+.calendar_td_day_caption {
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	background-color: #D3D3D9;
+}
+.calendar_td_empty { background-color: #F4F4F8; }
+.calendar_td1 { background-color: #D2F09D; cursor: hand; cursor: pointer; 	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;	
+}
+.calendar_td2 { background-color: #FFFFFF; cursor: hand; cursor: pointer; 
+	height: 19px;
+	width: 22px;
+	padding-left: 3px;
+	font-weight: bold;
+}
+.calndar_tbl { font: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 12px; }
+-->
+</style>
+<table width="200" border="0" cellpadding="1" cellspacing="3" bgcolor="#E7E7E7"> 
+  <tr> 
+    <td bgcolor="#C8C8C8"><table width="100%"  border="0" cellpadding="6" cellspacing="1" bgcolor="#FFFFFF"> 
+        <tr> 
+          <td height="24" bgcolor="#5B6EAD"><img src="img/h_events_calendar.gif" width="111" height="10" hspace="10"></td> 
+        </tr> 
+        <tr> 
+          <td bgcolor="#D3DDFF"><table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+             <form method="post" action="{FORM_ACTION}">
+              <tr> 
+                <td style="padding: 6px;" bgcolor="#FFFFFF"> 
+                  <table border="0" cellpadding="5" cellspacing="0" width="100%"> 
+                    <tr> 
+                      <td nowrap="nowrap" width="1%">&laquo;&nbsp;<a href="{PREV_MONTH_LINK}" class="fr">{PREV_MONTH_NAME}</a></td> 
+                      <td align="center" width="98%"><strong>{CUR_MONTH_NAME_SHORT} {CUR_YEAR}</strong></td> 
+                      <td align="right" nowrap="nowrap" width="1%"><a href="{NEXT_MONTH_LINK}" class="fr">{NEXT_MONTH_NAME}</a>&nbsp;&raquo;</td> 
+                    </tr> 
+                  </table> 
+                  <table width="162" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#E7E7E7" class="calndar_tbl"> 
+                    <tr> 
+                      <td class="calendar_td_day_caption">Su</td> 
+                      <td class="calendar_td_day_caption">Mo</td> 
+                      <td class="calendar_td_day_caption">Tu</td> 
+                      <td class="calendar_td_day_caption">We</td> 
+                      <td class="calendar_td_day_caption">Th</td> 
+                      <td class="calendar_td_day_caption">Fr</td> 
+                      <td width="14%" class="calendar_td_day_caption">Sa</td> 
+                    </tr> 
+                    <!-- BEGIN row --> 
+                    <tr> 
+                      <!-- BEGIN column --> 
+                      <td class="{CLASS}"><a href="{LINK}">{DATE}</a></td> 
+                      <!-- END column --> 
+                    </tr> 
+                    <!-- END row --> 
+                  </table> 
+                  <img src="img/0.gif" width="1" height="2"></td> 
+              </tr> 
+		      </form> 
+            </table></td> 
+        </tr> 
+      </table></td> 
+  </tr> 
+</table> 
+<!-- END calendar -->

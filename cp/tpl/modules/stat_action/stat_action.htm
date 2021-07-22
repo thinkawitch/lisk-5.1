@@ -1,0 +1,87 @@
+<!-- BEGIN script -->
+<script type="text/javascript">
+function changeStatsActions() 
+{
+	var sActions = {SACTIONS};
+	var sObject = document.getElementById("stats_object");
+
+	var selected = 0;
+	for (var i = 0; i < 100; i ++) 
+	{
+		if (!sActions[i]) continue;
+
+		if (sActions[i][0] == sObject.value) 
+		{
+			selected = i;
+		}
+	}
+
+	sActions = sActions[selected][1];
+	
+	var opts = '<option value="">All...</option>';
+	for (i = 0; i < sActions.length; i ++) 
+	{
+		opts += '<option value="' + sActions[i][0] + '">' + sActions[i][1] + '</option>';
+	}
+	jQuery('#stats_action').empty().append(opts);
+
+}
+</script>
+<!-- END script -->
+
+<!-- BEGIN default -->
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tr valign="top">
+    <td colspan="2">{FILTER}</td>
+  </tr>
+  <tr valign="top">
+    <td>{LIST}</td>
+    <td width="1%" nowrap="nowrap">{CHART}</td>
+  </tr>
+</table>
+<!-- END default -->
+
+<!-- BEGIN report -->
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+  <tr valign="top">
+    <td width="320" nowrap="nowrap">{FILTER}</td>
+    <td>{LIST}</td>
+  </tr>
+</table>
+<!-- END report -->
+
+<!-- BEGIN dynamic_form -->
+<form method="post" onSubmit="return CheckForm(this,{JS_CHECK})">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">  
+    <tr> 
+      <td colspan="2" valign="top" class="TDForm"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <!-- BEGIN dynamic_form_row -->
+          <tr> 
+            <td width="20%" valign="top" style="padding:5px 5px 5px 10px">{CAPTION} {REQUIRED}
+            </td>
+            <td style="padding:5px 5px 5px 10px"> <lisk:field name="field" render="form" /> </td>
+          </tr>
+          <!-- BEGIN dynamic_form_separator -->
+          <tr> 
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <!-- END dynamic_form_separator -->
+          <!-- END dynamic_form_row -->
+        </table></td>
+    </tr>
+    <tr> 
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"> <table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr> 
+            <td width="80%"> 
+              <!-- BEGIN dynamic_form_hidden -->
+			  <lisk:field name="hidden" render="form" />
+              <!-- END dynamic_form_hidden -->
+              <input type="hidden" name="action" value="submit" /> <input name="submit" type="submit" value="Submit" class="btnSubmit" /> 
+          </tr>
+        </table></td>
+    </tr>
+</table>
+</form>
+<!-- END dynamic_form -->
+

@@ -1,0 +1,42 @@
+<!-- BEGIN search -->
+	<script language="javascript">
+		function openInNewWindow(page) {
+			window.open(page,"windows","width=500, height=650");
+		}
+	</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="F8F8FE">
+  <tr> 
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <form method="get">
+          <tr>
+            <td align="right" valign="top"><strong>[[[cpmodules.search_for]]]</strong></td>
+            <td colspan="2"><lisk:field name="search_for" render="form" /></td>
+          </tr>
+          <tr>
+            <td align="right"><strong>[[[cpmodules.search_in]]]</strong></td>
+            <td colspan="2">{SEARCH_IN}</td>
+          </tr>
+          <tr> 
+            <td width="100" align="right"><strong>[[[cpmodules.keyword]]]</strong> </td>
+            <td colspan="2">{KEYWORD|FORM}<lisk:field name="keyword" render="form" /></td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td><input name="action" type="hidden" id="action" value="search" />
+            <input name="imageField" type="image" src="img/cms/tree/b_search.gif" width="75" height="23" border="0" /></td>
+            <td>&nbsp;</td>
+          </tr>
+        </form>
+      </table></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#FFFFFF"><img src="img/0.gif" height="1" width="1"></td>
+  </tr>
+  <tr> 
+    <td background="img/cms/border_bg.gif"><img src="img/0.gif" width="1" height="6"></td>
+  </tr>
+</table>
+{RESULTS}
+<!-- END search -->

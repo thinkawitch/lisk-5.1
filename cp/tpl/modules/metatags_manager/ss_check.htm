@@ -1,0 +1,23 @@
+<!-- BEGIN list -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td class="ListTDTop">Page name </td>
+<td class="ListTDTop">URL</td>
+<td class="ListTDTop">&nbsp;</td>
+<td class="ListTDTop">&nbsp;</td>
+</tr>
+<!-- BEGIN list_row -->
+  <tr class="{DECORATION}" onMouseOver="this.className='ListTDOn';" onMouseOut="this.className='{DECORATION}';">
+    <td width="1%" nowrap="nowrap">{LEVEL}{NAME}</td>
+    <td>{URL}</td>
+    <td>{META}</td>
+    <td>
+	<!-- BEGIN view -->
+	<a href="view.php?type=metatags_page&id={META_ID}&back=0&load_name=metatags_manager&load_type=mod">View</a>
+	<!-- END view -->
+	</td>
+	
+  </tr>
+<!-- END list_row -->  
+</table>
+<!-- END list -->

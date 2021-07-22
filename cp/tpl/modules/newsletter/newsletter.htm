@@ -1,0 +1,217 @@
+<!-- BEGIN compose -->
+<script type="text/javascript">
+function attachAction() 
+{
+	document.newsletterform.elements['action'].value = 'attach';
+	document.newsletterform.target = '_self';
+	document.newsletterform.submit();
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" enctype="multipart/form-data" onSubmit="return CheckForm(this,{JS_CHECK})" name="newsletterform">
+    <tr>
+      <td colspan="2" valign="top" class="TDForm"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Subject</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="subject" render="form" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Template</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="template" render="form" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Body</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="body" render="form" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Attachments</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="attachments" /></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td width="80%"><input type="hidden" id="idAction" name="action" value="preview" />
+              <input name="imageField" type="image" src="img/modules/newsletter/b_preview_sb.gif" width="93" height="23" border="0"  liskHint="Preview newsletter.">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+  </form>
+</table>
+<!-- END compose -->
+<!-- BEGIN attachments -->
+<table width="434" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td nowrap="nowrap"><strong>Add attachment: </strong></td>
+    <td width="100%"><input type="file"  name="newsletter_attach" style="width:100%" /></td>
+    <td><a href="javascript: attachAction();" liskHint="Add Attachment"><img src="img/modules/newsletter/b_attach.gif" width="86" height="21" border="0"></a></td>
+  </tr>
+</table>
+<br />
+<table width="434"  border="0" cellpadding="1" cellspacing="1" bgcolor="#D4D4D8">
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="430"  border="0" cellspacing="0" cellpadding="2">
+        <tr>
+          <td height="23" bgcolor="#D3D3D9" style="padding-left:20px">Filename</td>
+          <td width="120" align="center" bgcolor="#D3D3D9">File Size </td>
+          <td width="44" align="center" bgcolor="#D3D3D9">&nbsp;</td>
+        </tr>
+        <tr bgcolor="#6C6C72">
+          <td colspan="3" style="padding:0px"><img src="img/0.gif" width="1" height="1"></td>
+        </tr>
+        <!-- BEGIN attachments_row -->
+        <tr {DECORATION}>
+          <td height="22">{FILENAME}</td>
+          <td align="center">{SIZE_FORMATTED}</td>
+          <td align="center"><img src="img/cms/list/delete.gif" width="8" height="14" border="0" align="absmiddle" hspace="2"><a href="?action=delete_attachment&id={FILENAME}">Delete</a></td>
+        </tr>
+        <!-- END attachments_row -->
+        <!-- BEGIN attachments_empty -->
+        <tr>
+          <td colspan="3" style="padding-left:5px;">No files attached </td>
+        </tr>
+        <!-- END attachments_empty -->
+      </table></td>
+  </tr>
+</table>
+<!-- END attachments -->
+<!-- BEGIN preview -->
+<script type="text/javascript">
+function ToggleIF1() 
+{
+	if ($('#send_mode_2')[0].checked) 
+	{
+		$('#divNormal').hide();
+		$('#divTest').show();
+	} 
+	else 
+	{
+		$('#divTest').hide();
+		$('#divNormal').show();
+	}
+}
+
+function CheckPreview()
+{
+	var blockTest = $('#send_mode_2')[0].checked;
+	if (blockTest)
+	{
+		var email = $('#idTestEmail').val();
+		if (email=='')
+		{
+			ShowAlert('Please enter email!');
+			return false;
+		}
+	}
+	return true;
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <form method="post" onsubmit="return CheckPreview()">
+    <tr>
+      <td colspan="2" valign="top" class="TDForm"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="120"  valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Subject</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="subject" render="form" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr>
+            <td   width="120"  valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">From</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><lisk:field name="from" render="form" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Body</td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px; height:250" colspan="2"><iframe style="width:100%;height:250;border-style:none;border-width:0;" src="?action=preview_body"></iframe></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="120" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Send to</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">
+			
+			  <input type="radio"  name="send_mode" id="send_mode_1" value="1" onclick="ToggleIF1()" checked="checked"/>
+              <label for="send_mode_1">Subscribers</label>
+
+              <input type="radio" name="send_mode" id="send_mode_2" value="2" onclick="ToggleIF1()"/>
+              <label for="send_mode_2">Custom</label>
+			</td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top" background="img/cms/form_delimetr.gif"><img src="img/0.gif" width="1" height="2"></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none" id="divTest">
+          <tr>
+            <td  width="120" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Custom email</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"><input type="text" name="test_email" value="{TEST_EMAIL}" id="idTestEmail" /></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="divNormal">
+          <tr>
+            <td width="120" valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;">Group</td>
+            <td valign="top" style="padding-left: 10px; padding-right: 5px; padding-top:5px; padding-bottom:5px;"> <lisk:field name="send_to_group" render="form" /></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td width="20%" class="TDFormFooter">&nbsp;</td>
+      <td class="TDFormFooter"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+          <tr>
+            <td width="80%"><a href="?action=send"><img src="img/modules/newsletter/b_edit_sb.gif" width="69" height="23" border="0"  liskHint="Edit newsletter."></a>
+              <input name="imageField2" type="image" src="img/modules/newsletter/b_send_sb.gif" width="69" height="23" border="0"  liskHint="Send newsletter.">
+              <input name="action" type="hidden" id="action" value="send">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+  </form>
+</table>
+<!-- END preview -->
+
+<!-- BEGIN confirmation -->
+<table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="F8F8FE">
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <form method="get">
+          <tr>
+            <td align="center"><p>&nbsp;</p>
+              <p><strong>Newsletter has been sent.</strong></p>
+              <p>&nbsp;</p></td>
+          </tr>
+        </form>
+      </table></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#FFFFFF"><img src="img/0.gif" height="1" width="1"></td>
+  </tr>
+  <tr>
+    <td background="img/cms/border_bg.gif"><img src="img/0.gif" width="1" height="6"></td>
+  </tr>
+</table>
+<!-- END confirmation -->
+
